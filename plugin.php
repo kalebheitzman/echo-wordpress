@@ -20,6 +20,11 @@
  * Domain Path:       /languages
  */
 
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 /**
  * Plugin Variables
  */
@@ -91,6 +96,13 @@ if ( ! function_exists( 'echo_plugin_scripts' ) ) :
 		);
 	}
 	add_action( 'wp_enqueue_scripts', 'echo_plugin_scripts' );
+endif;
+
+/**
+ * Register Custom Page Templates
+ */
+if ( ! class_exists( 'PageTemplates' ) ) :
+	require_once $plugin_dir . 'inc/class-pagetemplates.php';
 endif;
 
 /**

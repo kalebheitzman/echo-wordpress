@@ -13,8 +13,8 @@ export default () => {
 		<header
 			className="echo-header"
 			css={css`
-				background: #ff4447;
-				color: #fff;
+				background: var(--highlight-primary-bg);
+				color: var(--highlight-primary-color);
 				display: flex;
 				align-items: center;
 

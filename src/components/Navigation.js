@@ -8,7 +8,7 @@ import { jsx, css } from '@emotion/core'
 import mq from '../utils/media'
 
 // import components
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
 		faSearch,
@@ -65,9 +65,12 @@ export default () => {
 		<nav
 			className="echo-nav"
 			css={css`
-				padding: 1rem;
 				background: #f7f7f7;
-				border-right: 1px solid #eee;				
+				border-right: 1px solid #eee;		
+				
+				${mq('tablet_up')} {
+					padding-top: 1rem;
+				}
 			`}
 		>
 			<ul
@@ -78,6 +81,8 @@ export default () => {
 
 					li {
 						text-align: center;
+						margin: 0;
+						padding: 0;
 
 						span.label {
 							font-size: 10px;
@@ -86,14 +91,28 @@ export default () => {
 						}
 
 						a {
-							color: #333;
+							color: #aaa;
+							display: block;
+							padding: 0.25rem 1rem;
+							transition: all 85ms ease-out;
+							border-left: 3px solid transparent;
+
+							&.active,
+							&:hover {
+								border-left: 3px solid var(--highlight-primary-bg);
+								color: #333;
+							}
 						}
 					}
 				`}
 			>
 				{links.map(link => (
 					<li key={link.path}>
-						<Link to={link.path}>
+						<NavLink 
+							exact
+							to={link.path}
+							activeClassName="active"
+						>
 							<FontAwesomeIcon
 								icon={link.icon}
 								fixedWidth
@@ -104,7 +123,7 @@ export default () => {
 								`}
 							/>
 							<span className="label">{link.name}</span>
-						</Link>
+						</NavLink>
 					</li>
 				))}
 			</ul>

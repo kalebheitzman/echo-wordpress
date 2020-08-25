@@ -10,6 +10,7 @@ import mq from '../utils/media'
 // import components
 import MyContext from '../context/Context'
 import Wrapper from './Wrapper'
+import Content from './Content'
 
 const Main = ({ data }) => {
 
@@ -30,7 +31,7 @@ const Main = ({ data }) => {
 			`}
 		>
 			<h1>{title}</h1>
-			<div dangerouslySetInnerHTML={{ __html: content }} />
+			<Content content={content} />
 		</div>
 	)
 }
@@ -40,96 +41,8 @@ const Aside = () => (
 		{context => {
 
  			return(
-				 <>
-					<h3>Aside</h3>	
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
-					<br />			
+				<>
+					<h3>Aside</h3>		
 				</>
 			)
 		}}

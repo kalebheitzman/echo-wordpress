@@ -49,26 +49,26 @@ export default () => {
 									)}
 									{!context.loading && (
 										<Switch>
-											<Route path="/main-stage">
+											<Route exact path="/">
+												<Lobby data={context.data} />
+											</Route>
+											<Route exact path="/main-stage">
 												<MainStage />
 											</Route>
-											<Route path="/rooms">
+											<Route exact path="/rooms">
 												<Rooms />
 											</Route>
-											<Route path="/attendees">
+											<Route exact path="/attendees">
 												<Attendees />
 											</Route>
-											<Route path="/chat">
+											<Route exact path="/chat">
 												<Chat />
 											</Route>
-											<Route path="/qa">
+											<Route exact path="/qa">
 												<QA />
 											</Route>
-											<Route path="/polls">
+											<Route exact path="/polls">
 												<Polls />
-											</Route>
-											<Route path="/">
-												<Lobby data={context.data} />
 											</Route>
 										</Switch>
 									)}

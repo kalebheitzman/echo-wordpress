@@ -9,22 +9,21 @@ export default () => (
 	<Global
 		styles={css`
 			:root {
-				--width-desktop: 1280px;
-				--width-tablet-side: 920px;
-				--width-tablet-up: 720px;
-
-				--highlight-primary: #ff444e;
+				--highlight-primary-bg: #ff444e;
+				--highlight-primary-color: #fff;
 				--highlight-primary-hover: #ff4447;
 				
 				--text-color: #333;
+				--html-background-color: #333;
+				--body-background-color: #fff;
 			}
 
 			html {
-				background: #333;
+				background: var(--html-background-color);
 			}
 
 			body {
-				background: #fff;
+				background: var(--body-background-color);
 
 				&.admin-bar {
 
@@ -56,6 +55,11 @@ export default () => (
 						margin: 0;
 						width: auto;
 					}
+				}
+
+				a {
+					outline: none;
+					text-decoration: none;
 				}
 
 				ol, ul {

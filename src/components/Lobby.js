@@ -8,18 +8,29 @@ import { jsx, css } from '@emotion/core'
 import mq from '../utils/media'
 
 // import components
+import MyContext from '../context/Context'
 import Wrapper from './Wrapper'
 
 const Main = () => (
-	<>
-		<h1>Lobby</h1>
-	</>
+	<MyContext.Consumer>
+		{context => {
+			console.log(context)
+			return(
+				<h1>Lobby</h1>				
+			)
+		}}
+	</MyContext.Consumer>
 )
 
 const Aside = () => (
-	<>
-		<h3>Aside</h3>
-	</>
+	<MyContext.Consumer>
+		{context => {
+			console.log(context)
+			return(
+				<h1>Aside</h1>				
+			)
+		}}
+	</MyContext.Consumer>
 )
 
 export default () => {

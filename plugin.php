@@ -29,67 +29,16 @@ if ( ! defined( 'WPINC' ) ) {
  * Plugin Variables
  */
 $plugin_dir  = plugin_dir_path( __FILE__ );
-$plugin_name = __( 'Project Echo', 'echo ' );
-
-if ( ! function_exists( 'echo_plugin_active' ) ) :
-	/**
-	 * Check for dependent plugins and disable Project Echo as needed.
-	 */
-	require_once $plugin_dir . 'inc/plugin-active.php';
-	echo_plugin_active(
-		$plugin_name,
-		'Advanced Custom Fields',
-		array(
-			'advanced-custom-fields/acf.php',
-			'advanced-custom-fields-pro/acf.php',
-		)
-	);
-endif;
-
-if ( ! function_exists( 'echo_plugin_scripts' ) ) :
-	/**
-	 * WP React Plugin Scripts
-	 *
-	 * Register the ReactJS App Script that's needed for our plugin to work. This
-	 * includes the the react app and WordPress nonce needed to perform REST API
-	 * calls.
-	 *
-	 * @since  1.0.0
-	 */
-	function echo_plugin_scripts() {
-
-		wp_register_script(
-			'echo-plugin-script',
-			plugin_dir_url( __FILE__ ) . 'dist/bundle.js',
-			array(
-				'jquery',
-				'wp-element',
-			),
-			'1.0.0',
-			true
-		);
-
-		wp_localize_script(
-			'echo-plugin-script',
-			'wpApiSettings',
-			array(
-				'root'     => esc_url_raw( rest_url() ),
-				'nonce'    => wp_create_nonce( 'wp_rest' ),
-			)
-		);
-
-		// if event post, enqueue the react app script.
-		if ( is_singular( 'event' ) ) {
-			wp_enqueue_script( 'echo-plugin-script' );
-		}
-	}
-	add_action( 'wp_enqueue_scripts', 'echo_plugin_scripts' );
-endif;
 
 /**
- * Unregister Theme Styles
+ * Activation
  */
-// require_once $plugin_dir . 'inc/unregister-styles.php';
+require_once $plugin_dir . 'inc/activation.php';
+
+/**
+ * Register Scripts
+ */
+require_once $plugin_dir . 'inc/register-scripts.php';
 
 /**
  * Register Custom Page Templates
@@ -99,6 +48,4 @@ require_once $plugin_dir . 'inc/register-templates.php';
 /**
  * Register Custom Post Types
  */
-if ( ! post_type_exists( 'event' ) ) :
-	require_once $plugin_dir . 'inc/post-types/event.php';
-endif;
+require_once $plugin_dir . 'inc/post-types/event.php';

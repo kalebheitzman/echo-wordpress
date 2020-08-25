@@ -16,6 +16,7 @@ if ( ! function_exists( 'echo_plugin_scripts' ) ) :
 	 * @since  1.0.0
 	 */
 	function echo_plugin_scripts() {
+		global $post;
 
 		wp_register_script(
 			'echo-plugin-script',
@@ -32,8 +33,11 @@ if ( ! function_exists( 'echo_plugin_scripts' ) ) :
 			'echo-plugin-script',
 			'wpApiSettings',
 			array(
-				'root'     => esc_url_raw( rest_url() ),
-				'nonce'    => wp_create_nonce( 'wp_rest' ),
+				'root'      => esc_url_raw( rest_url() ),
+				'nonce'     => wp_create_nonce( 'wp_rest' ),
+				'graphql'   => get_site_url() . '/graphql',
+				'siteTitle' => get_bloginfo( 'name' ),
+				'pageTitle' => $post->post_title,
 			)
 		);
 

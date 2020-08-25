@@ -11,31 +11,134 @@ import mq from '../utils/media'
 import MyContext from '../context/Context'
 import Wrapper from './Wrapper'
 
-const Main = () => (
-	<MyContext.Consumer>
-		{context => {
-			console.log(context)
-			return(
-				<h1>Lobby</h1>				
-			)
-		}}
-	</MyContext.Consumer>
-)
+const Main = ({ data }) => {
+
+	const {
+		eventBy: {
+			title,
+			content
+		}
+	} = data
+
+	return (
+		<div
+			css={css`
+
+			${mq('tablet_up')} {
+				padding: 4rem;
+			}
+			`}
+		>
+			<h1>{title}</h1>
+			<div dangerouslySetInnerHTML={{ __html: content }} />
+		</div>
+	)
+}
 
 const Aside = () => (
 	<MyContext.Consumer>
 		{context => {
-			console.log(context)
-			return(
-				<h1>Aside</h1>				
+
+ 			return(
+				 <>
+					<h3>Aside</h3>	
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+					<br />			
+				</>
 			)
 		}}
 	</MyContext.Consumer>
 )
 
-export default () => {
+export default ({ data }) => {
 
 	return(
-		<Wrapper main={<Main />} aside={<Aside />} />
+		<Wrapper main={<Main data={data} />} aside={<Aside />} />
 	)
 }

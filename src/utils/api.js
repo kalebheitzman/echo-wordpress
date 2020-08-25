@@ -22,4 +22,10 @@ export default class WpApi {
 			})
 	}
 
+	getEventInformation = (id, responseCb, errorCb) => {
+		let url = `${this.api}wp/v2`
+
+		console.log(url)
+	} 
+
 }

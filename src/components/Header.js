@@ -11,6 +11,7 @@ export default () => {
 
 	return(
 		<header
+			className="echo-header"
 			css={css`
 				background: #ff4447;
 				color: #fff;
@@ -18,13 +19,12 @@ export default () => {
 				align-items: center;
 
 				${mq('tablet_up')} {
-					height: 10vh;
 					padding: 0 1rem;
 				}
 			`}
 		>
 			<div>
-				Echo Header
+				{wpApiSettings.siteTitle} / {wpApiSettings.pageTitle}
 			</div>
 		</header>
 	)

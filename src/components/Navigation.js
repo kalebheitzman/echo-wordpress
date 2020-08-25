@@ -63,14 +63,11 @@ export default () => {
 
 	return(
 		<nav
+			className="echo-nav"
 			css={css`
 				padding: 1rem;
 				background: #f7f7f7;
-				border-right: 1px solid #eee;
-
-				${mq('tablet_up')} {
-					height: 90vh;
-				}
+				border-right: 1px solid #eee;				
 			`}
 		>
 			<ul
@@ -78,7 +75,6 @@ export default () => {
 					list-style: none;
 					margin: 0;
 					padding: 0;
-
 
 					li {
 						text-align: center;

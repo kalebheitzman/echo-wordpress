@@ -35,7 +35,7 @@ function echo_plugin_active(
 
 	if ( ! $active ) {
 		// Deactivate the current plugin.
-		deactivate_plugins( 'wp-echo-conferencing/plugin.php' );
+		deactivate_plugins( 'wp-project-echo/plugin.php' );
 
 		// Show an error alert on the admin area.
 		add_action(

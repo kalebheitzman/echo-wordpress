@@ -15,11 +15,13 @@ import '../utils/typography'
 
 // import components
 import MyProvider from '../context/Provider'
+import MyContext from '../context/Context'
 import GlobalStyles from './GlobalStyles'
 import Header from './Header'
 import Navigation from './Navigation'
 
 // import switch components
+import Loader from './Loader'
 import Lobby from './Lobby'
 import MainStage from './MainStage'
 import Rooms from './Rooms'
@@ -29,47 +31,52 @@ import QA from './QA'
 import Polls from './Polls'
 
 export default () => {
-
+		
 	return (
 		<MyProvider>
 			<GlobalStyles />
 			<Router>
-				<Header />
-				<div
-					css={css`
-						display: grid;
-						grid-template-columns: 1fr;
-						
-						${mq('tablet_side')} {
-							grid-template-columns: 120px 1fr;
-						}
-					`}
-				>
-					<Navigation />
-					<Switch>
-						<Route path="/main-stage">
-							<MainStage />
-						</Route>
-						<Route path="/rooms">
-							<Rooms />
-						</Route>
-						<Route path="/attendees">
-							<Attendees />
-						</Route>
-						<Route path="/chat">
-							<Chat />
-						</Route>
-						<Route path="/qa">
-							<QA />
-						</Route>
-						<Route path="/polls">
-							<Polls />
-						</Route>
-						<Route path="/">
-							<Lobby />
-						</Route>
-					</Switch>
-				</div>
+				<MyContext.Consumer>
+					{context => {
+
+						return(
+							<div className="echo-container">
+								<Header />
+								<div className="echo-body">
+									<Navigation />
+									{context.loading && (
+										<Loader />
+									)}
+									{!context.loading && (
+										<Switch>
+											<Route path="/main-stage">
+												<MainStage />
+											</Route>
+											<Route path="/rooms">
+												<Rooms />
+											</Route>
+											<Route path="/attendees">
+												<Attendees />
+											</Route>
+											<Route path="/chat">
+												<Chat />
+											</Route>
+											<Route path="/qa">
+												<QA />
+											</Route>
+											<Route path="/polls">
+												<Polls />
+											</Route>
+											<Route path="/">
+												<Lobby data={context.data} />
+											</Route>
+										</Switch>
+									)}
+								</div>
+							</div>
+						)
+					}}
+				</MyContext.Consumer>
 			</Router>
 		</MyProvider>
 	)

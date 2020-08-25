@@ -7,6 +7,42 @@ import React from 'react'
 import { jsx, css } from '@emotion/core'
 import mq from '../utils/media'
 
+// import components
+import {
+  Link
+} from 'react-router-dom'
+
+const links = [
+	{
+		name: 'Lobby',
+		path: '/'
+	},
+	{
+		name: 'Main Stage',
+		path: '/main-stage'
+	},
+	{
+		name: 'Rooms',
+		path: '/rooms'
+	},
+	{
+		name: 'Attendees',
+		path: '/attendees'
+	},
+	{
+		name: 'Chat',
+		path: '/chat'
+	},
+	{
+		name: 'Q&A',
+		path: '/qa'
+	},
+	{
+		name: 'Polls',
+		path: '/polls'
+	},
+]
+
 export default () => {
 
 	return(
@@ -21,7 +57,19 @@ export default () => {
 				}
 			`}
 		>
-			Echo Navigation
+			<ul
+				css={css`
+					list-style: none;
+					margin: 0;
+					padding: 0;
+				`}
+			>
+				{links.map(link => (
+					<li key={link.path}>
+						<Link to={link.path}>{link.name}</Link>
+					</li>
+				))}
+			</ul>
 		</nav>
 	)
 }

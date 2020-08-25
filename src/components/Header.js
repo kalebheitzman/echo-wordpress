@@ -14,6 +14,8 @@ export default () => {
 			css={css`
 				background: #ff4447;
 				color: #fff;
+				display: flex;
+				align-items: center;
 
 				${mq('tablet_up')} {
 					height: 10vh;
@@ -21,7 +23,9 @@ export default () => {
 				}
 			`}
 		>
-			Echo Header
+			<div>
+				Echo Header
+			</div>
 		</header>
 	)
 }

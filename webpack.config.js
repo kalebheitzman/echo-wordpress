@@ -1,5 +1,6 @@
 module.exports = {
 	entry: "./src/index.js",
+	devtool: 'inline-source-map',
 	output: {
 		path: __dirname,
 		filename: "./dist/bundle.js"
@@ -15,6 +16,13 @@ module.exports = {
 						presets: ['@babel/preset-env']
 					}
 				}
+			},
+			{
+				test: /\.css$/,
+				use: [
+					{ loader: 'style-loader' }, 
+					{ loader: 'css-loader' }
+				]
 			}
 		]
 	}

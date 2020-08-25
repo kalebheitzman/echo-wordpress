@@ -73,8 +73,8 @@ if ( ! function_exists( 'echo_plugin_scripts' ) ) :
 			'echo-plugin-script',
 			'wpApiSettings',
 			array(
-				'root'  => esc_url_raw( rest_url() ),
-				'nonce' => wp_create_nonce( 'wp_rest' ),
+				'root'     => esc_url_raw( rest_url() ),
+				'nonce'    => wp_create_nonce( 'wp_rest' ),
 			)
 		);
 
@@ -85,6 +85,11 @@ if ( ! function_exists( 'echo_plugin_scripts' ) ) :
 	}
 	add_action( 'wp_enqueue_scripts', 'echo_plugin_scripts' );
 endif;
+
+/**
+ * Unregister Theme Styles
+ */
+// require_once $plugin_dir . 'inc/unregister-styles.php';
 
 /**
  * Register Custom Page Templates

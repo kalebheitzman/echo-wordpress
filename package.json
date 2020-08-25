@@ -1,0 +1,32 @@
+{
+  "name": "wp-echo-conferencing",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env BABEL_ENV=default webpack --mode=development --watch",
+    "build": "cross-env BABEL_ENV=default NODE_ENV=production webpack --mode=production -p"
+  },
+  "browserslist": "> 0.25%, not dead",
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "cross-env": "^5.2.0",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7"
+  },
+  "dependencies": {
+    "@emotion/babel-preset-css-prop": "^10.0.14",
+    "@emotion/core": "^10.0.16",
+    "axios": "^0.19.0",
+    "babel-plugin-emotion": "^10.0.16",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  }
+}

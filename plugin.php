@@ -46,23 +46,6 @@ if ( ! function_exists( 'echo_plugin_active' ) ) :
 	);
 endif;
 
-if ( ! function_exists( 'project_echo_shortcode' ) ) :
-	/**
-	 * Echo Shortcode
-	 *
-	 * We use a shortcode to embed our react app on any given post, page, widget,
-	 * and etc. Usage is [project_echo]
-	 *
-	 * @return string
-	 * @since 1.0.0
-	 */
-	function project_echo_shortcode() {
-		wp_enqueue_script( 'echo-plugin-script' );
-		return '<div id="wp-project-echo"></div>';
-	}
-	add_shortcode( 'project_echo', 'project_echo_shortcode' );
-endif;
-
 if ( ! function_exists( 'echo_plugin_scripts' ) ) :
 	/**
 	 * WP React Plugin Scripts
@@ -94,6 +77,11 @@ if ( ! function_exists( 'echo_plugin_scripts' ) ) :
 				'nonce' => wp_create_nonce( 'wp_rest' ),
 			)
 		);
+
+		// if event post, enqueue the react app script.
+		if ( is_singular( 'event' ) ) {
+			wp_enqueue_script( 'echo-plugin-script' );
+		}
 	}
 	add_action( 'wp_enqueue_scripts', 'echo_plugin_scripts' );
 endif;
@@ -101,9 +89,7 @@ endif;
 /**
  * Register Custom Page Templates
  */
-if ( ! class_exists( 'PageTemplates' ) ) :
-	require_once $plugin_dir . 'inc/class-pagetemplates.php';
-endif;
+require_once $plugin_dir . 'inc/register-templates.php';
 
 /**
  * Register Custom Post Types

@@ -46,6 +46,11 @@ require_once $plugin_dir . 'inc/register-scripts.php';
 require_once $plugin_dir . 'inc/register-templates.php';
 
 /**
+ * Register Theme Support
+ */
+require_once $plugin_dir . 'inc/theme-support.php';
+
+/**
  * Register Custom Post Types
  */
 require_once $plugin_dir . 'inc/post-types/event.php';

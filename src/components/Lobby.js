@@ -8,50 +8,48 @@ import { jsx, css } from '@emotion/core'
 import mq from '../utils/media'
 
 // import components
-import MyContext from '../context/Context'
-import Wrapper from './Wrapper'
+import Image from './Image'
 import Content from './Content'
 
-const Main = ({ data }) => {
+export default ({ data }) => {
 
 	const {
 		event: {
 			title,
-			content
+			content,
+			featuredImage
 		}
 	} = data
+
+	console.log(data)
 
 	return (
 		<div
 			css={css`
 
-			${mq('tablet_up')} {
-				padding: 4rem;
-			}
+				${mq('tablet_up')} {
+					overflow-y: scroll;
+					display: flex;
+					justify-content: center;
+				}
 			`}
 		>
-			<h1>{title}</h1>
-			<Content content={content} />
+			<div
+				css={css`
+					border-radius: 4px;
+					position: relative;
+					
+					${mq('tablet_up')} {
+						max-width: 960px;
+						height: 100%;
+						margin: 2rem 0;
+					}
+				`}
+			>
+				<Image srcSet={featuredImage.node.srcSet} />
+				<h1>{title}</h1>
+				<Content content={content} />
+			</div>
 		</div>
-	)
-}
-
-const Aside = () => (
-	<MyContext.Consumer>
-		{context => {
-
- 			return(
-				<>
-					<h3>Aside</h3>		
-				</>
-			)
-		}}
-	</MyContext.Consumer>
-)
-
-export default ({ data }) => {
-
-	return(
-		<Wrapper main={<Main data={data} />} aside={<Aside />} />
 	)
 }

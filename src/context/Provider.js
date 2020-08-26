@@ -46,7 +46,7 @@ export default ({ children }) => {
 							}
 							featuredImage {
 								node {
-									srcSet(size: LARGE)
+									srcSet(size: ECHO_HERO)
 								}
 							}
 						}

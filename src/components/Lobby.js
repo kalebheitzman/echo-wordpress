@@ -46,7 +46,10 @@ export default ({ data }) => {
 					}
 				`}
 			>
-				<Image srcSet={featuredImage.node.srcSet} />
+				<Image 
+					src={featuredImage.node.sourceUrl}
+					srcSet={featuredImage.node.srcSet} 
+				/>
 				<h1>{title}</h1>
 				<Content content={content} />
 			</div>

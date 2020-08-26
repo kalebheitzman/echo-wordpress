@@ -7,11 +7,15 @@ import React from 'react'
 import { jsx, css } from '@emotion/core'
 import mq from '../utils/media'
 
-export default ({ srcSet }) => {
+export default ({ src, srcSet }) => {
 
 	return(
 		<img
+			src={src}
 			srcSet={srcSet}
+			css={css`
+				border-radius: 4px;
+			`}
 		/>	
 	)
 }

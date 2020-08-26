@@ -27,7 +27,6 @@ export default ({ room }) => {
 		script.src = 'https://meet.jit.si/external_api.js'
 		script.async = true
 		script.onload = resolveLoadJitsiScriptPromise
-		console.log(script)
 		document.body.appendChild(script)
 
 		return loadJitsiScriptPromise

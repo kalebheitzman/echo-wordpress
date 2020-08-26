@@ -25,7 +25,6 @@ import Loader from './Loader'
 import Lobby from './Lobby'
 import MainStage from './MainStage'
 import Rooms from './Rooms'
-import Schedule from './Schedule'
 import Chat from './Chat'
 import QA from './QA'
 import Polls from './Polls'
@@ -57,9 +56,6 @@ export default () => {
 											</Route>
 											<Route path="/rooms">
 												<Rooms data={context.data} />
-											</Route>
-											<Route path="/schedule">
-												<Schedule data={context.data} />
 											</Route>
 											<Route path="/chat">
 												<Chat data={context.data} />

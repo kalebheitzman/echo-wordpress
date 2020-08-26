@@ -12,9 +12,9 @@ import Wrapper from './Wrapper'
 import LiveStream from './Livestream'
 import ScheduleAside from './ScheduleAside'
 
-export default ({ data }) => {
+export default () => {
 
 	return(
-		<Wrapper main={<LiveStream data={data} />} aside={<ScheduleAside />} />
+		<Wrapper main={<LiveStream />} aside={<ScheduleAside />} />
 	)
 }

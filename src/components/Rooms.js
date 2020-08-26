@@ -12,24 +12,12 @@ import Wrapper from './Wrapper'
 import RoomsNavigation from './RoomsNavigation'
 import RoomsMain from './RoomsMain'
 
-export default ({ data }) => {
-
-	const {
-		event: {
-			roomsInformation: {
-				eventRooms
-			}
-		}
-	} = data
+export default () => {
 
 	return(
 		<Wrapper 
-			main={<RoomsMain 
-				rooms={eventRooms} 
-			/>} 
-			aside={<RoomsNavigation 
-				rooms={eventRooms} 
-			/>} 
+			main={<RoomsMain />} 
+			aside={<RoomsNavigation />} 
 		/>
 	)
 }

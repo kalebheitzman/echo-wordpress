@@ -8,49 +8,57 @@ import { jsx, css } from '@emotion/core'
 import mq from '../utils/media'
 
 // import components
+import MyContext from '../context/Context'
 import Image from './Image'
 import Content from './Content'
 
-export default ({ data }) => {
-
-	const {
-		event: {
-			title,
-			content,
-			featuredImage
-		}
-	} = data
+export default () => {
 
 	return (
-		<div
-			css={css`
+		<MyContext.Consumer>
+			{context => {
 
-				${mq('tablet_up')} {
-					overflow-y: scroll;
-					display: flex;
-					justify-content: center;
-				}
-			`}
-		>
-			<div
-				css={css`
-					border-radius: 4px;
-					position: relative;
-					
-					${mq('tablet_up')} {
-						max-width: 960px;
-						height: 100%;
-						margin: 2rem 0;
+				const {
+					event: {
+						title,
+						content,
+						featuredImage
 					}
-				`}
-			>
-				<Image 
-					src={featuredImage.node.sourceUrl}
-					srcSet={featuredImage.node.srcSet} 
-				/>
-				<h1>{title}</h1>
-				<Content content={content} />
-			</div>
-		</div>
+				} = context.data
+
+				return(
+					<div
+						css={css`
+			
+							${mq('tablet_up')} {
+								overflow-y: scroll;
+								display: flex;
+								justify-content: center;
+							}
+						`}
+					>
+						<div
+							css={css`
+								border-radius: 4px;
+								position: relative;
+								
+								${mq('tablet_up')} {
+									max-width: 960px;
+									height: 100%;
+									margin: 2rem 0;
+								}
+							`}
+						>
+							<Image 
+								src={featuredImage.node.sourceUrl}
+								srcSet={featuredImage.node.srcSet} 
+							/>
+							<h1>{title}</h1>
+							<Content content={content} />
+						</div>
+					</div>
+				)
+			}}
+		</MyContext.Consumer>
 	)
 }

@@ -14,7 +14,6 @@ import {
 		faDoorOpen,
 		faVideo,
 		faUsers,
-		faCalendarAlt,
 		faUserFriends,
 		faQuestion,
 		faPoll
@@ -35,11 +34,6 @@ const links = [
 		name: 'Rooms',
 		path: '/rooms',
 		icon: faUsers
-	},
-	{
-		name: 'Schedule',
-		path: '/schedule',
-		icon: faCalendarAlt
 	},
 	{
 		name: 'Chat',

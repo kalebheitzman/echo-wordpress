@@ -1,19 +1,29 @@
 /** @jsx jsx */
 
 // import libs
-import React from 'react'
+import React, { useContext } from 'react'
 
 // import css
 import { jsx, css } from '@emotion/core'
 import mq from '../utils/media'
 
 // import components
+import MyContext from '../context/Context'
 import {
 	NavLink
 } from 'react-router-dom'
 
-export default ({ rooms }) => {
-	//console.log(window.location.hash.substring(2))
+export default () => {
+	const context = useContext(MyContext)
+	
+	const {
+		event: {
+			roomsInformation: {
+				eventRooms
+			}
+		}
+	} = context.data
+
 	return (
 		<>
 			<ul
@@ -22,7 +32,7 @@ export default ({ rooms }) => {
 					padding: 0;
 				`}
 			>
-				{rooms.map(room => {
+				{eventRooms.map(room => {
 
 					return(
 						<li 

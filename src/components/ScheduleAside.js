@@ -9,7 +9,6 @@ import mq from '../utils/media'
 
 // import components
 import MyContext from '../context/Context'
-import Wrapper from './Wrapper'
 
 export default () => {
 

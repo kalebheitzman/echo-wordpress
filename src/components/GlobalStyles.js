@@ -2,6 +2,7 @@
 import React from 'react'
 
 // import css
+import 'normalize.css'
 import { Global, css } from '@emotion/core'
 import mq from '../utils/media'
 
@@ -52,8 +53,6 @@ export default () => (
 				}
 
 				h1, h2, h3, h4, h5, h6, p, ol, ul {
-					margin: 0 0 1rem;
-					padding: 0;
 					font-weight: normal;
 
 					&:before {
@@ -79,7 +78,7 @@ export default () => (
 					font-size: 1rem;
 				}
 				p {
-					font-size: 16px;
+					font-size: 14px;
 				}
 
 				a {
@@ -124,6 +123,11 @@ export default () => (
 					grid-template-columns: 300px 1fr;	
 					height: 100%;
 					overflow: hidden;
+					transition: all 85ms ease-out;
+
+					&.closed {
+						grid-template-columns: 0px 1fr;
+					}
 				}
 			}
 

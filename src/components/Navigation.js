@@ -110,9 +110,12 @@ export default () => {
 				{links.map(link => (
 					<li key={link.path}>
 						<NavLink 
-							exact
+							exact={link.path === '/' ? true : false}
 							to={link.path}
 							activeClassName="active"
+							css={css`
+								line-height: 1.2rem;
+							`}
 						>
 							<FontAwesomeIcon
 								icon={link.icon}

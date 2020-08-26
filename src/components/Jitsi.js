@@ -3,6 +3,9 @@
 // import libs
 import React, { useState, useEffect } from 'react'
 
+// import components
+import Loader from './Loader'
+
 // import css
 import { jsx, css } from '@emotion/core'
 import mq from '../utils/media'
@@ -30,7 +33,7 @@ export default ({ room }) => {
 		return loadJitsiScriptPromise
 	}
 
-	const initilizeJitsi = async () => {
+	const initilizeJitsi = async (cb) => {
 		if (!window.JitsiMeetExternalAPI) {
 			await loadJitsiScript()
 		}
@@ -49,13 +52,13 @@ export default ({ room }) => {
 		return () => jitsi?.dispose?.()
 	}, [])
 
-	console.log(room)
 	return(
-		<>
-			<div
-				className="echo-jitsi-container"
-				id={jitsiContainerId}
-			/>
-		</>
+		<div
+			className="echo-jitsi-container"
+			css={css`
+				background: #374e62;
+			`}
+			id={jitsiContainerId}
+		/>
 	)
 }

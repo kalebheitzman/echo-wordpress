@@ -9,22 +9,12 @@ import mq from '../utils/media'
 
 // import components
 import Wrapper from './Wrapper'
+import LiveStream from './Livestream'
+import ScheduleAside from './ScheduleAside'
 
-const Main = () => (
-	<>
-		<h1>Main Stage Main</h1>
-	</>
-)
-
-const Aside = () => (
-	<>
-		<h3>Main Stage Aside</h3>
-	</>
-)
-
-export default () => {
+export default ({ data }) => {
 
 	return(
-		<Wrapper main={<Main />} aside={<Aside />} />
+		<Wrapper main={<LiveStream data={data} />} aside={<ScheduleAside />} />
 	)
 }

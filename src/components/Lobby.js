@@ -21,8 +21,6 @@ export default ({ data }) => {
 		}
 	} = data
 
-	console.log(data)
-
 	return (
 		<div
 			css={css`

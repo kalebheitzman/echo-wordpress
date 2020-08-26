@@ -30,20 +30,42 @@ export default ({ rooms }) => {
 							css={css`
 								border-bottom: 1px solid #eee;
 								padding: 1rem;
+								display grid;
+								grid-template-columns: 40px 1fr 60px;
+								grid-gap: 0.5rem;
 							`}	
 						>
-							<p
+							<div
+								css={css`
+									background: var(--highlight-primary-bg);
+									color: var(--highlight-primary-color);
+									width: 40px;
+									height: 40px;
+									border-radius: 40px;
+									display: flex;
+									justify-content: center;
+									align-items: center;
+									font-weight: bold;
+								`}
+							>
+								{room.eventRoomTitle.charAt(0)}
+							</div>
+							<div
 								css={css`
 									padding: 0;
 									margin: 0;
+									display: flex;
+									align-items: center;
 								`}
 							>
 								<strong>{room.eventRoomTitle}</strong>
-							</p>
-							<div>{room.eventRoomDescription}</div>
-							<p
+							</div>
+							{/* <div>{room.eventRoomDescription}</div> */}
+							<div
 								css={css`
-									margin-top: 0.5rem;
+									display: flex;
+									align-items: center;
+									justify-content: flex-end;
 								`}
 							>
 								<NavLink 
@@ -59,9 +81,9 @@ export default ({ rooms }) => {
 										}
 									`}
 								>
-									Join Room
+									Join
 								</NavLink>
-							</p>
+							</div>
 						</li>
 					)
 				})}

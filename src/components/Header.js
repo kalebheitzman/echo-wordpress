@@ -24,7 +24,7 @@ export default () => {
 			`}
 		>
 			<div>
-				{wpApiSettings.siteTitle} / {wpApiSettings.pageTitle}
+				{echoSettings.siteTitle} / {echoSettings.pageTitle}
 			</div>
 		</header>
 	)

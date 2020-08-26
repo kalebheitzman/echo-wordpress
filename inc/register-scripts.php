@@ -31,13 +31,15 @@ if ( ! function_exists( 'echo_plugin_scripts' ) ) :
 
 		wp_localize_script(
 			'echo-plugin-script',
-			'wpApiSettings',
+			'echoSettings',
 			array(
-				'root'      => esc_url_raw( rest_url() ),
-				'nonce'     => wp_create_nonce( 'wp_rest' ),
-				'graphql'   => get_site_url() . '/graphql',
-				'siteTitle' => get_bloginfo( 'name' ),
-				'pageTitle' => $post->post_title,
+				'nonce'            => wp_create_nonce( 'wp_rest' ),
+				'graphql'          => get_site_url() . '/graphql',
+				'siteTitle'        => get_bloginfo( 'name' ),
+				'pageTitle'        => $post->post_title,
+				'eventID'          => $post->ID,
+				'youtubeChannelId' => 'UChH-_9AfBWwWJdyKJbqAbjA',
+				'youtubeApiKey'    => 'AIzaSyCRCYTfhf8ARhwM1lR320cjYfW2ObZZ8c8',
 			)
 		);
 

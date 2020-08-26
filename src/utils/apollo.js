@@ -3,6 +3,6 @@ import { ApolloClient, InMemoryCache } from '@apollo/client'
 
 // create the client
 export const client = new ApolloClient({
-	uri: wpApiSettings.graphql,
+	uri: echoSettings.graphql,
 	cache: new InMemoryCache()
 })

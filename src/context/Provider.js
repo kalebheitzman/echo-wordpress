@@ -22,7 +22,7 @@ export default ({ children }) => {
 			.query({
 				query: gql`
 					query EventQuery {
-						event(id: "55", idType: DATABASE_ID) {
+						event(id: ${echoSettings.eventID}, idType: DATABASE_ID) {
 							title(format: RENDERED)
 							content(format: RENDERED)
 							eventInformation {
@@ -67,8 +67,7 @@ export default ({ children }) => {
 				loading: loading,
 				error: error,
 				state: state, // state stored in context
-				api: wpApiSettings.root, // api url for the WordPress rest api
-				nonce: wpApiSettings.nonce, // nonce for authenticated requests
+				nonce: echoSettings.nonce, // nonce for authenticated requests
 				data: data
 			}}
 		>

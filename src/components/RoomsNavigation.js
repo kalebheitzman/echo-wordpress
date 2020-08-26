@@ -90,6 +90,10 @@ export default () => {
 											color: var(--highlight-primary-color);
 										}
 									`}
+									onClick={() => {
+										context.setMain('rooms')
+										context.setRoom(room)
+									}}
 								>
 									Join
 								</NavLink>

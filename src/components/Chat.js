@@ -7,24 +7,11 @@ import React from 'react'
 import { jsx, css } from '@emotion/core'
 import mq from '../utils/media'
 
-// import components
-import Wrapper from './Wrapper'
-
-const Main = () => (
-	<>
-		<h1>Chat</h1>
-	</>
-)
-
-const Aside = () => (
-	<>
-		<h3>Aside</h3>
-	</>
-)
-
 export default () => {
 
 	return(
-		<Wrapper main={<Main />} aside={<Aside />} />
+		<div>
+			<h3>Chat</h3>
+		</div>
 	)
 }

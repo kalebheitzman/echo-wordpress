@@ -23,21 +23,24 @@ import Navigation from './Navigation'
 // import switch components
 import Loader from './Loader'
 import Lobby from './Lobby'
-import MainStage from './MainStage'
-import Rooms from './Rooms'
 import Chat from './Chat'
 import QA from './QA'
 import Polls from './Polls'
+import Livestream from './Livestream'
+import ScheduleAside from './ScheduleAside'
+import RoomsNavigation from './RoomsNavigation'
+import RoomsMain from './RoomsMain'
+import Jitsi from './Jitsi'
 
 export default () => {
-		
+	
 	return (
 		<MyProvider>
 			<GlobalStyles />
 			<Router>
 				<MyContext.Consumer>
 					{context => {
-
+						console.log(`Context for main is ${context.main}`)
 						return(
 							<div className="echo-container">
 								<Header />
@@ -47,26 +50,67 @@ export default () => {
 										<Loader />
 									)}
 									{!context.loading && (
-										<Switch>
+										<>
 											<Route exact path="/">
-												<Lobby data={context.data} />
+												<Lobby />
 											</Route>
-											<Route path="/main-stage">
-												<MainStage data={context.data} />
-											</Route>
-											<Route path="/rooms">
-												<Rooms data={context.data} />
-											</Route>
-											<Route path="/chat">
-												<Chat data={context.data} />
-											</Route>
-											<Route path="/qa">
-												<QA data={context.data} />
-											</Route>
-											<Route path="/polls">
-												<Polls data={context.data} />
-											</Route>
-										</Switch>
+
+											<div className="echo-main">
+												<main
+													css={css`
+														grid-column: 2;
+														grid-row: 1;
+
+														${mq('tablet_up')} {
+															overflow-y: scroll;
+														}
+													`}
+												>
+													{context.main 
+														&& context.main === 'main-stage' 
+														&& (
+															<Livestream />
+														)
+													}
+													{context.main 
+														&& context.main === 'rooms' 
+														&& (
+															<Jitsi room={context.room} />
+														)
+													}
+												</main>
+
+												<aside
+													css={css`
+														grid-column: 1;
+														grid-row: 1;
+														
+														${mq('tablet_up')} {
+															border-right: 1px solid #eee;
+															overflow-y: scroll;
+														}
+													`}
+												>
+													<Switch>
+														<Route path="/main-stage">
+															<ScheduleAside />
+														</Route>
+														<Route path="/rooms">
+															<RoomsNavigation />
+														</Route>
+														<Route path="/chat">
+															<Chat />
+														</Route>
+														<Route path="/qa">
+															<QA />
+														</Route>
+														<Route path="/polls">
+															<Polls />
+														</Route>
+													</Switch>
+												</aside>
+											</div>
+										</>
 									)}
 								</div>
 							</div>

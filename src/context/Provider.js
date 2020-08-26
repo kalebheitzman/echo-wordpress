@@ -12,6 +12,8 @@ export default ({ children }) => {
 	const [ data, setData ] = useState({})
 	const [ loading, setLoading ] = useState(true)
 	const [ error, setError ] = useState(false)
+	const [ main, setMain ] = useState(false)
+	const [ room, setRoom ] = useState({})
 
 	useEffect(() => {
 		setState({
@@ -68,7 +70,11 @@ export default ({ children }) => {
 				error: error,
 				state: state, // state stored in context
 				nonce: echoSettings.nonce, // nonce for authenticated requests
-				data: data
+				data: data,
+				main: main,
+				setMain: setMain,
+				room: room,
+				setRoom: setRoom
 			}}
 		>
 			{children}

@@ -24,8 +24,6 @@ export default () => {
 					}
 				} = context.data
 
-				console.log(eventSchedule)
-
 				return (
 					<ul
 						css={css`

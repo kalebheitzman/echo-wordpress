@@ -12,7 +12,7 @@ import Wrapper from './Wrapper'
 
 const Main = () => (
 	<>
-		<h1>Attendees</h1>
+		<h1>Schedule</h1>
 	</>
 )
 

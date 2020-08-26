@@ -11,10 +11,10 @@ import mq from '../utils/media'
 import { NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-		faSearch,
 		faDoorOpen,
 		faVideo,
 		faUsers,
+		faCalendarAlt,
 		faUserFriends,
 		faQuestion,
 		faPoll
@@ -36,11 +36,11 @@ const links = [
 		path: '/rooms',
 		icon: faUsers
 	},
-	// {
-	// 	name: 'Attendees',
-	// 	path: '/attendees',
-	// 	icon: faSearch
-	// },
+	{
+		name: 'Schedule',
+		path: '/schedule',
+		icon: faCalendarAlt
+	},
 	{
 		name: 'Chat',
 		path: '/chat',

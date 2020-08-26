@@ -25,15 +25,28 @@ export default ({ children }) => {
 						event(id: "55", idType: DATABASE_ID) {
 							title(format: RENDERED)
 							content(format: RENDERED)
-							excerpt(format: RENDERED)
 							eventInformation {
 								eventEndTime
-								eventStartTime
 								eventLivestreamUrl
-								eventBreakoutRooms {
-									breakoutRoomTitle
-									breakoutRoomUrl
-									breakoutRoomDescription
+								eventStartTime
+							}
+							roomsInformation {
+								eventRooms {
+									eventRoomDescription
+									eventRoomSlug
+									eventRoomTitle
+								}
+							}
+							scheduleInformation {
+								eventSchedule {
+									scheduleItemDescription
+									scheduleItemTime
+									scheduleItemTitle
+								}
+							}
+							featuredImage {
+								node {
+									srcSet(size: LARGE)
 								}
 							}
 						}

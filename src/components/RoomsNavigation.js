@@ -13,7 +13,7 @@ import {
 } from 'react-router-dom'
 
 export default ({ rooms }) => {
-	console.log(window.location.hash.substring(2))
+	//console.log(window.location.hash.substring(2))
 	return (
 		<>
 			<ul
@@ -23,10 +23,10 @@ export default ({ rooms }) => {
 				`}
 			>
 				{rooms.map(room => {
-					console.log(room.breakoutRoomUrl)
+
 					return(
 						<li 
-							key={room.breakoutRoomUrl}
+							key={room.eventRoomSlug}
 							css={css`
 								border-bottom: 1px solid #eee;
 								padding: 1rem;
@@ -38,16 +38,16 @@ export default ({ rooms }) => {
 									margin: 0;
 								`}
 							>
-								<strong>{room.breakoutRoomTitle}</strong>
+								<strong>{room.eventRoomTitle}</strong>
 							</p>
-							<div>{room.breakoutRoomDescription}</div>
+							<div>{room.eventRoomDescription}</div>
 							<p
 								css={css`
 									margin-top: 0.5rem;
 								`}
 							>
 								<NavLink 
-									to={`/rooms/${room.breakoutRoomUrl}`}
+									to={`/rooms/${room.eventRoomSlug}`}
 									css={css`
 										background: var(--highlight-primary-bg);
 										color: var(--highlight-primary-color);

@@ -20,7 +20,7 @@ export default ({ rooms }) => {
 		<Route 
 			key={key} 
 			exact 
-			path={`/rooms/${room.breakoutRoomUrl}`} 
+			path={`/rooms/${room.eventRoomSlug}`} 
 			render={() => <Jitsi room={room} />}
 		/>)
 	)

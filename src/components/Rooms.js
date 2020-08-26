@@ -16,8 +16,8 @@ export default ({ data }) => {
 
 	const {
 		event: {
-			eventInformation: {
-				eventBreakoutRooms
+			roomsInformation: {
+				eventRooms
 			}
 		}
 	} = data
@@ -25,10 +25,10 @@ export default ({ data }) => {
 	return(
 		<Wrapper 
 			main={<RoomsMain 
-				rooms={eventBreakoutRooms} 
+				rooms={eventRooms} 
 			/>} 
 			aside={<RoomsNavigation 
-				rooms={eventBreakoutRooms} 
+				rooms={eventRooms} 
 			/>} 
 		/>
 	)

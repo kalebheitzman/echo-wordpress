@@ -40,7 +40,7 @@ export default ({ room }) => {
 
 		const _jitsi = new window.JitsiMeetExternalAPI('meet.jit.si', {
 			parentNode: document.getElementById(jitsiContainerId),
-			roomName: room.breakoutRoomUrl
+			roomName: room.eventRoomSlug
 		})
 
 		setJitsi(_jitsi)

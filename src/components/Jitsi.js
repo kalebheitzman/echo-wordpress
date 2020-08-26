@@ -3,9 +3,6 @@
 // import libs
 import React, { useState, useEffect } from 'react'
 
-// import components
-// import Jitsi from 'react-jitsi'
-
 // import css
 import { jsx, css } from '@emotion/core'
 import mq from '../utils/media'
@@ -56,13 +53,9 @@ export default ({ room }) => {
 	return(
 		<>
 			<div
+				className="echo-jitsi-container"
 				id={jitsiContainerId}
-				css={css`
-					height: 70vh; 
-					width: 100%;
-				`}
 			/>
-			<h1>{room.breakoutRoomTitle}</h1>
 		</>
 	)
 }

@@ -33,6 +33,13 @@ export default () => (
 							grid-template-rows: 10vh calc(90vh - 32px);
 						}
 					}
+
+					.echo-jitsi-container {
+		
+						${mq('tablet_up')} {
+							height: calc(90vh - 32px);
+						}
+					}
 				}
 			}
 
@@ -117,6 +124,15 @@ export default () => (
 					grid-template-columns: 300px 1fr;	
 					height: 100%;
 					overflow: hidden;
+				}
+			}
+
+			.echo-jitsi-container {
+				height: 100%; 
+				width: 100%;
+
+				${mq('tablet_up')} {
+					height: 90vh;
 				}
 			}
 

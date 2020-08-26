@@ -15,7 +15,7 @@ import Content from './Content'
 const Main = ({ data }) => {
 
 	const {
-		eventBy: {
+		event: {
 			title,
 			content
 		}

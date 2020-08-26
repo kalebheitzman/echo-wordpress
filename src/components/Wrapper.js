@@ -27,7 +27,6 @@ export default ({ main, aside }) => {
 
 			<aside
 				css={css`
-					padding: 1rem;
 					grid-column: 1;
 					grid-row: 1;
 					

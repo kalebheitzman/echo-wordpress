@@ -9,22 +9,80 @@ import mq from '../utils/media'
 
 // import components
 import Wrapper from './Wrapper'
+import Jitsi from './Jitsi'
+import {
+  HashRouter as Router,
+  Switch,
+	Route,
+	NavLink
+} from 'react-router-dom'
 
-const Main = () => (
-	<>
-		<h1>Rooms</h1>
-	</>
+const Test = () => (
+	<div>test</div>
 )
 
-const Aside = () => (
-	<>
-		<h3>Aside</h3>
-	</>
-)
+const Main = ({ rooms }) => {
 
-export default () => {
+	const routeComponents = rooms.map((room, key) => (
+		<Route 
+			key={key} 
+			exact 
+			path={`/rooms/${room.breakoutRoomUrl}`} 
+			render={() => <Jitsi room={room} />}
+		/>)
+	)
+
+	return (
+		<>
+			<Switch>
+				{routeComponents}
+			</Switch>
+		</>
+	)
+}
+
+const Aside = ({ rooms }) => {
+
+	return (
+		<>
+			<ul>
+				{rooms.map(room => {
+					return(
+						<li 
+							key={room.breakoutRoomUrl}
+							css={css`
+								border-bottom: 1px solid #eee;
+								padding: 1rem;
+							`}	
+						>
+							<p
+								css={css`
+									padding: 0;
+								`}
+							>
+								{room.breakoutRoomTitle}
+							</p>
+							<div>{room.breakoutRoomDescription}</div>
+							<p><NavLink to={`/rooms/${room.breakoutRoomUrl}`}>Join Room</NavLink></p>
+						</li>
+					)
+				})}
+			</ul>
+		</>
+	)
+}
+
+export default ({ data }) => {
+
+	const {
+		event: {
+			eventInformation: {
+				eventBreakoutRooms
+			}
+		}
+	} = data
 
 	return(
-		<Wrapper main={<Main />} aside={<Aside />} />
+		<Wrapper main={<Main rooms={eventBreakoutRooms} />} aside={<Aside rooms={eventBreakoutRooms} />} />
 	)
 }

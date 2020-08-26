@@ -24,7 +24,7 @@ export default () => (
 
 			body {
 				background: var(--body-background-color);
-
+				
 				&.admin-bar {
 
 					.echo-container {
@@ -37,6 +37,7 @@ export default () => (
 			}
 
 			#wp-project-echo {
+				font-size: 14px;
 
 				*, *:before, *:after {
 					box-sizing: border-box;
@@ -44,7 +45,7 @@ export default () => (
 				}
 
 				h1, h2, h3, h4, h5, h6, p, ol, ul {
-					margin: 0;
+					margin: 0 0 1rem;
 					padding: 0;
 					font-weight: normal;
 
@@ -55,6 +56,23 @@ export default () => (
 						margin: 0;
 						width: auto;
 					}
+				}
+
+				h1 {
+					font-size: 2rem;
+					margin: 0 0 1rem;
+				}
+				h2 {
+					font-size: 1.6rem;
+				}
+				h3 {
+					font-size: 1.2rem;
+				}
+				h4, h5, h6 {
+					font-size: 1rem;
+				}
+				p {
+					font-size: 16px;
 				}
 
 				a {

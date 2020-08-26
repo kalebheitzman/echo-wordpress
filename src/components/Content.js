@@ -12,7 +12,7 @@ export default ({ content }) => {
 	return(
 		<div
 			css={css`
-			
+				
 				${mq('tablet_up')} {
 
 				}

@@ -22,9 +22,20 @@ export default ({ children }) => {
 			.query({
 				query: gql`
 					query EventQuery {
-						eventBy(eventId: 55) {
+						event(id: "55", idType: DATABASE_ID) {
 							title(format: RENDERED)
 							content(format: RENDERED)
+							excerpt(format: RENDERED)
+							eventInformation {
+								eventEndTime
+								eventStartTime
+								eventLivestreamUrl
+								eventBreakoutRooms {
+									breakoutRoomTitle
+									breakoutRoomUrl
+									breakoutRoomDescription
+								}
+							}
 						}
 					}
 				`

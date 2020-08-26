@@ -52,23 +52,23 @@ export default () => {
 											<Route exact path="/">
 												<Lobby data={context.data} />
 											</Route>
-											<Route exact path="/main-stage">
-												<MainStage />
+											<Route path="/main-stage">
+												<MainStage data={context.data} />
 											</Route>
-											<Route exact path="/rooms">
-												<Rooms />
+											<Route path="/rooms">
+												<Rooms data={context.data} />
 											</Route>
-											<Route exact path="/attendees">
-												<Attendees />
+											<Route path="/attendees">
+												<Attendees data={context.data} />
 											</Route>
-											<Route exact path="/chat">
-												<Chat />
+											<Route path="/chat">
+												<Chat data={context.data} />
 											</Route>
-											<Route exact path="/qa">
-												<QA />
+											<Route path="/qa">
+												<QA data={context.data} />
 											</Route>
-											<Route exact path="/polls">
-												<Polls />
+											<Route path="/polls">
+												<Polls data={context.data} />
 											</Route>
 										</Switch>
 									)}

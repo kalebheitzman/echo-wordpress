@@ -52,6 +52,12 @@ export default ({ children }) => {
 									scheduleItemTitle
 								}
 							}
+							qaInformation{
+								eventQuestions {
+									eventQuestion
+									eventAnswer
+								}
+							}
 							featuredImage {
 								node {
 									srcSet(size: ECHO_HERO)

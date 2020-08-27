@@ -30,6 +30,7 @@ import Livestream from './Livestream'
 import ScheduleAside from './ScheduleAside'
 import RoomsNavigation from './RoomsNavigation'
 import Jitsi from './Jitsi'
+// import Footer from './Footer'
 
 export default () => {
 	
@@ -108,6 +109,7 @@ export default () => {
 														</Route>
 													</Switch>
 												</aside>
+												{/* <Footer /> */}
 											</div>
 										</>
 									)}

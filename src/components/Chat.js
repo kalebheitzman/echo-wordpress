@@ -28,6 +28,7 @@ export default () => {
 			<li
 				css={css`
 					border-bottom: 1px solid #efefef;
+					margin-bottom: 1rem !important;
 				`}
 			>
 				<h3>Chat</h3>
@@ -75,9 +76,8 @@ const Message = ({ user, me = false, msg }) => (
 			display: grid;
 			grid-template-columns: 40px 1fr;
 			margin-bottom: 0;
-			padding: 0.5rem 1rem;
+			padding: 0.25rem 1rem !important;
 			grid-gap: 0.5rem;
-			border-bottom: 1px solid #efefef;
 
 			&.me {
 				grid-template-columns: 1fr 40px;
@@ -110,6 +110,7 @@ const Message = ({ user, me = false, msg }) => (
 			.message {
 				display: flex;
 				align-items: center;
+				line-height: 1.2;
 			}
 		`}
 	>

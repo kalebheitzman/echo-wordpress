@@ -58,6 +58,15 @@ export default ({ children }) => {
 									eventAnswer
 								}
 							}
+							pollsInformation {
+								eventPolls {
+									eventPollQuestion
+									eventPollType
+									eventPollOptions {
+										eventOptionQuestion
+									}
+								}
+							}
 							featuredImage {
 								node {
 									srcSet(size: ECHO_HERO)

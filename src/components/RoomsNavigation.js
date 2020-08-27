@@ -43,6 +43,7 @@ export default () => {
 								display grid;
 								grid-template-columns: 40px 1fr 60px;
 								grid-gap: 0.5rem;
+								margin-bottom: 0;
 							`}	
 						>
 							<div

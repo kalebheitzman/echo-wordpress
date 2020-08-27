@@ -12,6 +12,58 @@ export default () => {
 	return(
 		<div>
 			<h3>Chat</h3>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
+			<div>Message</div>
 		</div>
 	)
 }

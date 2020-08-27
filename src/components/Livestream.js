@@ -1,18 +1,19 @@
 /** @jsx jsx */
 
 // import libs
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 
 // import css
 import { jsx, css } from '@emotion/core'
 import mq from '../utils/media'
 
 // import components
+import MyContext from '../context/Context'
 import YouTube from 'react-youtube'
 import Loader from './Loader'
 import FlexWrapper from './FlexWrapper'
 
-export default ({ data }) => {
+export default () => {
 
 	const {
 		youtubeApiKey,
@@ -101,20 +102,77 @@ export default ({ data }) => {
 
 const NotLive = () => {
 
+	const context = useContext(MyContext)
+
+	const {
+		event: {
+			title,
+			featuredImage,
+			eventInformation: {
+				eventStartTime,
+				eventEndTime
+			}
+		}
+	} = context.data
+
 	return(
 		<div
 			css={css`
-				background: #efefef;
+				background: #f7f7f7;
 				border-radius: 4px;
-				padding: 1rem;
 
 				${mq('tablet_up')} {
-					width: 500px;
+					width: 720px;
 				}
 			`}
 		>
-			<h3>Not Currently Live.</h3>
-			<p>This event is not currently live.</p>
+			<div
+				css={css`
+					position: relative;
+				`}
+			>
+				<img
+					src={featuredImage.node.sourceUrl}
+					srcSet={featuredImage.node.srcSet} 
+					css={css`
+						border-top-left-radius: 4px;
+						border-top-right-radius: 4px;
+						width: 100%;
+						height: 30vh;
+						object-fit: cover;
+						margin-bottom: 1.5rem;
+					`}
+				/>
+				<div 
+					css={css`
+						position: absolute;
+						bottom: 2.5rem;
+						right: 1rem;
+						background: var(--highlight-primary-bg);
+						color: var(--highlight-primary-color);
+						padding: 3px 8px;
+						border-radius: 4px;
+						text-transform: uppercase;
+						font-size: 11px;
+					`}
+				>
+					Not Live
+				</div>
+			</div>
+			<div
+				css={css`
+					padding: 0 1rem;
+				`}
+			>
+				<h3
+					css={css`
+						margin-top: 0;
+					`}
+				>
+					{title}
+				</h3>
+				<p>Event starts {eventStartTime}.</p>
+			</div>
 		</div>
 	)
 }

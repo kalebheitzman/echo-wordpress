@@ -90,10 +90,6 @@ export default () => (
 					list-style: none;
 				}
 
-				img {
-					max-width: 100%;
-					height: auto;
-				}
 			}
 
 			.echo-container {

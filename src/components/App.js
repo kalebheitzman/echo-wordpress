@@ -39,7 +39,7 @@ export default () => {
 			<Router>
 				<MyContext.Consumer>
 					{context => {
-						console.log(`Context for main is ${context.main}`)
+
 						return(
 							<div className="echo-container">
 								<Header />

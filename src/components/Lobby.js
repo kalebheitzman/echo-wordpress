@@ -22,18 +22,26 @@ export default () => {
 					event: {
 						title,
 						content,
-						featuredImage
+						featuredImage,
+						eventInformation: {
+							eventStartTime,
+							eventEndTime
+						}
 					}
 				} = context.data
 
+				console.log(context.data)
+
 				return(
 					<div
+						className="echo-lobby"
 						css={css`
 			
 							${mq('tablet_up')} {
 								overflow-y: scroll;
 								display: flex;
 								justify-content: center;
+								min-height: calc(100vh - 100px);
 							}
 						`}
 					>
@@ -41,10 +49,11 @@ export default () => {
 							css={css`
 								border-radius: 4px;
 								position: relative;
-								
+								display: grid;
+								grid-template-columns: 1fr;
+
 								${mq('tablet_up')} {
-									max-width: 960px;
-									height: 100%;
+									max-width: 720px;
 									margin: 2rem 0;
 								}
 							`}
@@ -53,8 +62,21 @@ export default () => {
 								src={featuredImage.node.sourceUrl}
 								srcSet={featuredImage.node.srcSet} 
 							/>
-							<h1>{title}</h1>
-							<Content content={content} />
+							<div>
+								<h1>{title}</h1>
+								<div
+									css={css`
+										background: #f7f7f7;
+										padding: 0.5rem 1rem;
+										border-radius: 4px;
+										margin-bottom: 0.5rem;
+									`}
+								>
+									Start: {eventStartTime}<br />
+									End: {eventEndTime}
+								</div>
+								<Content content={content} />
+							</div>
 						</div>
 					</div>
 				)

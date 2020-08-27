@@ -16,6 +16,13 @@ export default ({ children }) => {
 	const [ room, setRoom ] = useState({})
 
 	useEffect(() => {
+		console.log(window.location.hash)
+
+		// set main stage if necessary
+		if (window.location.hash !== '#/') {
+			setMain('main-stage')
+		}
+
 		setState({
 			count: 0
 		})

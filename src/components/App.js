@@ -29,7 +29,6 @@ import Polls from './Polls'
 import Livestream from './Livestream'
 import ScheduleAside from './ScheduleAside'
 import RoomsNavigation from './RoomsNavigation'
-import RoomsMain from './RoomsMain'
 import Jitsi from './Jitsi'
 
 export default () => {

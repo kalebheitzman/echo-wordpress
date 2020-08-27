@@ -138,7 +138,7 @@ const NotLive = () => {
 						border-top-left-radius: 4px;
 						border-top-right-radius: 4px;
 						width: 100%;
-						height: 30vh;
+						height: 42vh;
 						object-fit: cover;
 						margin-bottom: 1.5rem;
 					`}
@@ -147,7 +147,7 @@ const NotLive = () => {
 					css={css`
 						position: absolute;
 						bottom: 2.5rem;
-						right: 1rem;
+						right: 0.5rem;
 						background: var(--highlight-primary-bg);
 						color: var(--highlight-primary-color);
 						padding: 3px 8px;

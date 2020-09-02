@@ -87,7 +87,7 @@ export default () => {
 
 								li {
 									text-align: center;
-									margin: 0 0 3px;
+									margin: 0 0 5px;
 									padding: 0;
 
 									span.label {
@@ -103,6 +103,7 @@ export default () => {
 										transition: all 85ms ease-out;
 										border-left: 3px solid transparent;
 										font-size: 1.2rem;
+										text-decoration: none;
 
 										&.active,
 										&:hover {

@@ -11,10 +11,14 @@ if ( ! function_exists( 'echo_remove_scripts' ) ) :
 	 */
 	function echo_remove_scripts() {
 		global $wp_scripts;
-		foreach ( $wp_scripts->queue as $handle ) {
-			if ( strpos( $wp_scripts->registered[ $handle ]->src, '/themes/' ) !== false ) {
-				wp_dequeue_script( $handle );
-				wp_deregister_script( $handle );
+		global $post;
+
+		if ( is_singular( 'event' ) ) {
+			foreach ( $wp_scripts->queue as $handle ) {
+				if ( strpos( $wp_scripts->registered[ $handle ]->src, '/themes/' ) !== false ) {
+					wp_dequeue_script( $handle );
+					wp_deregister_script( $handle );
+				}
 			}
 		}
 	}
@@ -27,10 +31,14 @@ if ( ! function_exists( 'echo_remove_styles' ) ) :
 	 */
 	function echo_remove_styles() {
 		global $wp_styles;
-		foreach ( $wp_styles->queue as $handle ) {
-			if ( strpos( $wp_styles->registered[ $handle ]->src, '/themes/' ) !== false ) {
-				wp_dequeue_style( $handle );
-				wp_deregister_style( $handle );
+		global $post;
+
+		if ( is_singular( 'event' ) ) {
+			foreach ( $wp_styles->queue as $handle ) {
+				if ( strpos( $wp_styles->registered[ $handle ]->src, '/themes/' ) !== false ) {
+					wp_dequeue_style( $handle );
+					wp_deregister_style( $handle );
+				}
 			}
 		}
 	}
@@ -81,4 +89,5 @@ if ( ! function_exists( 'echo_plugin_scripts' ) ) :
 		}
 	}
 	add_action( 'wp_enqueue_scripts', 'echo_plugin_scripts' );
+	add_filter( 'show_admin_bar', '__return_false' );
 endif;

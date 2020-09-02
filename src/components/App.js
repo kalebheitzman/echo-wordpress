@@ -7,6 +7,7 @@ import {
   Switch,
   Route
 } from 'react-router-dom'
+import Typography from '../utils/typography'
 
 // import css
 import { jsx, css } from '@emotion/core'
@@ -31,6 +32,9 @@ import ScheduleAside from './ScheduleAside'
 import RoomsNavigation from './RoomsNavigation'
 import Jitsi from './Jitsi'
 // import Footer from './Footer'
+
+// inject typography styles
+Typography.injectStyles()
 
 export default () => {
 	

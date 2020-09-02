@@ -58,54 +58,6 @@ export default () => (
 				}
 			}
 
-			#wp-project-echo {
-				font-size: 14px;
-
-				*, *:before, *:after {
-					box-sizing: border-box;
-					font-family: sans-serif;
-				}
-
-				h1, h2, h3, h4, h5, h6, p, ol, ul {
-					font-weight: normal;
-
-					&:before {
-						background: none;
-						content: ''
-						height: auto;
-						margin: 0;
-						width: auto;
-					}
-				}
-
-				h1 {
-					font-size: 2rem;
-					margin: 0 0 1rem;
-				}
-				h2 {
-					font-size: 1.6rem;
-				}
-				h3 {
-					font-size: 1.2rem;
-				}
-				h4, h5, h6 {
-					font-size: 1rem;
-				}
-				p {
-					font-size: 14px;
-				}
-
-				a {
-					outline: none;
-					text-decoration: none;
-				}
-
-				ol, ul {
-					list-style: none;
-				}
-
-			}
-
 			.echo-container {
 				display: grid;
 				grid-template-columns: 1fr;

@@ -32,4 +32,4 @@ const typography = new Typography({
   blockMarginBottom: '1.5rem'
 })
 
-typography.injectStyles()
+export default typography

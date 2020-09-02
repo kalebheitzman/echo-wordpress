@@ -5,6 +5,38 @@
  * @package Echo
  */
 
+if ( ! function_exists( 'echo_remove_scripts' ) ) :
+	/**
+	 * Remove theme scripts
+	 */
+	function echo_remove_scripts() {
+		global $wp_scripts;
+		foreach ( $wp_scripts->queue as $handle ) {
+			if ( strpos( $wp_scripts->registered[ $handle ]->src, '/themes/' ) !== false ) {
+				wp_dequeue_script( $handle );
+				wp_deregister_script( $handle );
+			}
+		}
+	}
+	add_action( 'wp_print_scripts', 'echo_remove_scripts', 100 );
+endif;
+
+if ( ! function_exists( 'echo_remove_styles' ) ) :
+	/**
+	 * Remove theme styles
+	 */
+	function echo_remove_styles() {
+		global $wp_styles;
+		foreach ( $wp_styles->queue as $handle ) {
+			if ( strpos( $wp_styles->registered[ $handle ]->src, '/themes/' ) !== false ) {
+				wp_dequeue_style( $handle );
+				wp_deregister_style( $handle );
+			}
+		}
+	}
+	add_action( 'wp_print_styles', 'echo_remove_styles', 100 );
+endif;
+
 if ( ! function_exists( 'echo_plugin_scripts' ) ) :
 	/**
 	 * Register Project Echo Scripts

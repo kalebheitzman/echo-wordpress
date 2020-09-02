@@ -47,6 +47,11 @@ register_activation_hook( __FILE__, 'echo_install_tables' );
 require_once $plugin_dir . 'inc/register-scripts.php';
 
 /**
+ * Register Options Page
+ */
+require_once $plugin_dir . 'inc/register-options-page.php';
+
+/**
  * Register Custom Page Templates
  */
 require_once $plugin_dir . 'inc/register-templates.php';

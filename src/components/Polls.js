@@ -87,9 +87,9 @@ const Choose = () => (
 			}
 		`}
 	>
-		<input type="radio" />
+		<input name="choose" value="1" type="radio" />
 		<label>Yes</label>
-		<input type="radio" />
+		<input name="choose" value="0" type="radio" />
 		<label>No</label>
 	</div>
 )
@@ -108,15 +108,15 @@ const Scale = () => (
 			}
 		`}
 	>
-		<input type="radio" />
+		<input name="scale" value="1" type="radio" />
 		<label>1</label>
-		<input type="radio" />
+		<input name="scale" value="2" type="radio" />
 		<label>2</label>
-		<input type="radio" />
+		<input name="scale" value="3" type="radio" />
 		<label>3</label>
-		<input type="radio" />
+		<input name="scale" value="4" type="radio" />
 		<label>4</label>
-		<input type="radio" />
+		<input name="scale" value="5" type="radio" />
 		<label>5</label>
 	</div>
 )
@@ -132,7 +132,7 @@ const Options = ({ options }) => (
 	>
 		{options.map((option, i) => (
 			<div key={i}>
-				<input type="radio" />
+				<input name="options" value={i} type="radio" />
 				<label>{option.eventOptionQuestion}</label>
 			</div>
 		))}

@@ -1,0 +1,17 @@
+{
+	"[markdown]":{
+		"editor.wordWrap": "wordWrapColumn",
+		"editor.wordWrapColumn": 80,
+	},
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 80,
+  "editor.wordBasedSuggestions": false,
+  "editor.detectIndentation": false,
+  "editor.insertSpaces": false,
+	"editor.tabCompletion": "on",
+	"editor.tabSize": 2,
+	"editor.rulers": [80,120],
+	"phpcs.enable": true,
+	"phpcs.executablePath": "./vendor/bin/phpcs",
+	"phpcs.standard": "WordPress"
+}

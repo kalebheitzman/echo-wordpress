@@ -31,8 +31,6 @@ if ( ! function_exists( 'echo_install_tables' ) ) :
 		require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 		dbDelta( $sql );
 
-		var_dump($sql);
-
 		add_option( 'echo_db_version', $echo_db_version );
 	}
 

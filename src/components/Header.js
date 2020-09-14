@@ -3,6 +3,9 @@
 // import libs
 import React from 'react'
 
+// import components
+import Logo from './Logo'
+
 // import css
 import { jsx, css } from '@emotion/core'
 import mq from '../utils/media'
@@ -17,12 +20,14 @@ export default () => {
 				color: var(--highlight-primary-color);
 				display: flex;
 				align-items: center;
+				font-style: italic;
 
 				${mq('tablet_up')} {
 					padding: 0 1rem;
 				}
 			`}
 		>
+			<Logo />
 			<div>
 				{echoSettings.siteTitle} / {echoSettings.pageTitle}
 			</div>

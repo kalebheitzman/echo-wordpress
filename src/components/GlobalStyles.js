@@ -12,17 +12,6 @@ import mq from '../utils/media'
 export default () => {
 	const context = useContext(MyContext)
 
-	// const {
-	// 	event: {
-	// 		eventInformation: {
-	// 			eventColors
-	// 		}
-	// 	}
-	// } = context.data
-
-	// console.log(eventColors)
-	console.log(context.data)
-
 	return (
 		<Global
 			styles={css`

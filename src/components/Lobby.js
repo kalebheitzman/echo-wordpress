@@ -30,8 +30,6 @@ export default () => {
 					}
 				} = context.data
 
-				console.log(context.data)
-
 				return(
 					<div
 						className="echo-lobby"

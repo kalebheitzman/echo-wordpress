@@ -37,6 +37,18 @@ export default ({ children }) => {
 								eventEndTime
 								eventLivestreamUrl
 								eventStartTime
+								eventLogo {
+									srcSet
+									sourceUrl
+								}
+								eventColors {
+									bodyBackgound
+									htmlBackground
+									primaryBackgroundColor
+									primaryBackgroundHover
+									primaryTextColor
+									textColor
+								}
 							}
 							roomsInformation {
 								eventRooms {

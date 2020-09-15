@@ -5,6 +5,7 @@ import React from 'react'
 
 // import components
 import Logo from './Logo'
+import SocialLogin from './SocialLogin'
 
 // import css
 import { jsx, css } from '@emotion/core'
@@ -28,6 +29,7 @@ export default () => {
 			`}
 		>
 			<Logo />
+			<SocialLogin />
 		</header>
 	)
 }

@@ -5,7 +5,7 @@ import React from 'react'
 
 // import components
 import Logo from './Logo'
-import SocialLogin from './SocialLogin'
+import User from './User'
 
 // import css
 import { jsx, css } from '@emotion/core'
@@ -19,9 +19,10 @@ export default () => {
 			css={css`
 				background: var(--highlight-primary-bg);
 				color: var(--highlight-primary-color);
-				display: flex;
+				display: grid;
 				align-items: center;
 				font-style: italic;
+				grid-template-columns: 1fr 100px;
 
 				${mq('tablet_up')} {
 					padding: 0 1rem;
@@ -29,7 +30,7 @@ export default () => {
 			`}
 		>
 			<Logo />
-			<SocialLogin />
+			<User />
 		</header>
 	)
 }

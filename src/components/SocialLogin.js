@@ -13,29 +13,37 @@ import mq from '../utils/media'
 // import Components
 import MyContext from '../context/Context'
 
-const handleSocialLogin = (user) => {
-	console.log(user)
-}
-
-const handleSocialLoginFailure = (err) => {
-	console.log(err)
-}
-
 export default () => {
+
+	const context = useContext(MyContext)
+
+	const {
+		projectEcho: {
+			echoSocialLogin
+		}
+	} = context.data
+
+	const handleSocialLogin = (user) => {
+		context.setUser(user)
+	}
+	
+	const handleSocialLoginFailure = (err) => {
+		console.log(err)
+	}
 
 	return(
 		<div>
-			<SocialButton
+			{/* <SocialButton
 				provider='facebook'
 				appId='YOUR_APP_ID'
 				onLoginSuccess={handleSocialLogin}
 				onLoginFailure={handleSocialLoginFailure}
 			>
 				Login with Facebook
-			</SocialButton>
+			</SocialButton> */}
 			<SocialButton
 				provider='google'
-				appId='YOUR_APP_ID'
+				appId={echoSocialLogin.echoGoogleClientId}
 				onLoginSuccess={handleSocialLogin}
 				onLoginFailure={handleSocialLoginFailure}
 			>

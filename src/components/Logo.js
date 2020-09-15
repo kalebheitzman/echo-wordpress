@@ -25,8 +25,6 @@ export default () => {
 			}
 		} = context.data
 
-		console.log(eventLogo)
-
 		return (
 			<div
 				css={css`
@@ -49,8 +47,6 @@ export default () => {
 	}
 
 	return(
-		<div>
-			Logo
-		</div>
+		<div></div>
 	)
 }

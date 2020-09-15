@@ -45,6 +45,22 @@ export default () => {
 				<MyContext.Consumer>
 					{context => {
 
+						console.log(context)
+
+						if (context.loading) {
+							return(
+								<div
+									css={css`
+										width: 100vw;
+										height: 100vh;
+										background: var(--highlight-primary-bg);
+									`}
+								>
+									<Loader />
+								</div>
+							)
+						}
+
 						return(
 							<div className="echo-container">
 								<Header />

@@ -28,9 +28,6 @@ export default () => {
 			`}
 		>
 			<Logo />
-			<div>
-				{echoSettings.siteTitle} / {echoSettings.pageTitle}
-			</div>
 		</header>
 	)
 }

@@ -15,16 +15,6 @@ export default () => {
 	return (
 		<Global
 			styles={css`
-				// :root {
-				// 	--highlight-primary-bg: #ff444e;
-				// 	--highlight-primary-color: #fff;
-				// 	--highlight-primary-hover: #ff4447;
-					
-				// 	--text-color: #333;
-				// 	--html-background-color: #333;
-				// 	--body-background-color: #fff;
-				// }
-
 				/* Text meant only for screen readers. */
 				.screen-reader-text {
 					border: 0;
@@ -67,6 +57,12 @@ export default () => {
 				.echo-container {
 					display: grid;
 					grid-template-columns: 1fr;
+					animation: fadein 500ms;
+
+					@keyframes fadein {
+						from { opacity: 0; width: 0; }
+						to   { opacity: 1; width: 100%; }
+					}
 
 					${mq('tablet_up')} {
 						grid-template-rows: 10vh 90vh;

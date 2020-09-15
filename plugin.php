@@ -44,7 +44,7 @@ register_activation_hook( __FILE__, 'echo_install_tables' );
 /**
  * Add ACF Fields Programatically
  */
-// require_once $plugin_dir . 'inc/acf-fields.php';
+require_once $plugin_dir . 'inc/acf-fields.php';
 
 /**
  * Register Scripts

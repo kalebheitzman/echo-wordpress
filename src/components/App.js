@@ -44,9 +44,6 @@ export default () => {
 			<Router>
 				<MyContext.Consumer>
 					{context => {
-
-						console.log(context)
-
 						if (context.loading) {
 							return(
 								<div

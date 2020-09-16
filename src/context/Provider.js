@@ -14,6 +14,7 @@ export default ({ children }) => {
 	const [ error, setError ] = useState(false)
 	const [ main, setMain ] = useState(false)
 	const [ room, setRoom ] = useState({})
+	const [ user, setUser ] = useState(false)
 
 	useEffect(() => {
 
@@ -30,6 +31,12 @@ export default ({ children }) => {
 			.query({
 				query: gql`
 					query EventQuery {
+						projectEcho {
+							echoSocialLogin {
+								echoGoogleClientId
+								echoFacebookAppId
+							}
+						}
 						event(id: ${echoSettings.eventID}, idType: DATABASE_ID) {
 							title(format: RENDERED)
 							content(format: RENDERED)
@@ -99,15 +106,17 @@ export default ({ children }) => {
 	return(
 		<MyContext.Provider
 			value={{
-				loading: loading,
-				error: error,
-				state: state, // state stored in context
+				loading,
+				error,
+				state, // state stored in context
 				nonce: echoSettings.nonce, // nonce for authenticated requests
-				data: data,
-				main: main,
-				setMain: setMain,
-				room: room,
-				setRoom: setRoom
+				data,
+				main,
+				setMain,
+				room,
+				setRoom,
+				user,
+				setUser
 			}}
 		>
 			{children}

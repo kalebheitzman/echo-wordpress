@@ -9,16 +9,56 @@
 if( function_exists('acf_add_local_field_group') ):
 
 	acf_add_local_field_group(array(
-		'key' => 'group_5f4873a249cab',
-		'title' => 'Echo Settings',
+		'key' => 'group_5f61253a221c5',
+		'title' => 'Echo Social Login',
 		'fields' => array(
+			array(
+				'key' => 'field_5f612540e4110',
+				'label' => 'Google Client ID',
+				'name' => 'echo_google_client_id',
+				'type' => 'text',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'show_in_graphql' => 1,
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'maxlength' => '',
+			),
+			array(
+				'key' => 'field_5f62987617915',
+				'label' => 'Facebook App ID',
+				'name' => 'echo_facebook_app_id',
+				'type' => 'text',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'show_in_graphql' => 1,
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'maxlength' => '',
+			),
 		),
 		'location' => array(
 			array(
 				array(
 					'param' => 'options_page',
 					'operator' => '==',
-					'value' => '',
+					'value' => 'echo_options_page',
 				),
 			),
 		),
@@ -31,7 +71,7 @@ if( function_exists('acf_add_local_field_group') ):
 		'active' => true,
 		'description' => '',
 		'show_in_graphql' => 1,
-		'graphql_field_name' => 'echoSettings',
+		'graphql_field_name' => 'echoSocialLogin',
 	));
 	
 	acf_add_local_field_group(array(

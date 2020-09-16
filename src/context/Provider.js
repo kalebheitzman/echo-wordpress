@@ -34,6 +34,7 @@ export default ({ children }) => {
 						projectEcho {
 							echoSocialLogin {
 								echoGoogleClientId
+								echoFacebookAppId
 							}
 						}
 						event(id: ${echoSettings.eventID}, idType: DATABASE_ID) {

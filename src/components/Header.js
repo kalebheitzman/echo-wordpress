@@ -22,7 +22,7 @@ export default () => {
 				display: grid;
 				align-items: center;
 				font-style: italic;
-				grid-template-columns: 1fr 100px;
+				grid-template-columns: 1fr 1fr;
 
 				${mq('tablet_up')} {
 					padding: 0 1rem;

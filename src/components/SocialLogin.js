@@ -32,6 +32,12 @@ export default () => {
 
 	const services = [
 		{
+			provider: 'google',
+			icon: faGoogle,
+			label: 'Login with Google',
+			appId: echoSocialLogin.echoGoogleClientId,
+		},
+		{
 			provider: 'facebook',
 			icon: faFacebookF,
 			label: 'Login with Facebook',
@@ -42,12 +48,6 @@ export default () => {
 			icon: faInstagram,
 			label: 'Login with Instagram',
 			appId: echoSocialLogin.echoFacebookAppId,
-		},
-		{
-			provider: 'google',
-			icon: faGoogle,
-			label: 'Login with Google',
-			appId: echoSocialLogin.echoGoogleClientId,
 		},
 	]
 

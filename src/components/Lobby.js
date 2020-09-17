@@ -62,7 +62,6 @@ export default () => {
 								}
 							`}
 						>
-							<h1>{title}</h1>
 							<div
 								css={css`
 									background: #f7f7f7;
@@ -75,6 +74,7 @@ export default () => {
 								Start: {eventStartTime}<br />
 								End: {eventEndTime}
 							</div>
+							<h1>{title}</h1>
 							<Content content={content} />
 						</div>
 					</div>

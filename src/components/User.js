@@ -77,7 +77,7 @@ export default () => {
 					display: none;
 
 					${mq('tablet_up')} {
-						display; block;
+						display: block;
 					}
 				`}
 			>

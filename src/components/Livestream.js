@@ -140,7 +140,7 @@ const NotLive = () => {
 				<div 
 					css={css`
 						position: absolute;
-						bottom: 4rem;
+						bottom: 2.5rem;
 						right: 2.5rem;
 						background: var(--highlight-primary-bg);
 						color: var(--highlight-primary-color);
@@ -156,8 +156,8 @@ const NotLive = () => {
 					css={css`
 						padding: 0 1rem;
 						position: absolute;
-						bottom: 2.5rem;
-						left: 2.5rem;
+						bottom: 1.5rem;
+						left: 2rem;
 						z-index: 100;
 						color: #fff;
 						background: rgba(0,0,0,0.5);

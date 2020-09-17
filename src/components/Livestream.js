@@ -31,8 +31,8 @@ export default () => {
 		>
 			<iframe
 				src={eventInformation.eventLivestreamUrl}
-				allowfullscreen
-				frameborder="0"
+				allowFullScreen
+				frameBorder="0"
 				css={css`
 					position: absolute;
 					top: 0;

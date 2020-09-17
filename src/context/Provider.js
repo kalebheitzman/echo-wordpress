@@ -27,6 +27,33 @@ export default ({ children }) => {
 			count: 0
 		})
 
+		const echoUser = localStorage.getItem('echoUser')
+		if (echoUser) {
+			console.log(echoUser)
+			client
+				.query({
+					query: gql`
+						query GET_USER($id: ID!) {
+							user(id: $id) {
+								id
+								avatar {
+									url
+								}
+								name
+								userId
+							}
+						}
+					`,
+					variables: { "id": echoUser }
+				})
+				.then(result => {
+					setUser(result.data.user)
+				})
+				.catch(err => {
+					setError(err)
+				})
+		}
+
 		client
 			.query({
 				query: gql`
@@ -120,7 +147,11 @@ export default ({ children }) => {
 				room,
 				setRoom,
 				user,
-				setUser
+				setUser,
+				logout: () => {
+					setUser(false)
+					localStorage.removeItem('echoUser')
+				} 
 			}}
 		>
 			{children}

@@ -137,7 +137,7 @@ export default () => {
 								profilePicURL: socialUser.profile.profilePicURL
 							}, user);
 							console.log(echoUser)
-							context.setUser(echoUser)
+							localStorage.setItem('echoUser', echoUser.id)
 						})
 						.catch(err => {
 							console.log(err)
@@ -148,7 +148,7 @@ export default () => {
 					const echoUser = Object.assign({
 						profilePicURL: socialUser.profile.profilePicURL
 					}, user);
-					console.log(echoUser)
+					localStorage.setItem('echoUser', echoUser.id)
 					context.setUser(echoUser)
 				}
 			})

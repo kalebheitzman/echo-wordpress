@@ -67,6 +67,9 @@ export default () => {
 						css={css`
 							background: #f7f7f7;
 							border-right: 1px solid #eee;		
+							display: grid;
+							grid-template-columns: 1fr;
+							grid-template-rows: 1fr 100px;
 							
 							${mq('tablet_up')} {
 								padding-top: 1rem;
@@ -147,6 +150,38 @@ export default () => {
 								</li>
 							))}
 						</ul>
+						<div
+							css={css`
+								display: flex;
+								justify-content: center;
+								align-items: center;
+
+								a {
+									font-size: 1.25rem;
+									height: 3rem;
+									width: 3rem;
+									border-radius: 3rem;
+									display: flex;
+									justify-content: center;
+									align-items: center;
+									background: #eee;
+									color: #ccc;
+									font-weight: bold;
+									text-decoration: none;
+									transition: all 185ms ease-out;
+
+									&:hover {
+										background: #e9e7ea;
+										color: #bbb;
+									}
+								}
+							`}
+						>
+							<a
+								href="https://github.com/kalebheitzman/wp-project-echo"
+								target="_blank"
+							>E</a>
+						</div>
 					</nav>
 				)
 			}}

@@ -1,7 +1,7 @@
 // import libs
 import React, { useState, useEffect } from 'react'
 import { client } from '../utils/apollo'
-import { gql } from '@apollo/client'
+import { gql, useMutation } from '@apollo/client'
 
 // import components
 import MyContext from './Context'
@@ -37,9 +37,13 @@ export default ({ children }) => {
 								echoFacebookAppId
 							}
 						}
+						allSettings {
+							generalSettingsUrl
+						}
 						event(id: ${echoSettings.eventID}, idType: DATABASE_ID) {
 							title(format: RENDERED)
 							content(format: RENDERED)
+							slug
 							eventInformation {
 								eventEndTime
 								eventLivestreamUrl

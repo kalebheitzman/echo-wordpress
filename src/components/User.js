@@ -19,8 +19,6 @@ export default () => {
 		user
 	} = context
 
-	console.log(user)
-
 	if (!user) {
 		return(
 			<div
@@ -57,8 +55,8 @@ export default () => {
 				}
 			`}
 		>
-			<p>{user.profile.name}</p>
-			<img src={user.profile.profilePicURL} />
+			<p>{user.name}</p>
+			<img src={user.profilePicURL} />
 		</div>
 	)
 }

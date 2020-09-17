@@ -60,6 +60,7 @@ const ScheduleItem = ({ event }) => {
 					margin-bottom: 0.5rem;
 					padding: 0.35rem 1rem;
 					background: #f7f7f7;
+					color: #777;
 				`}
 			>
 				{event.scheduleItemTime}
@@ -69,12 +70,13 @@ const ScheduleItem = ({ event }) => {
 					margin-bottom: 0.25rem;
 				`}
 			>
-				<strong>{event.scheduleItemTitle}</strong>
+				{event.scheduleItemTitle}
 			</p>
 			<div
 				css={css`
-					color: #555;
-					margin-bottom: 0.75rem;
+					color: #777;
+					padding-bottom: 0.5rem;
+					font-style: italic;
 				`} 
 				dangerouslySetInnerHTML={{ __html: event.scheduleItemDescription }} 
 			/>

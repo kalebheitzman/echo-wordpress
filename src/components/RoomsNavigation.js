@@ -69,7 +69,7 @@ export default () => {
 									align-items: center;
 								`}
 							>
-								<strong>{room.eventRoomTitle}</strong>
+								{room.eventRoomTitle}
 							</div>
 							{/* <div>{room.eventRoomDescription}</div> */}
 							<div

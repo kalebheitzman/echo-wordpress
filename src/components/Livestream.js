@@ -118,10 +118,7 @@ const NotLive = () => {
 	return(
 		<div
 			css={css`
-				background: #f7f7f7;
-				border-radius: 4px;
 				width: 100%;
-				min-height: 100%;
 			`}
 		>
 			<div
@@ -136,7 +133,8 @@ const NotLive = () => {
 						width: 100%;
 						height: 56.25%;
 						object-fit: cover;
-						margin-bottom: 1.5rem;
+						margin: 0;
+						display: block;
 					`}
 				/>
 				<div 

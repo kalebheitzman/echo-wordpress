@@ -31,7 +31,7 @@ import Livestream from './Livestream'
 import ScheduleAside from './ScheduleAside'
 import RoomsNavigation from './RoomsNavigation'
 import Jitsi from './Jitsi'
-// import Footer from './Footer'
+import Footer from './Footer'
 
 // inject typography styles
 Typography.injectStyles()
@@ -51,6 +51,9 @@ export default () => {
 										width: 100vw;
 										height: 100vh;
 										background: var(--highlight-primary-bg);
+										display: flex;
+										justify-content: center;
+										align-items: center;
 									`}
 								>
 									<Loader />
@@ -63,73 +66,69 @@ export default () => {
 								<Header />
 								<div className="echo-body">
 									<Navigation />
-									{context.loading && (
-										<Loader />
-									)}
-									{!context.loading && (
-										<>
-											<Route exact path="/">
-												<Lobby />
-											</Route>
+									<>
+										<Route exact path="/">
+											<Lobby />
+										</Route>
 
-											<div className="echo-main">
-												<main
-													css={css`
-														grid-column: 2;
-														grid-row: 1;
+										<div className="echo-main">
+											<main
+												css={css`
+													grid-column: 2;
+													grid-row: 1;
 
-														${mq('tablet_up')} {
-															overflow-y: scroll;
-														}
-													`}
-												>
-													{context.main 
-														&& context.main === 'main-stage' 
-														&& (
-															<Livestream />
-														)
+													${mq('tablet_up')} {
+														overflow-y: scroll;
 													}
-													{context.main 
-														&& context.main === 'rooms' 
-														&& (
-															<Jitsi room={context.room} />
-														)
-													}
-												</main>
+												`}
+											>
+												{context.main 
+													&& context.main === 'main-stage' 
+													&& (
+														<Livestream />
+													)
+												}
+												{context.main 
+													&& context.main === 'rooms' 
+													&& (
+														<Jitsi room={context.room} />
+													)
+												}
+												<Footer />
+											</main>
 
-												<aside
-													css={css`
-														grid-column: 1;
-														grid-row: 1;
-														
-														${mq('tablet_up')} {
-															border-right: 1px solid #eee;
-															overflow-y: scroll;
-														}
-													`}
-												>
-													<Switch>
-														<Route path="/main-stage">
-															<ScheduleAside />
-														</Route>
-														<Route path="/rooms">
-															<RoomsNavigation />
-														</Route>
-														<Route path="/chat">
-															<Chat />
-														</Route>
-														<Route path="/qa">
-															<QA />
-														</Route>
-														<Route path="/polls">
-															<Polls />
-														</Route>
-													</Switch>
-												</aside>
-												{/* <Footer /> */}
-											</div>
-										</>
-									)}
+											<aside
+												css={css`
+													grid-column: 1;
+													grid-row: 1;
+													
+													${mq('tablet_up')} {
+														border-right: 1px solid #eee;
+														overflow-y: scroll;
+													}
+												`}
+											>
+												<Switch>
+													<Route path="/main-stage">
+														<ScheduleAside />
+													</Route>
+													<Route path="/rooms">
+														<RoomsNavigation />
+													</Route>
+													<Route path="/chat">
+														<Chat />
+													</Route>
+													<Route path="/qa">
+														<QA />
+													</Route>
+													<Route path="/polls">
+														<Polls />
+													</Route>
+												</Switch>
+											</aside>
+											{/* <Footer /> */}
+										</div>
+									</>
 								</div>
 							</div>
 						)

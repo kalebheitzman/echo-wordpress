@@ -16,6 +16,7 @@ export default ({ children, justifyContent = "center", alignItems = "center" }) 
 				justify-content: ${justifyContent};
 				align-items: ${alignItems};
 				width: 100%;
+				background: #fff;
 				// height: 100%;
 			`}
 		>

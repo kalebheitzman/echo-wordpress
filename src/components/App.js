@@ -76,6 +76,7 @@ export default () => {
 												css={css`
 													grid-column: 2;
 													grid-row: 1;
+													background: #111;
 
 													${mq('tablet_up')} {
 														overflow-y: scroll;

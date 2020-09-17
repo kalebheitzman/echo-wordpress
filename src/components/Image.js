@@ -14,7 +14,6 @@ export default ({ src, srcSet, width = "100%", height = "30vh" }) => {
 			src={src}
 			srcSet={srcSet}
 			css={css`
-				border-radius: 4px;
 				width: ${width};
 				height: ${height};
 				object-fit: cover;

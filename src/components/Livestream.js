@@ -26,6 +26,7 @@ export default () => {
 				position: relative;
 				overflow: hidden;
 				padding-top: 56.25%;
+				background: #111;
 			`}
 		>
 			<iframe

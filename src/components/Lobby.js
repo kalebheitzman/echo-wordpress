@@ -34,48 +34,48 @@ export default () => {
 					<div
 						className="echo-lobby"
 						css={css`
-			
+							display: grid;
+
 							${mq('tablet_up')} {
-								overflow-y: scroll;
-								display: flex;
-								justify-content: center;
-								min-height: calc(100vh - 100px);
+								grid-template-columns: 1fr 1fr;
+								min-height: calc(100vh - 77px);
 							}
 						`}
 					>
+						<Image 
+							src={featuredImage.node.sourceUrl}
+							srcSet={featuredImage.node.srcSet} 
+							height="100%"
+							css={css`
+								grid-row: 1;
+								grid-column: 2;
+							`}
+						/>
 						<div
 							css={css`
-								border-radius: 4px;
-								position: relative;
-								display: grid;
-								grid-template-columns: 1fr;
+								grid-row: 1;
+								grid-column: 1;
+								padding: 2rem;
 
 								${mq('tablet_up')} {
-									max-width: 720px;
-									margin: 2rem 0;
+									padding: 2rem 4rem;
 								}
 							`}
 						>
-							<Image 
-								src={featuredImage.node.sourceUrl}
-								srcSet={featuredImage.node.srcSet} 
-							/>
-							<div>
-								<h1>{title}</h1>
-								<div
-									css={css`
-										background: #f7f7f7;
-										padding: 1rem 1.5rem;
-										border-radius: 4px;
-										margin-bottom: 1rem;
-										line-height: 1.5;
-									`}
-								>
-									Start: {eventStartTime}<br />
-									End: {eventEndTime}
-								</div>
-								<Content content={content} />
+							<h1>{title}</h1>
+							<div
+								css={css`
+									background: #f7f7f7;
+									padding: 1rem 1.5rem;
+									border-radius: 4px;
+									margin-bottom: 1rem;
+									line-height: 1.5;
+								`}
+							>
+								Start: {eventStartTime}<br />
+								End: {eventEndTime}
 							</div>
+							<Content content={content} />
 						</div>
 					</div>
 				)

@@ -28,15 +28,10 @@ export default () => {
 		projectEcho: {
 			echoSocialLogin
 		},
-		allSettings: {
-			generalSettingsUrl
-		},
 		event: {
 			slug
 		}
 	} = context.data
-
-	const redirect = `${generalSettingsUrl}/event/${slug}`
 	
 	const services = [
 		{

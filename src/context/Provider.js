@@ -64,9 +64,6 @@ export default ({ children }) => {
 								echoFacebookAppId
 							}
 						}
-						allSettings {
-							generalSettingsUrl
-						}
 						event(id: ${echoSettings.eventID}, idType: DATABASE_ID) {
 							title(format: RENDERED)
 							content(format: RENDERED)

@@ -72,7 +72,17 @@ export default () => {
 			>
 				<span>Logout</span>
 			</p>
-			<p>{user.name}</p>
+			<p
+				css={css`
+					display: none;
+
+					${mq('tablet_up')} {
+						display; block;
+					}
+				`}
+			>
+				{user.name}
+			</p>
 			<img src={profilePic} />
 		</div>
 	)

@@ -29,7 +29,6 @@ export default ({ children }) => {
 
 		const echoUser = localStorage.getItem('echoUser')
 		if (echoUser) {
-			console.log(echoUser)
 			client
 				.query({
 					query: gql`

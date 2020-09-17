@@ -127,7 +127,6 @@ export default () => {
 											line-height: 1.2rem;
 										`}
 										onClick={() => {
-											console.log(context.main)
 											if (link.main !== undefined) {
 												context.setMain(link.main)
 											}

@@ -69,7 +69,7 @@ export default () => {
 									align-items: center;
 								`}
 							>
-								<strong>{room.eventRoomTitle}</strong>
+								{room.eventRoomTitle}
 							</div>
 							{/* <div>{room.eventRoomDescription}</div> */}
 							<div
@@ -86,6 +86,7 @@ export default () => {
 										color: var(--highlight-primary-color);
 										padding: 0.25rem 0.35rem;
 										border-radius: 4px;
+										text-decoration: none;
 
 										&:visited {
 											color: var(--highlight-primary-color);

@@ -30,8 +30,6 @@ export default () => {
 					}
 				} = context.data
 
-				console.log(context.data)
-
 				return(
 					<div
 						className="echo-lobby"
@@ -67,9 +65,10 @@ export default () => {
 								<div
 									css={css`
 										background: #f7f7f7;
-										padding: 0.5rem 1rem;
+										padding: 1rem 1.5rem;
 										border-radius: 4px;
-										margin-bottom: 0.5rem;
+										margin-bottom: 1rem;
+										line-height: 1.5;
 									`}
 								>
 									Start: {eventStartTime}<br />

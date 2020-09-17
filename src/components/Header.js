@@ -3,6 +3,10 @@
 // import libs
 import React from 'react'
 
+// import components
+import Logo from './Logo'
+import User from './User'
+
 // import css
 import { jsx, css } from '@emotion/core'
 import mq from '../utils/media'
@@ -15,17 +19,18 @@ export default () => {
 			css={css`
 				background: var(--highlight-primary-bg);
 				color: var(--highlight-primary-color);
-				display: flex;
+				display: grid;
 				align-items: center;
+				font-style: italic;
+				grid-template-columns: 1fr 1fr;
 
 				${mq('tablet_up')} {
 					padding: 0 1rem;
 				}
 			`}
 		>
-			<div>
-				{echoSettings.siteTitle} / {echoSettings.pageTitle}
-			</div>
+			<Logo />
+			<User />
 		</header>
 	)
 }

@@ -17,12 +17,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<a class="skip-link screen-reader-text" href="#wp-project-echo">
-		<?php esc_attr_e( 'Skip to content', 'echo' ); ?>
-	</a>
-
 	<div id="wp-project-echo"></div>
-
 	<?php wp_footer(); ?>
 </body>
 </html>

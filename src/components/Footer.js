@@ -13,9 +13,9 @@ export default () => {
 		<footer
 			className="echo-footer"
 			css={css`
-				background: #555;
-				color: #aaa;
-				padding: 1rem;
+				background: #111;
+				color: #666;
+				padding: 2rem;
 
 				${mq('tablet_up')} {
 					grid-row: 2;

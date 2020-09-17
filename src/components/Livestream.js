@@ -118,12 +118,7 @@ const NotLive = () => {
 	return(
 		<div
 			css={css`
-				background: #f7f7f7;
-				border-radius: 4px;
-
-				${mq('tablet_up')} {
-					width: 720px;
-				}
+				width: 100%;
 			`}
 		>
 			<div
@@ -135,19 +130,18 @@ const NotLive = () => {
 					src={featuredImage.node.sourceUrl}
 					srcSet={featuredImage.node.srcSet} 
 					css={css`
-						border-top-left-radius: 4px;
-						border-top-right-radius: 4px;
 						width: 100%;
-						height: 42vh;
+						height: 56.25%;
 						object-fit: cover;
-						margin-bottom: 1.5rem;
+						margin: 0;
+						display: block;
 					`}
 				/>
 				<div 
 					css={css`
 						position: absolute;
-						bottom: 2.5rem;
-						right: 0.5rem;
+						bottom: 4rem;
+						right: 2.5rem;
 						background: var(--highlight-primary-bg);
 						color: var(--highlight-primary-color);
 						padding: 3px 8px;
@@ -158,20 +152,28 @@ const NotLive = () => {
 				>
 					Not Live
 				</div>
-			</div>
-			<div
-				css={css`
-					padding: 0 1rem;
-				`}
-			>
-				<h3
+				<div
 					css={css`
-						margin-top: 0;
+						padding: 0 1rem;
+						position: absolute;
+						bottom: 2.5rem;
+						left: 2.5rem;
+						z-index: 100;
+						color: #fff;
+						background: rgba(0,0,0,0.5);
+						border-radius: 4px;
 					`}
 				>
-					{title}
-				</h3>
-				<p>Event starts {eventStartTime}.</p>
+					<h3
+						css={css`
+							margin: 0.5rem 0 0.5rem;
+							color: #fff;
+						`}
+					>
+						{title}
+					</h3>
+					<p>Event starts {eventStartTime}.</p>
+				</div>
 			</div>
 		</div>
 	)

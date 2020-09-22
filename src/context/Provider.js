@@ -64,6 +64,7 @@ export default ({ children }) => {
 							}
 						}
 						event(id: ${echoSettings.eventID}, idType: DATABASE_ID) {
+							id
 							title(format: RENDERED)
 							content(format: RENDERED)
 							slug
@@ -111,6 +112,7 @@ export default ({ children }) => {
 									eventPollOptions {
 										eventOptionQuestion
 									}
+									# eventPollData
 								}
 							}
 							featuredImage {
@@ -147,7 +149,7 @@ export default ({ children }) => {
 				logout: () => {
 					setUser(false)
 					localStorage.removeItem('echoUser')
-				} 
+				},
 			}}
 		>
 			{children}

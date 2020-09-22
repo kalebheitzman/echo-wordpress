@@ -111,7 +111,8 @@ export default () => {
 								css={css`
 										padding: 1rem;
 										font-style: italic;
-										
+										color: #777;
+
 										p {
 											margin: 0;
 											padding: 0;

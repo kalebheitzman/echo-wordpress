@@ -134,8 +134,10 @@ export default () => {
 							outline: none;
 							padding: 0;
 							margin: 0;
-							display: block;
-							text-align: center;
+							display: flex;
+							flex-direction: column;
+							justify-content: center;
+							align-items: center;
 							cursor: pointer;
 							color: #888;
 							transition: all 85ms ease-out;
@@ -145,6 +147,7 @@ export default () => {
 							${mq('tablet_up')} {
 								border-bottom: none;
 								border-right: 3px solid transparent;
+								padding: 0.25rem 0;
 							}	
 
 							&.active,

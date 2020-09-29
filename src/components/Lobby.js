@@ -26,7 +26,8 @@ export default () => {
 						featuredImage,
 						eventInformation: {
 							eventStartTime,
-							eventEndTime
+							eventEndTime,
+							eventLobbyImage
 						}
 					}
 				} = context.data
@@ -68,8 +69,8 @@ export default () => {
 							`}
 						>
 							<Image 
-								src={featuredImage.node.sourceUrl}
-								srcSet={featuredImage.node.srcSet} 
+								src={eventLobbyImage.sourceUrl}
+								srcSet={eventLobbyImage.srcSet} 
 								height="100%"
 							/>
 						</div>

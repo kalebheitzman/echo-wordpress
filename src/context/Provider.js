@@ -76,6 +76,10 @@ export default ({ children }) => {
 									srcSet
 									sourceUrl
 								}
+								eventLobbyImage {
+									srcSet
+									sourceUrl
+								}
 								eventColors {
 									bodyBackgound
 									htmlBackground

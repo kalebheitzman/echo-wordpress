@@ -49,7 +49,11 @@ export default () => {
 									grid-gap: 0.5rem;
 									margin-bottom: 0;
 									border-bottom: 1px solid #eee;
-									padding: 1rem;
+									padding: 1rem 2rem;
+
+									${mq('tablet_up')} {
+										padding: 1rem;
+									}
 								`}	
 							>
 								<div

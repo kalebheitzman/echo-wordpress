@@ -37,6 +37,7 @@ export default () => {
 			<Router>
 				<MyContext.Consumer>
 					{context => {
+						
 						if (context.loading) {
 							return(
 								<div

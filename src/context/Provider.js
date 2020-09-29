@@ -115,6 +115,15 @@ export default ({ children }) => {
 									# eventPollData
 								}
 							}
+							eventSettings {
+								enableMainStage
+								enableQa
+								enableRooms
+								fieldGroupName
+								mainStageLabel
+								qaLabel
+								roomsLabel
+							}
 							featuredImage {
 								node {
 									srcSet(size: ECHO_HERO)

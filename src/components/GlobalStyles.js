@@ -38,71 +38,71 @@ export default () => {
 					
 					&.admin-bar {
 
-						.echo-container {
+						// .echo-container {
 
-							${mq('tablet_up')} {
-								grid-template-rows: 10vh calc(90vh - 32px);
-							}
-						}
+						// 	${mq('tablet_up')} {
+						// 		grid-template-rows: 10vh calc(90vh - 32px);
+						// 	}
+						// }
 
-						.echo-jitsi-container {
+						// .echo-jitsi-container {
 			
-							${mq('tablet_up')} {
-								height: calc(90vh - 32px);
-							}
-						}
+						// 	${mq('tablet_up')} {
+						// 		height: calc(90vh - 32px);
+						// 	}
+						// }
 					}
 				}
 
-				.echo-container {
-					display: grid;
-					grid-template-columns: 1fr;
-					animation: fadein 500ms;
+				// .echo-container {
+				// 	display: grid;
+				// 	grid-template-columns: 1fr;
+				// 	animation: fadein 500ms;
 
-					@keyframes fadein {
-						from { opacity: 0; width: 0; }
-						to   { opacity: 1; width: 100%; }
-					}
+				// 	@keyframes fadein {
+				// 		from { opacity: 0; width: 0; }
+				// 		to   { opacity: 1; width: 100%; }
+				// 	}
 
-					${mq('tablet_up')} {
-						grid-template-rows: 10vh 90vh;
-					}
-				}
+				// 	${mq('tablet_up')} {
+				// 		grid-template-rows: 10vh 90vh;
+				// 	}
+				// }
 
-				.echo-body {
-					display: grid;
-					grid-template-columns: 1fr;
+				// .echo-body {
+				// 	display: grid;
+				// 	grid-template-columns: 1fr;
 
-					${mq('tablet_up')} {
-						grid-template-columns: 120px 1fr;
-						overflow: hidden;
-					}
-				}
+				// 	${mq('tablet_up')} {
+				// 		grid-template-columns: 120px 1fr;
+				// 		overflow: hidden;
+				// 	}
+				// }
 
-				.echo-main {
-					display: grid;
-					grid-template-columns: 1fr;
+				// .echo-main {
+				// 	display: grid;
+				// 	grid-template-columns: 1fr;
 
-					${mq('tablet_up')} {
-						grid-template-columns: 300px 1fr;	
-						height: 100%;
-						overflow: hidden;
-						transition: all 85ms ease-out;
+				// 	${mq('tablet_up')} {
+				// 		grid-template-columns: 300px 1fr;	
+				// 		height: 100%;
+				// 		overflow: hidden;
+				// 		transition: all 85ms ease-out;
 
-						&.closed {
-							grid-template-columns: 0px 1fr;
-						}
-					}
-				}
+				// 		&.closed {
+				// 			grid-template-columns: 0px 1fr;
+				// 		}
+				// 	}
+				// }
 
-				.echo-jitsi-container {
-					height: 100%; 
-					width: 100%;
+				// .echo-jitsi-container {
+				// 	height: 100%; 
+				// 	width: 100%;
 
-					${mq('tablet_up')} {
-						height: 90vh;
-					}
-				}
+				// 	${mq('tablet_up')} {
+				// 		height: 90vh;
+				// 	}
+				// }
 
 			`}
 		/>

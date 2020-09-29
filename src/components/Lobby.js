@@ -11,6 +11,7 @@ import mq from '../utils/media'
 import MyContext from '../context/Context'
 import Image from './Image'
 import Content from './Content'
+import Footer from './Footer'
 
 export default () => {
 
@@ -32,52 +33,91 @@ export default () => {
 
 				return(
 					<div
-						className="echo-lobby"
 						css={css`
+							grid-area: wrapper;
+					
 							display: grid;
-
-							${mq('tablet_up')} {
+							grid-template-areas: 
+								"lobby-image"
+								"lobby-content";
+			
+							height: 82h;
+							overflow-y: scroll;
+			
+							${mq('tablet_side')} {
+								grid-template-areas: 
+									"lobby-content lobby-image";
 								grid-template-columns: 1fr 1fr;
-								min-height: calc(100vh - 77px);
+								height: calc(100vh - 100px);
+								overflow: hidden;  
 							}
 						`}
 					>
-						<Image 
-							src={featuredImage.node.sourceUrl}
-							srcSet={featuredImage.node.srcSet} 
-							height="100%"
-							css={css`
-								grid-row: 1;
-								grid-column: 2;
-							`}
-						/>
+
 						<div
 							css={css`
-								grid-row: 1;
-								grid-column: 1;
-								padding: 2rem;
+								grid-area: lobby-image;
+								height: 35vh;
+								
+								${mq('tablet_side')} {
+									width: 100%;
+									height: 100%;
+									position: sticky;
+									top: 0;  
+								}
+							`}
+						>
+							<Image 
+								src={featuredImage.node.sourceUrl}
+								srcSet={featuredImage.node.srcSet} 
+								height="100%"
+							/>
+						</div>
 
-								${mq('tablet_up')} {
-									padding: 2rem 4rem;
+						<div
+							css={css`
+								grid-area: lobby-content;
+								box-sizing: border-box;
+			
+								${mq('tablet_side')} {
+									overflow-y: scroll;
+									height: 100%;  
 								}
 							`}
 						>
 							<div
 								css={css`
-									background: #f7f7f7;
-									padding: 1rem 1.5rem;
-									border-radius: 4px;
-									margin-bottom: 1rem;
-									line-height: 1.5;
+									padding: 2rem;
+									border-bottom: 1px solid #efefef;
+			
+									${mq('tablet_up')} {
+										padding: 2rem 4rem;              
+									}
+			
+									p {
+										margin: 0;
+									}
 								`}
 							>
 								Start: {eventStartTime}<br />
 								End: {eventEndTime}
 							</div>
-							<h1>{title}</h1>
-							<Content content={content} />
+							<div
+								css={css`
+									padding: 2rem;
+
+									${mq('tablet_up')} {
+										padding: 2rem 4rem;              
+									}
+								`}
+							>
+								<h1>{title}</h1>
+								<Content content={content} />
+							</div>
+							<Footer />
 						</div>
 					</div>
+
 				)
 			}}
 		</MyContext.Consumer>

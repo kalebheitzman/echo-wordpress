@@ -7,37 +7,26 @@ import React from 'react'
 import { jsx, css } from '@emotion/core'
 import mq from '../utils/media'
 
-export default ({ main, aside }) => {
-
+export default ({ children }) => {
 
 	return(
-		<div className="echo-main">
-			<main
-				css={css`
-					grid-column: 2;
-					grid-row: 1;
-
+		<div
+			css={css`
+					grid-area: wrapper;
+					overflow-y: scroll;
+	
 					${mq('tablet_up')} {
-						overflow-y: scroll;
+							display: grid;
+							grid-template-areas: 
+									"aside main"
+									"footer footer";
+							grid-template-columns: 300px 1fr;
+							grid-template-rows: 1fr 70px;
+							// height: auto;
 					}
-				`}
-			>
-				{main}
-			</main>
-
-			<aside
-				css={css`
-					grid-column: 1;
-					grid-row: 1;
-					
-					${mq('tablet_up')} {
-						border-right: 1px solid #eee;
-						overflow-y: scroll;
-					}
-				`}
-			>
-					{aside}
-			</aside>
+			`}
+		>
+			{children}
 		</div>
 	)
 }

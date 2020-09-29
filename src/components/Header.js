@@ -19,13 +19,19 @@ export default () => {
 			css={css`
 				background: var(--highlight-primary-bg);
 				color: var(--highlight-primary-color);
-				display: grid;
-				align-items: center;
-				font-style: italic;
-				grid-template-columns: 1fr 1fr;
 
-				${mq('tablet_up')} {
-					padding: 0 1rem;
+				grid-area: header;
+				position: sticky;
+				top: 0;
+				z-index: 1;
+				padding: 0 2rem;
+
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				align-items: center;
+
+				h1 {
+					color: var(--highlight-primary-color);
 				}
 			`}
 		>

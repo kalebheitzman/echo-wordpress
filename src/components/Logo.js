@@ -28,19 +28,24 @@ export default () => {
 		return (
 			<div
 				css={css`
-					height: 50px;
-					width: 220px;
-					margin-right: 1rem;
-
-					img {
-						width: 220px;
-						height: 50px;
-						object-fit: contain;
-					}
+					display: flex;
+					align-items: center;
 				`}
 			>
 				<Link to="/">
-					<img srcSet={eventLogo.srcSet} />
+					<img 
+						css={css`
+							margin: 0;
+							max-height: 30px;
+							object-fit: contain;
+							object-position: left center;
+
+							${mq('tablet_up')} {
+								max-height: 50px;
+							}
+						`}
+						srcSet={eventLogo.srcSet} 
+					/>
 				</Link>
 			</div>
 		)

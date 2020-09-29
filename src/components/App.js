@@ -1,10 +1,9 @@
 /** @jsx jsx */
-
+ 
 // import libs
 import React from 'react'
 import {
   HashRouter as Router,
-  Switch,
   Route
 } from 'react-router-dom'
 import Typography from '../utils/typography'
@@ -24,13 +23,9 @@ import Navigation from './Navigation'
 // import switch components
 import Loader from './Loader'
 import Lobby from './Lobby'
-import Chat from './Chat'
-import QA from './QA'
-import Polls from './Polls/Polls'
-import Livestream from './Livestream'
-import ScheduleAside from './ScheduleAside'
-import RoomsNavigation from './RoomsNavigation'
-import Jitsi from './Jitsi'
+import Wrapper from './Wrapper'
+import Main from './Main'
+import Aside from './Aside'
 import Footer from './Footer'
 
 // inject typography styles
@@ -62,75 +57,42 @@ export default () => {
 						}
 
 						return(
-							<div className="echo-container">
+							<div 
+								css={css`
+									display: grid;
+									grid-template-areas: 
+										"header"
+										"wrapper"
+										"navigation";
+									grid-template-rows: 9vh 82vh 9vh;
+									grid-template-columns: 1fr;
+
+									${mq('tablet_up')} {
+										grid-template-areas: 
+											"header header"
+											"navigation wrapper";
+										grid-template-rows: 100px 1fr;
+										grid-template-columns: 100px 1fr;  
+										min-height: 100vh;  
+									}
+								`}
+							>
 								<Header />
-								<div className="echo-body">
-									<Navigation />
-									<>
-										<Route exact path="/">
-											<Lobby />
-										</Route>
 
-										<div className="echo-main">
-											<main
-												css={css`
-													grid-column: 2;
-													grid-row: 1;
-													background: #111;
+								<Navigation />
 
-													${mq('tablet_up')} {
-														overflow-y: scroll;
-													}
-												`}
-											>
-												{context.main 
-													&& context.main === 'main-stage' 
-													&& (
-														<Livestream />
-													)
-												}
-												{context.main 
-													&& context.main === 'rooms' 
-													&& (
-														<Jitsi room={context.room} />
-													)
-												}
-												<Footer />
-											</main>
+								<Route exact path="/">
+									<Lobby />
+								</Route>
 
-											<aside
-												css={css`
-													grid-column: 1;
-													grid-row: 1;
-													
-													${mq('tablet_up')} {
-														border-right: 1px solid #eee;
-														overflow-y: scroll;
-													}
-												`}
-											>
-												<Switch>
-													<Route path="/main-stage">
-														<ScheduleAside />
-													</Route>
-													<Route path="/rooms">
-														<RoomsNavigation />
-													</Route>
-													<Route path="/chat">
-														<Chat />
-													</Route>
-													<Route path="/qa">
-														<QA />
-													</Route>
-													<Route path="/polls">
-														<Polls />
-													</Route>
-												</Switch>
-											</aside>
-											{/* <Footer /> */}
-										</div>
-									</>
-								</div>
+								<Route path="/:subpath">
+									<Wrapper>
+										<Main />
+										<Aside />
+										<Footer />
+									</Wrapper>
+								</Route>
+
 							</div>
 						)
 					}}

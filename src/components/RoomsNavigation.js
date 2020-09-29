@@ -33,7 +33,7 @@ export default () => {
 				`}
 			>
 				{eventRooms.map(room => {
-					console.log(room)
+
 					return(
 						<li 
 							key={room.eventRoomSlug}

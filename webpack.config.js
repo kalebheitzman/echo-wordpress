@@ -1,4 +1,3 @@
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const webpack = require('webpack');
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
@@ -35,8 +34,4 @@ module.exports = {
 			}
 		]
 	},
-	plugins: [
-		isDevelopment && new webpack.HotModuleReplacementPlugin(),
-		isDevelopment && new ReactRefreshWebpackPlugin(),
-	].filter(Boolean)
 };

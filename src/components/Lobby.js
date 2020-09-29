@@ -11,7 +11,7 @@ import mq from '../utils/media'
 import MyContext from '../context/Context'
 import Image from './Image'
 import Content from './Content'
-import Footer from './Footer'
+import Footer from './Layout/Footer'
 
 export default () => {
 

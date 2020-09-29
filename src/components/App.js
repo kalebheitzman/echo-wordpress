@@ -16,17 +16,15 @@ import '../utils/typography'
 // import components
 import MyProvider from '../context/Provider'
 import MyContext from '../context/Context'
-import GlobalStyles from './GlobalStyles'
-import Header from './Header'
-import Navigation from './Navigation'
-
-// import switch components
-import Loader from './Loader'
+import GlobalStyles from './Layout/GlobalStyles'
+import Header from './Layout/Header'
+import Navigation from './Layout/Navigation'
+import Loader from './Layout/Loader'
 import Lobby from './Lobby'
 import Wrapper from './Wrapper'
 import Main from './Main'
-import Aside from './Aside'
-import Footer from './Footer'
+import Aside from './Aside' 
+import Footer from './Layout/Footer'
 
 // inject typography styles
 Typography.injectStyles()
@@ -66,6 +64,8 @@ export default () => {
 										"navigation";
 									grid-template-rows: 9vh 82vh 9vh;
 									grid-template-columns: 1fr;
+									animation: fadein 500ms;
+									background: var(--body-background-color);
 
 									${mq('tablet_up')} {
 										grid-template-areas: 
@@ -75,6 +75,12 @@ export default () => {
 										grid-template-columns: 100px 1fr;  
 										min-height: 100vh;  
 									}
+
+									@keyframes fadein {
+										from { opacity: 0; width: 0; }
+										to   { opacity: 1; width: 100%; }
+									}
+
 								`}
 							>
 								<Header />

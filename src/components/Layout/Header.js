@@ -5,7 +5,7 @@ import React from 'react'
 
 // import components
 import Logo from './Logo'
-import User from '../User/User'
+import UserSpace from '../User/UserSpace'
 
 // import css
 import { jsx, css } from '@emotion/core'
@@ -36,7 +36,7 @@ export default () => {
 			`}
 		>
 			<Logo />
-			<User />
+			<UserSpace />
 		</header>
 	)
 }

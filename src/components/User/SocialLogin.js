@@ -1,24 +1,24 @@
 /** @jsx jsx */
 
 // import libs
-import React, { useContext, Component } from 'react'
-import { client } from '../../utils/apollo'
-import { gql, useMutation } from '@apollo/client'
+import React, { useContext } from 'react'
+
+// import login components
+// import TwitterLogin from "react-twitter-login"
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
+import { GoogleLogin } from 'react-google-login'
 
 // import components
-import SocialButton from './SocialButton'
+import MyContext from '../../context/Context'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
+	// faTwitter,
   faFacebookF,
 	faGoogle,
 } from '@fortawesome/free-brands-svg-icons'
 
 // import css
 import { jsx, css } from '@emotion/core'
-import mq from '../../utils/media'
-
-// import Components
-import MyContext from '../../context/Context'
 
 export default () => {
 
@@ -26,138 +26,42 @@ export default () => {
 
 	const {
 		projectEcho: {
-			echoSocialLogin
-		},
-		event: {
-			slug
-		}
-	} = context.data
-	
-	const services = [
-		{
-			provider: 'google',
-			icon: faGoogle,
-			label: 'Login with Google',
-			appId: echoSocialLogin.echoGoogleClientId,
-			redirect: false,
-		},
-		{
-			provider: 'facebook',
-			icon: faFacebookF,
-			label: 'Login with Facebook',
-			appId: echoSocialLogin.echoFacebookAppId,
-			redirect: false,
-		},
-	]
-
-	const getUser = async (email) => {
-		return await client
-			.query({
-				query: gql`
-					query GET_USER($id: ID!) {
-						user(id: $id, idType: EMAIL) {
-							id
-							avatar {
-								url
-							}
-							name
-							userId
-						}
-					}
-				`,
-				variables: { "id": email }
-			})
-			.then(result => {
-				return result.data.user
-			})
-			.catch(err => {
-				return err
-			})
-	}
-
-	const registerUser = async (userInput) => {
-		return await client
-			.mutate({
-				mutation: gql`
-					mutation REGISTER_USER($input: RegisterUserInput!) {
-						registerUser(input: $input) {
-							user {
-								id
-								name
-								userId
-								avatar {
-									url
-								}
-							}
-						}
-					}
-				`,
-				variables: userInput
-			})
-			.then(result => {
-				return result.data.registerUser.user
-			})
-			.catch(err => {
-				return err
-			})
-	}
-
-	const updateUser = (userInput) => {
-
-	}
-
-	const handleSocialLogin = (socialUser) => {
-
-		const userInput = {
-			"input": {
-				"clientMutationId": "RegisterUser",
-				"username": socialUser.profile.email,
-				"email": socialUser.profile.email,
-				"nicename": socialUser.profile.name,
-				"displayName": socialUser.profile.name,
-				"firstName": socialUser.profile.firstName,
-				"lastName": socialUser.profile.lastName,
+			echoSocialLogin: {
+				echoFacebookAppId,
+				echoGoogleClientId
 			}
 		}
+	} = context.data
 
-		// get user
-		getUser(socialUser.profile.email)
-			// user exists
-			.then(user => {
-				if (!user) {
-					registerUser(userInput)
-						.then(user => {
-							// set new user
-							const echoUser = Object.assign({
-								profilePicURL: socialUser.profile.profilePicURL
-							}, user);
-							console.log(echoUser)
-							localStorage.setItem('echoUser', echoUser.id)
-						})
-						.catch(err => {
-							console.log(err)
-						})
-				}
-				else {
-					// set already existing user
-					const echoUser = Object.assign({
-						profilePicURL: socialUser.profile.profilePicURL
-					}, user);
-					localStorage.setItem('echoUser', echoUser.id)
-					context.setUser(echoUser)
-				}
-			})
-			// an error occurred
-			.catch(err => {
-				console.log(err)
-			})
+	// const responseTwitter = (response) => {
+	// 	console.log(response)
+	// }
 
-		// register user
-		// const registerUserData = registerUser(userInput)
-
+	const setLocalUser = (user) => {
+		window.localStorage.setItem('echoUser', JSON.stringify(user))
 	}
-	
-	const handleSocialLoginFailure = (err) => {
+
+	const responseFacebook = (response) => {
+		const user = {
+			name: response.name,
+			email: response.email,
+			picture: response.picture.data.url
+		}
+		context.setUser(user)
+		setLocalUser(user)
+	}
+
+	const googleResponse = (response) => {
+		const user = {
+			name: response.profileObj.name,
+			email: response.profileObj.email,
+			picture: response.profileObj.imageUrl
+		}
+		context.setUser(user)
+		setLocalUser(user)
+	}
+
+	const googleError = (err) => {
 		console.log(err)
 	}
 
@@ -166,6 +70,7 @@ export default () => {
 			css={css`
 				display: flex;
 				align-items: center;
+				justify-content: flex-end;
 
 				span {
 					margin-right: 0.5rem;
@@ -189,30 +94,59 @@ export default () => {
 			`}
 		>
 			<span>Login</span>
-			{services.map((service, i) => (
-				<SocialButton
-					key={i}
-					provider={service.provider}
-					appId={service.appId}
-					redirect={service.redirect ? service.redirect : null}
-					onLoginSuccess={handleSocialLogin}
-					onLoginFailure={handleSocialLoginFailure}
-				>
+			
+			{/* <TwitterLogin 
+				authCallback={responseTwitter}
+				consumerKey={process.env.GATSBY_TWITTER_API_KEY}
+				consumerSecret={process.env.GATSBY_TWITTER_API_SECRET}
+				callbackUrl={`${process.env.GATSBY_SITE_URL}/.netlify/functions/twitter-auth`}
+			>
+				<button>
 					<FontAwesomeIcon
-						icon={service.icon}
+						icon={faTwitter}
 						fixedWidth
 						aria-hidden="true"
-						title={service.label}
+						title={"Login with Twitter"}
 					/>
-					<span
-						css={css`
-							display: none;
-						`}
+				</button>
+			</TwitterLogin> */}
+
+			<FacebookLogin
+				appId={echoFacebookAppId}
+				callback={responseFacebook}
+				fields="name,email,picture"
+				render={renderProps => (
+					<button onClick={renderProps.onClick}>
+						<FontAwesomeIcon
+							icon={faFacebookF}
+							fixedWidth
+							aria-hidden="true"
+							title={"Login with Facebook"}
+						/>
+					</button>
+				)}
+			/>
+
+			<GoogleLogin
+				clientId={echoGoogleClientId}
+				buttonText="Login"
+				onSuccess={googleResponse}
+				onFailure={googleError}
+				render={renderProps => (
+					<button 
+						onClick={renderProps.onClick} 
+						disabled={renderProps.disabled}
 					>
-						{service.label}
-					</span>
-				</SocialButton>
-			))}
+							<FontAwesomeIcon
+								icon={faGoogle}
+								fixedWidth
+								aria-hidden="true"
+								title={"Login with Google"}
+							/>
+					</button>
+				)}
+			/>
+
 		</div>
 	)
 }

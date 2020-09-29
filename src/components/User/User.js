@@ -7,42 +7,23 @@ import React, { useContext } from 'react'
 import { jsx, css } from '@emotion/core'
 import mq from '../../utils/media'
 
-// import Components
+// import components
 import MyContext from '../../context/Context'
-import SocialLogin from './SocialLogin'
 
 export default () => {
 
-	const context = useContext(MyContext)
+  const context = useContext(MyContext)
 
-	const {
-		user
-	} = context
+  const {
+    user
+  } = context
 
-	if (!user) {
-		return(
-			<div
-				css={css`
-					display: flex;
-					justify-content: flex-end;
-					align-items: center;
-				`}
-			>
-				<SocialLogin />
-			</div>
-		)
-	}
-
-	// set user profile pic
-	const profilePic = user.profilePicURL ? user.profilePicURL : user.avatar.url
-
-	return (
-		<div
+  return(
+    <div
 			css={css`
 				display: flex;
 				align-items: center;
 				justify-content: flex-end;
-
 				img {
 					width: 40px;
 					height: 40px;
@@ -50,40 +31,43 @@ export default () => {
 					margin-bottom: 0;
 					border: 2px solid var(--highlight-primary-color);	
 				}
-
 				p {
 					margin: 0 1rem 0 0;
 					padding: 0;
 				}
 			`}
 		>
-			<p
+			<button
 				onClick={context.logout}
 				css={css`
 					cursor: pointer;
 					background: rgba(255,255,255,0.1);
 					border-radius: 4px;
 					padding: 0.5rem 0.75rem !important;
+					margin: 0 1rem 0 0;
+					outline: 0;
+					border: 0;
+					color: var(--highlight-primary-color);
 
 					&:hover {
 						background: rgba(255,255,255,0.2);
 					}
 				`}
 			>
-				<span>Logout</span>
-			</p>
+				Logout
+			</button>
 			<p
 				css={css`
 					display: none;
 
-					${mq('tablet_up')} {
+          ${mq('tablet_up')} {
 						display: block;
 					}
 				`}
 			>
 				{user.name}
 			</p>
-			<img src={profilePic} />
+			<img src={user.picture} alt={user.name} />
 		</div>
-	)
+  )
 }

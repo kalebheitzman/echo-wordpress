@@ -17,8 +17,6 @@ export default () => {
 
 		const context = useContext(MyContext)
 		
-		console.log(context)
-
     return (
 			<div
 				css={css`

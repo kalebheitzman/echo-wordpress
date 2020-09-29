@@ -52,6 +52,11 @@ require_once $plugin_dir . 'inc/acf-fields.php';
 require_once $plugin_dir . 'inc/register-scripts.php';
 
 /**
+ * Register Custom GraphQL types
+ */
+require_once $plugin_dir . 'inc/graphql/polls.php';
+
+/**
  * Register Options Page
  */
 require_once $plugin_dir . 'inc/register-options-page.php';

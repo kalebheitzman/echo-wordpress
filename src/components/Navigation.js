@@ -25,33 +25,39 @@ const links = [
 		name: 'Lobby',
 		path: '/',
 		icon: faDoorOpen,
-		main: false
+		main: false,
+		enabled: true
 	},
 	{
 		name: 'Main Session',
 		path: '/main-stage',
 		icon: faVideo,
-		main: 'main-stage'
+		main: 'main-stage',
+		enabled: true
 	},
 	{
 		name: 'Rooms',
 		path: '/rooms',
-		icon: faUsers
+		icon: faUsers,
+		enabled: true
 	},
 	{
 		name: 'Chat',
 		path: '/chat',
-		icon: faUserFriends
+		icon: faUserFriends,
+		enabled: false
 	},
 	{
 		name: 'Q&A',
 		path: '/qa',
 		icon: faQuestion,
+		enabled: false
 	},
 	{
 		name: 'Polls',
 		path: '/polls',
-		icon: faPoll
+		icon: faPoll,
+		enabled: false
 	},
 ]
 
@@ -152,37 +158,44 @@ export default () => {
 								}
 							`}
 						>
-							{links.map(link => (
-								<li key={link.path}>
-									<NavLink 
-										exact={link.path === '/' ? true : false}
-										to={link.path}
-										activeClassName="active"
-										css={css`
-											line-height: 1.2rem;
-										`}
-										onClick={() => {
-											if (link.main !== undefined) {
-												context.setMain(link.main)
-											}
-											else {
-												context.setMain(context.main)
-											}
-										}}
-									>
-										<FontAwesomeIcon
-											icon={link.icon}
-											fixedWidth
-											aria-hidden="true"
-											title={link.name}
+							{links.map(link => {
+
+								if (!link.enabled) {
+									return <></> 
+								}
+
+								return (
+									<li key={link.path}>
+										<NavLink 
+											exact={link.path === '/' ? true : false}
+											to={link.path}
+											activeClassName="active"
 											css={css`
-												text-align: center;
+												line-height: 1.2rem;
 											`}
-										/>
-										<span className="label">{link.name}</span>
-									</NavLink>
-								</li>
-							))}
+											onClick={() => {
+												if (link.main !== undefined) {
+													context.setMain(link.main)
+												}
+												else {
+													context.setMain(context.main)
+												}
+											}}
+										>
+											<FontAwesomeIcon
+												icon={link.icon}
+												fixedWidth
+												aria-hidden="true"
+												title={link.name}
+												css={css`
+													text-align: center;
+												`}
+											/>
+											<span className="label">{link.name}</span>
+										</NavLink>
+									</li>
+								)
+							})}
 						</ul>
 						<div
 							css={css`

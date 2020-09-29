@@ -16,22 +16,19 @@ module.exports = {
 				test: /\.m?js$/,
 				exclude: /(node_modules|bower_components|vendor)/,
 				use: {
-					loader: require.resolve('babel-loader'),
+					loader: 'babel-loader',
 					options: {
 						presets: ['@babel/preset-env'],
-						plugins: [
-							isDevelopment && require.resolve('react-refresh/babel'),
-						].filter(Boolean)
 					}
 				}
 			},
 			{
 				test: /\.css$/,
 				use: [
-					{ loader: require.resolve('style-loader') }, 
-					{ loader: require.resolve('css-loader') }
+					{ loader: 'style-loader' }, 
+					{ loader: 'css-loader' }
 				]
 			}
 		]
-	},
+	}
 };

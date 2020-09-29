@@ -30,6 +30,5 @@
       }
 		],
 		"@babel/plugin-syntax-dynamic-import",
-		"react-refresh/babel"
   ]
 }

@@ -5,30 +5,28 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 module.exports = {
 	entry: "./src/index.js",
 	devtool: 'inline-source-map',
-	output: {
-		path: __dirname,
-		filename: "./dist/bundle.js"
-	},
 	mode: isDevelopment ? 'development' : 'production',
 	module: {
 		rules: [
 			{
 				test: /\.m?js$/,
 				exclude: /(node_modules|bower_components|vendor)/,
-				use: {
-					loader: 'babel-loader',
-					options: {
-						presets: ['@babel/preset-env'],
-					}
-				}
+				use: ['babel-loader']
 			},
 			{
 				test: /\.css$/,
 				use: [
-					{ loader: 'style-loader' }, 
-					{ loader: 'css-loader' }
+					{ loader: require.resolve('style-loader') }, 
+					{ loader: require.resolve('css-loader') }
 				]
 			}
 		]
-	}
+	},
+	resolve: {
+		extensions: ['*', '.js']
+	},
+	output: {
+		path: __dirname,
+		filename: "./dist/bundle.js"
+	},
 };

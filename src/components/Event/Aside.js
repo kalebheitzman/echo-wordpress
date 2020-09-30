@@ -5,7 +5,7 @@ import React from 'react'
 
 // import css
 import { jsx, css } from '@emotion/core'
-import mq from '../utils/media'
+import mq from '../../utils/media'
 
 // import components
 import {
@@ -16,7 +16,7 @@ import ScheduleAside from './ScheduleAside'
 import RoomsNavigation from './RoomsNavigation'
 import Chat from './Chat'
 import QA from './QA'
-import Polls from './Polls/Polls'
+import Polls from '../Polls/Polls'
 
 export default () => {
 

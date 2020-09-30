@@ -5,13 +5,13 @@ import React from 'react'
 
 // import css
 import { jsx, css } from '@emotion/core'
-import mq from '../utils/media'
+import mq from '../../utils/media'
 
 // import components
-import MyContext from '../context/Context'
+import MyContext from '../../context/Context'
 import Image from './Image'
 import Content from './Content'
-import Footer from './Layout/Footer'
+import Footer from '../Layout/Footer'
 
 export default () => {
 

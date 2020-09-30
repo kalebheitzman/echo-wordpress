@@ -5,7 +5,7 @@ import React from 'react'
 
 // import css
 import { jsx, css } from '@emotion/core'
-import mq from '../utils/media'
+import mq from '../../utils/media'
 
 export default ({ src, srcSet, width = "100%", height = "30vh" }) => {
 

@@ -4,11 +4,11 @@
 import React, { useContext } from 'react'
 
 // import components
-import MyContext from '../context/Context'
+import MyContext from '../../context/Context'
 
 // import css
 import { jsx, css } from '@emotion/core'
-import mq from '../utils/media'
+import mq from '../../utils/media'
 
 export default () => {
 

@@ -5,12 +5,11 @@ import React, { useContext } from 'react'
 
 // import css
 import { jsx, css } from '@emotion/core'
-import mq from '../utils/media'
+import mq from '../../utils/media'
 
 // import components
-import MyContext from '../context/Context'
+import MyContext from '../../context/Context'
 import LiveStream from './Livestream'
-import MainStage from './MainStage'
 import Jitsi from './Jitsi'
 
 export default () => {

@@ -33,6 +33,7 @@ export default () => {
 				src={eventInformation.eventLivestreamUrl}
 				allowFullScreen
 				frameBorder="0"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 				css={css`
 					position: absolute;
 					top: 0;

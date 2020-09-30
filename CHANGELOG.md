@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.2] - 2020-10-15
 
+### Changed
+- Updated webpack config
+
 ## [0.1.1] - 2020-09-29
 
 ### Added

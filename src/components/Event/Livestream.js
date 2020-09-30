@@ -29,11 +29,11 @@ export default () => {
 				background: #111;
 			`}
 		>
-			<iframe
-				src={eventInformation.eventLivestreamUrl}
+			<iframe 
+				src={eventInformation.eventLivestreamUrl} 
+				frameBorder="0" 
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
 				allowFullScreen
-				frameBorder="0"
-				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 				css={css`
 					position: absolute;
 					top: 0;

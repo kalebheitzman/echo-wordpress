@@ -111,13 +111,12 @@ if ( ! function_exists( 'echo_plugin_scripts' ) ) :
 			'echo-plugin-script',
 			'echoSettings',
 			array(
-				'nonce'            => wp_create_nonce( 'wp_rest' ),
-				'graphql'          => get_site_url() . '/graphql',
-				'siteTitle'        => get_bloginfo( 'name' ),
-				'pageTitle'        => $post->post_title,
-				'eventID'          => $post->ID,
-				'youtubeChannelId' => 'UChH-_9AfBWwWJdyKJbqAbjA',
-				'youtubeApiKey'    => 'AIzaSyCRCYTfhf8ARhwM1lR320cjYfW2ObZZ8c8',
+				'nonce'           => wp_create_nonce( 'wp_rest' ),
+				'graphql'         => get_site_url() . '/graphql',
+				'siteTitle'       => get_bloginfo( 'name' ),
+				'pageTitle'       => $post->post_title,
+				'eventID'         => $post->ID,
+				'twitterCallback' => plugins_url( 'twitter-callback.php', __FILE__ ),
 			)
 		);
 

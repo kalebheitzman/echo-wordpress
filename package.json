@@ -10,12 +10,12 @@
   "browserslist": "> 0.25%, not dead",
   "devDependencies": {
     "@babel/cli": "^7.5.5",
-		"@babel/core": "^7.5.5",
-		"babel-plugin-emotion": "^10.0.16",
+    "@babel/core": "^7.5.5",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.2",
     "babel-loader": "^8.0.6",
+    "babel-plugin-emotion": "^10.0.16",
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-react-jsx": "^6.24.1",
@@ -49,6 +49,7 @@
     "react-router-dom": "^5.2.0",
     "react-social-login": "^3.4.9",
     "react-spinners": "^0.9.0",
+    "react-twitter-login": "^1.1.2",
     "react-typography": "^0.16.19",
     "react-youtube": "^7.12.0",
     "typography": "^0.16.19"

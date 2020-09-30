@@ -2531,6 +2531,11 @@ crypto-browserify@^3.11.0:
     randombytes "^2.0.0"
     randomfill "^1.0.3"
 
+crypto-js@^3.1.9-1:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-3.3.0.tgz#846dd1cce2f68aacfa156c8578f926a609b7976b"
+  integrity sha512-DIT51nX0dCfKltpRiXV+/TVZq+Qq2NgF4644+K7Ttnla7zEzqc+kjJyiB96BHNyUTBxyjzRcZYpUdZa+QAqi6Q==
+
 css-color-keywords@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/css-color-keywords/-/css-color-keywords-1.0.0.tgz#fea2616dc676b2962686b3af8dbdbe180b244e05"
@@ -4315,6 +4320,13 @@ react-spinners@^0.9.0:
   integrity sha512-+x6eD8tn/aYLdxZjNW7fSR1uoAXLb9qq6TFYZR1dFweJvckcf/HfP8Pa/cy5HOvB/cvI4JgrYXTjh2Me3S6Now==
   dependencies:
     "@emotion/core" "^10.0.15"
+
+react-twitter-login@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/react-twitter-login/-/react-twitter-login-1.1.2.tgz#9da1c4a4347a7cd1e7ef9edad09b08a8b2935ed2"
+  integrity sha512-iQxYSGN6++k46emQNm0EUuvYQkkwmX0kjwBAQah4tNakJGYkf+AgDjC0/PjVwzlt4LCNsxNmGIQJtYluCwBAMQ==
+  dependencies:
+    crypto-js "^3.1.9-1"
 
 react-typography@^0.16.19:
   version "0.16.19"

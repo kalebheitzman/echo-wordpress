@@ -4,7 +4,7 @@
 import React, { useContext } from 'react'
 
 // import login components
-// import TwitterLogin from "react-twitter-login"
+import TwitterLogin from "react-twitter-login"
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 import { GoogleLogin } from 'react-google-login'
 
@@ -12,7 +12,7 @@ import { GoogleLogin } from 'react-google-login'
 import MyContext from '../../context/Context'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-	// faTwitter,
+	faTwitter,
   faFacebookF,
 	faGoogle,
 } from '@fortawesome/free-brands-svg-icons'
@@ -28,14 +28,16 @@ export default () => {
 		projectEcho: {
 			echoSocialLogin: {
 				echoFacebookAppId,
-				echoGoogleClientId
+				echoGoogleClientId,
+				echoTwitterConsumerKey,
+				echoTwitterConsumerSecret
 			}
 		}
 	} = context.data
 
-	// const responseTwitter = (response) => {
-	// 	console.log(response)
-	// }
+	const responseTwitter = (response) => {
+		console.log(response)
+	}
 
 	const setLocalUser = (user) => {
 		window.localStorage.setItem('echoUser', JSON.stringify(user))
@@ -63,6 +65,16 @@ export default () => {
 
 	const googleError = (err) => {
 		console.log(err)
+	}
+
+	// no keys found
+	if (
+		!echoTwitterConsumerSecret 
+		&& !echoTwitterConsumerSecret
+		&& !echoFacebookAppId
+		&& !echoGoogleClientId
+	) {
+		return <></>
 	}
 
 	return(
@@ -93,59 +105,66 @@ export default () => {
 				}
 			`}
 		>
+
 			<span>Login</span>
 			
-			{/* <TwitterLogin 
-				authCallback={responseTwitter}
-				consumerKey={process.env.GATSBY_TWITTER_API_KEY}
-				consumerSecret={process.env.GATSBY_TWITTER_API_SECRET}
-				callbackUrl={`${process.env.GATSBY_SITE_URL}/.netlify/functions/twitter-auth`}
-			>
-				<button>
-					<FontAwesomeIcon
-						icon={faTwitter}
-						fixedWidth
-						aria-hidden="true"
-						title={"Login with Twitter"}
-					/>
-				</button>
-			</TwitterLogin> */}
-
-			<FacebookLogin
-				appId={echoFacebookAppId}
-				callback={responseFacebook}
-				fields="name,email,picture"
-				render={renderProps => (
-					<button onClick={renderProps.onClick}>
+			{echoTwitterConsumerKey && echoTwitterConsumerSecret && (
+				<TwitterLogin 
+					authCallback={responseTwitter}
+					consumerKey={echoTwitterConsumerKey}
+					consumerSecret={echoTwitterConsumerSecret}
+					callbackUrl={`${echoSettings.twitterCallback}`}
+				>
+					<button>
 						<FontAwesomeIcon
-							icon={faFacebookF}
+							icon={faTwitter}
 							fixedWidth
 							aria-hidden="true"
-							title={"Login with Facebook"}
+							title={"Login with Twitter"}
 						/>
 					</button>
-				)}
-			/>
+				</TwitterLogin>
+			)}
 
-			<GoogleLogin
-				clientId={echoGoogleClientId}
-				buttonText="Login"
-				onSuccess={googleResponse}
-				onFailure={googleError}
-				render={renderProps => (
-					<button 
-						onClick={renderProps.onClick} 
-						disabled={renderProps.disabled}
-					>
+			{echoFacebookAppId && (
+				<FacebookLogin
+					appId={echoFacebookAppId}
+					callback={responseFacebook}
+					fields="name,email,picture"
+					render={renderProps => (
+						<button onClick={renderProps.onClick}>
 							<FontAwesomeIcon
-								icon={faGoogle}
+								icon={faFacebookF}
 								fixedWidth
 								aria-hidden="true"
-								title={"Login with Google"}
+								title={"Login with Facebook"}
 							/>
-					</button>
-				)}
-			/>
+						</button>
+					)}
+				/>
+			)}
+
+			{echoGoogleClientId && (
+				<GoogleLogin
+					clientId={echoGoogleClientId}
+					buttonText="Login"
+					onSuccess={googleResponse}
+					onFailure={googleError}
+					render={renderProps => (
+						<button 
+							onClick={renderProps.onClick} 
+							disabled={renderProps.disabled}
+						>
+								<FontAwesomeIcon
+									icon={faGoogle}
+									fixedWidth
+									aria-hidden="true"
+									title={"Login with Google"}
+								/>
+						</button>
+					)}
+				/>
+			)}
 
 		</div>
 	)

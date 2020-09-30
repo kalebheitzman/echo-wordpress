@@ -64,6 +64,8 @@ export default ({ children }) => {
 							echoSocialLogin {
 								echoGoogleClientId
 								echoFacebookAppId
+								echoTwitterConsumerKey
+								echoTwitterConsumerSecret
 							}
 						}
 						event(id: ${echoSettings.eventID}, idType: DATABASE_ID) {

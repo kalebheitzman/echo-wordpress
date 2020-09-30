@@ -24,7 +24,7 @@ export default () => {
 				position: sticky;
 				top: 0;
 				z-index: 1;
-				padding: 0 2rem;
+				padding: 0 1.5rem 0 2rem;
 
 				display: grid;
 				grid-template-columns: 1fr 1fr;
@@ -32,6 +32,10 @@ export default () => {
 
 				h1 {
 					color: var(--highlight-primary-color);
+				}
+
+				${mq('tablet_up')} {
+					padding: 0 2rem; 
 				}
 			`}
 		>

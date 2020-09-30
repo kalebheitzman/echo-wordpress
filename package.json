@@ -1,6 +1,6 @@
 {
-  "name": "wp-echo-conferencing",
-  "version": "1.0.0",
+  "name": "echo",
+  "version": "0.1.1",
   "license": "MIT",
   "main": "index.js",
   "scripts": {

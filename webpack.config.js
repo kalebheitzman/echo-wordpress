@@ -1,3 +1,7 @@
+const webpack = require('webpack');
+
+const isDevelopment = process.env.NODE_ENV !== 'production';
+
 module.exports = {
 	entry: "./src/index.js",
 	devtool: 'inline-source-map',
@@ -5,6 +9,7 @@ module.exports = {
 		path: __dirname,
 		filename: "./dist/bundle.js"
 	},
+	mode: isDevelopment ? 'development' : 'production',
 	module: {
 		rules: [
 			{
@@ -13,7 +18,7 @@ module.exports = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets: ['@babel/preset-env']
+						presets: ['@babel/preset-env'],
 					}
 				}
 			},

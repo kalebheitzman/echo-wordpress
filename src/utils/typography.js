@@ -1,10 +1,10 @@
-import Typography from "typography"
+import Typography from 'typography'
 
 const typography = new Typography({
 
   includeNormalize: true,
 
-  baseFontSize: "16px",
+  baseFontSize: "15px",
   baseLineHeight: 1.666,
 
   scaleRatio: 3,
@@ -15,7 +15,7 @@ const typography = new Typography({
       styles: ['400', '600'],
     },
     {
-      name: 'Quattrocento Sans',
+      name: 'Kumnh Sans',
       styles: ['400', '400i', '700&display=swap'],
     },
   ],
@@ -24,7 +24,7 @@ const typography = new Typography({
   headerColor: 'hsla(0,0%,0%,0.9)',
   headerWeight: 400,
 
-  bodyFontFamily: ["Quattrocento Sans", "sans-serif"],
+  bodyFontFamily: ["Kumnh Sans", "sans-serif"],
   bodyColor: 'hsla(0,0%,0%,0.8)',
   bodyWeight: 400,
   boldWeight: 700,
@@ -32,4 +32,4 @@ const typography = new Typography({
   blockMarginBottom: '1.5rem'
 })
 
-typography.injectStyles()
+export default typography

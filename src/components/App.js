@@ -1,12 +1,12 @@
 /** @jsx jsx */
-
+ 
 // import libs
 import React from 'react'
 import {
   HashRouter as Router,
-  Switch,
   Route
 } from 'react-router-dom'
+import Typography from '../utils/typography'
 
 // import css
 import { jsx, css } from '@emotion/core'
@@ -16,21 +16,18 @@ import '../utils/typography'
 // import components
 import MyProvider from '../context/Provider'
 import MyContext from '../context/Context'
-import GlobalStyles from './GlobalStyles'
-import Header from './Header'
-import Navigation from './Navigation'
-
-// import switch components
-import Loader from './Loader'
+import GlobalStyles from './Layout/GlobalStyles'
+import Header from './Layout/Header'
+import Navigation from './Layout/Navigation'
+import Loader from './Layout/Loader'
 import Lobby from './Lobby'
-import Chat from './Chat'
-import QA from './QA'
-import Polls from './Polls'
-import Livestream from './Livestream'
-import ScheduleAside from './ScheduleAside'
-import RoomsNavigation from './RoomsNavigation'
-import Jitsi from './Jitsi'
-// import Footer from './Footer'
+import Wrapper from './Wrapper'
+import Main from './Main'
+import Aside from './Aside' 
+import Footer from './Layout/Footer'
+
+// inject typography styles
+Typography.injectStyles()
 
 export default () => {
 	
@@ -40,80 +37,69 @@ export default () => {
 			<Router>
 				<MyContext.Consumer>
 					{context => {
+						
+						if (context.loading) {
+							return(
+								<div
+									css={css`
+										width: 100vw;
+										height: 100vh;
+										background: var(--highlight-primary-bg);
+										display: flex;
+										justify-content: center;
+										align-items: center;
+									`}
+								>
+									<Loader />
+								</div>
+							)
+						}
 
 						return(
-							<div className="echo-container">
+							<div 
+								css={css`
+									display: grid;
+									grid-template-areas: 
+										"header"
+										"wrapper"
+										"navigation";
+									grid-template-rows: 9vh 82vh 9vh;
+									grid-template-columns: 1fr;
+									animation: fadein 500ms;
+									background: var(--body-background-color);
+
+									${mq('tablet_up')} {
+										grid-template-areas: 
+											"header header"
+											"navigation wrapper";
+										grid-template-rows: 100px 1fr;
+										grid-template-columns: 100px 1fr;  
+										min-height: 100vh;  
+									}
+
+									@keyframes fadein {
+										from { opacity: 0; width: 0; }
+										to   { opacity: 1; width: 100%; }
+									}
+
+								`}
+							>
 								<Header />
-								<div className="echo-body">
-									<Navigation />
-									{context.loading && (
-										<Loader />
-									)}
-									{!context.loading && (
-										<>
-											<Route exact path="/">
-												<Lobby />
-											</Route>
 
-											<div className="echo-main">
-												<main
-													css={css`
-														grid-column: 2;
-														grid-row: 1;
+								<Navigation />
 
-														${mq('tablet_up')} {
-															overflow-y: scroll;
-														}
-													`}
-												>
-													{context.main 
-														&& context.main === 'main-stage' 
-														&& (
-															<Livestream />
-														)
-													}
-													{context.main 
-														&& context.main === 'rooms' 
-														&& (
-															<Jitsi room={context.room} />
-														)
-													}
-												</main>
+								<Route exact path="/">
+									<Lobby />
+								</Route>
 
-												<aside
-													css={css`
-														grid-column: 1;
-														grid-row: 1;
-														
-														${mq('tablet_up')} {
-															border-right: 1px solid #eee;
-															overflow-y: scroll;
-														}
-													`}
-												>
-													<Switch>
-														<Route path="/main-stage">
-															<ScheduleAside />
-														</Route>
-														<Route path="/rooms">
-															<RoomsNavigation />
-														</Route>
-														<Route path="/chat">
-															<Chat />
-														</Route>
-														<Route path="/qa">
-															<QA />
-														</Route>
-														<Route path="/polls">
-															<Polls />
-														</Route>
-													</Switch>
-												</aside>
-												{/* <Footer /> */}
-											</div>
-										</>
-									)}
-								</div>
+								<Route path="/:subpath">
+									<Wrapper>
+										<Main />
+										<Aside />
+										<Footer />
+									</Wrapper>
+								</Route>
+
 							</div>
 						)
 					}}

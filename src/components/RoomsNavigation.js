@@ -39,65 +39,91 @@ export default () => {
 							key={room.eventRoomSlug}
 							css={css`
 								border-bottom: 1px solid #eee;
-								padding: 1rem;
-								display grid;
-								grid-template-columns: 40px 1fr 60px;
-								grid-gap: 0.5rem;
 								margin-bottom: 0;
 							`}	
 						>
-							<div
+							<div 
 								css={css`
-									background: var(--highlight-primary-bg);
-									color: var(--highlight-primary-color);
-									width: 40px;
-									height: 40px;
-									border-radius: 40px;
-									display: flex;
-									justify-content: center;
-									align-items: center;
-									font-weight: bold;
-								`}
+									display grid;
+									grid-template-columns: 40px 1fr 60px;
+									grid-gap: 0.5rem;
+									margin-bottom: 0;
+									border-bottom: 1px solid #eee;
+									padding: 1rem 2rem;
+
+									${mq('tablet_up')} {
+										padding: 1rem;
+									}
+								`}	
 							>
-								{room.eventRoomTitle.charAt(0)}
-							</div>
-							<div
-								css={css`
-									padding: 0;
-									margin: 0;
-									display: flex;
-									align-items: center;
-								`}
-							>
-								<strong>{room.eventRoomTitle}</strong>
-							</div>
-							{/* <div>{room.eventRoomDescription}</div> */}
-							<div
-								css={css`
-									display: flex;
-									align-items: center;
-									justify-content: flex-end;
-								`}
-							>
-								<NavLink 
-									to={`/rooms/${room.eventRoomSlug}`}
+								<div
 									css={css`
 										background: var(--highlight-primary-bg);
 										color: var(--highlight-primary-color);
-										padding: 0.25rem 0.35rem;
-										border-radius: 4px;
-
-										&:visited {
-											color: var(--highlight-primary-color);
-										}
+										width: 40px;
+										height: 40px;
+										border-radius: 40px;
+										display: flex;
+										justify-content: center;
+										align-items: center;
+										font-weight: bold;
 									`}
-									onClick={() => {
-										context.setMain('rooms')
-										context.setRoom(room)
-									}}
 								>
-									Join
-								</NavLink>
+									{room.eventRoomTitle.charAt(0)}
+								</div>
+								<div
+									css={css`
+										padding: 0;
+										margin: 0;
+										display: flex;
+										align-items: center;
+									`}
+								>
+									{room.eventRoomTitle}
+								</div>
+								{/* <div>{room.eventRoomDescription}</div> */}
+								<div
+									css={css`
+										display: flex;
+										align-items: center;
+										justify-content: flex-end;
+									`}
+								>
+									<NavLink 
+										to={`/rooms/${room.eventRoomSlug}`}
+										css={css`
+											background: var(--highlight-primary-bg);
+											color: var(--highlight-primary-color);
+											padding: 0.25rem 0.35rem;
+											border-radius: 4px;
+											text-decoration: none;
+
+											&:visited {
+												color: var(--highlight-primary-color);
+											}
+										`}
+										onClick={() => {
+											context.setMain('rooms')
+											context.setRoom(room)
+										}}
+									>
+										Join
+									</NavLink>
+								</div>
+							</div>
+							<div
+								css={css`
+										padding: 1rem;
+										font-style: italic;
+										color: #777;
+
+										p {
+											margin: 0;
+											padding: 0;
+										}
+								`}
+							>
+									<p>{room.eventRoomDescription}</p>
 							</div>
 						</li>
 					)

@@ -42,9 +42,19 @@ require_once $plugin_dir . 'inc/install-echo-db.php';
 register_activation_hook( __FILE__, 'echo_install_tables' );
 
 /**
+ * Add ACF Fields Programatically
+ */
+require_once $plugin_dir . 'inc/acf-fields.php';
+
+/**
  * Register Scripts
  */
 require_once $plugin_dir . 'inc/register-scripts.php';
+
+/**
+ * Register Custom GraphQL types
+ */
+require_once $plugin_dir . 'inc/graphql/polls.php';
 
 /**
  * Register Options Page

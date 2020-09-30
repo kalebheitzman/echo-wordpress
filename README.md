@@ -10,3 +10,6 @@ This WordPress plugin provides a frontend React-based app for Live Streaming and
 
 ## Development
 
+## Reference Links
+
+https://developers.google.com/youtube/player_parameters?csw=1

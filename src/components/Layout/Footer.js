@@ -5,7 +5,7 @@ import React from 'react'
 
 // import css
 import { jsx, css } from '@emotion/core'
-import mq from '../utils/media'
+import mq from '../../utils/media'
 
 export default () => {
 
@@ -13,13 +13,20 @@ export default () => {
 		<footer
 			className="echo-footer"
 			css={css`
-				background: #555;
-				color: #aaa;
-				padding: 1rem;
+				grid-area: footer;
+				color: #bbb;
+				padding: 2rem;
+				display: flex;
+				align-items: center;
 
 				${mq('tablet_up')} {
-					grid-row: 2;
-					grid-column: 2;
+						padding: 2rem;
+						justify-content: flex-end;
+						border-top: 1px solid #eee;    
+				}
+
+				p {
+						margin: 0;
 				}
 			`}
 		>

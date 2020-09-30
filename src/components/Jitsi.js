@@ -1,20 +1,22 @@
 /** @jsx jsx */
 
 // import libs
-import React, { useState, useEffect } from 'react'
-
-// import components
-import Loader from './Loader'
+import React, { useContext, useState, useEffect } from 'react'
 
 // import css
 import { jsx, css } from '@emotion/core'
 import mq from '../utils/media'
 
-export default ({ room }) => {
+// import components
+import MyContext from '../context/Context'
 
-	const jitsiContainerId = 'jitsi-container-id'
+export default () => {
 
-	const [ jitsi, setJitsi ] = useState({})
+  const context = useContext(MyContext)
+
+  const jitsiContainerId = 'jitsi-container-id'
+
+  const [ jitsi, setJitsi ] = useState({})
 
 	const loadJitsiScript = () => {
 		let resolveLoadJitsiScriptPromise = null
@@ -37,10 +39,25 @@ export default ({ room }) => {
 			await loadJitsiScript()
 		}
 
-		const _jitsi = new window.JitsiMeetExternalAPI('meet.jit.si', {
-			parentNode: document.getElementById(jitsiContainerId),
-			roomName: room.eventRoomSlug
-		})
+		let options = {}
+
+		options.parentNode = document.getElementById(jitsiContainerId)
+		options.roomName = context.room.eventRoomSlug
+		options.configOverwrite = {
+			disableDeepLinking: true,
+		}
+		options.interfaceConfigOverwrite = {
+			MOBILE_APP_PROMO: false
+		}
+
+		if (context.user) {
+			options.userInfo = {
+				email: context.user.email,
+				displayName: context.user.name
+			}
+		}
+	
+		const _jitsi = new window.JitsiMeetExternalAPI('meet.jit.si', options)
 
 		setJitsi(_jitsi)
 	}
@@ -49,13 +66,23 @@ export default ({ room }) => {
 		initilizeJitsi()
 
 		return () => jitsi?.dispose?.()
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
-	return(
+  return(
 		<div
 			className="echo-jitsi-container"
 			css={css`
-				background: #374e62;
+        background: #374e62;
+				height: 100%;
+				
+				iframe {
+					min-height: 80vh;
+
+					${mq('tablet_up')} {
+						min-height: auto;
+					}
+				}
 			`}
 			id={jitsiContainerId}
 		/>

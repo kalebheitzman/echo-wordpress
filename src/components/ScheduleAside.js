@@ -48,31 +48,45 @@ const ScheduleItem = ({ event }) => {
 	return(
 		<li
 			css={css`
-				padding: 0 1rem 1rem;
+				padding: 0 2rem 1rem;
 				border-bottom: 1px solid #efefef;
 				margin-bottom: 0;
-				
-				p {
-					margin: 0;
-					padding: 0;
-				}
+
+				${mq('tablet_up')} {
+          padding: 0 1rem 1rem;
+        }
 			`}
 		>
 			<div
 				css={css`
-					margin-left: -1rem;
-					margin-right: -1rem;
+					margin-left: -2rem;
+					margin-right: -2rem;
 					margin-bottom: 0.5rem;
-					padding: 0.25rem 1rem;
+					padding: 0.35rem 2rem;
 					background: #f7f7f7;
+					color: #777;
+
+					${mq('tablet_up')} {
+						margin-left: -1rem;
+						margin-right: -1rem;  
+						padding: 0.4rem 1rem;
+					}
 				`}
 			>
 				{event.scheduleItemTime}
 			</div>
-			<p><strong>{event.scheduleItemTitle}</strong></p>
+			<p
+				css={css`
+					margin-bottom: 0.25rem;
+				`}
+			>
+				{event.scheduleItemTitle}
+			</p>
 			<div
 				css={css`
-					color: #555;
+					color: #777;
+					padding-bottom: 0.5rem;
+					font-style: italic;
 				`} 
 				dangerouslySetInnerHTML={{ __html: event.scheduleItemDescription }} 
 			/>

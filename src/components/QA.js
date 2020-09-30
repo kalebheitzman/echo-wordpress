@@ -93,6 +93,7 @@ export default () => {
 							dangerouslySetInnerHTML={{ __html: qa.eventAnswer }} 
 							css={css`
 								font-style: italic;
+								color: #888;
 							`}
 						/>
 					</div>

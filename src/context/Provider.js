@@ -23,35 +23,38 @@ export default ({ children }) => {
 			setMain('main-stage')
 		}
 
-		setState({
-			count: 0
-		})
+		let user = window.localStorage.getItem('echoUser')
 
-		const echoUser = localStorage.getItem('echoUser')
-		if (echoUser) {
-			client
-				.query({
-					query: gql`
-						query GET_USER($id: ID!) {
-							user(id: $id) {
-								id
-								avatar {
-									url
-								}
-								name
-								userId
-							}
-						}
-					`,
-					variables: { "id": echoUser }
-				})
-				.then(result => {
-					setUser(result.data.user)
-				})
-				.catch(err => {
-					setError(err)
-				})
-		}
+    if (null !== user) {
+      user = JSON.parse(user)
+      setUser(user)
+    }
+
+		// const echoUser = localStorage.getItem('echoUser')
+		// if (echoUser) {
+		// 	client
+		// 		.query({
+		// 			query: gql`
+		// 				query GET_USER($id: ID!) {
+		// 					user(id: $id) {
+		// 						id
+		// 						avatar {
+		// 							url
+		// 						}
+		// 						name
+		// 						userId
+		// 					}
+		// 				}
+		// 			`,
+		// 			variables: { "id": echoUser }
+		// 		})
+		// 		.then(result => {
+		// 			setUser(result.data.user)
+		// 		})
+		// 		.catch(err => {
+		// 			setError(err)
+		// 		})
+		// }
 
 		client
 			.query({

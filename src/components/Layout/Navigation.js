@@ -9,7 +9,7 @@ import mq from '../../utils/media'
 
 // import components
 import MyContext from '../../context/Context'
-import { NavLink, useHistory } from 'react-router-dom'
+import NavLink from './ConnectedLink'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
 	faDoorOpen,
@@ -38,7 +38,10 @@ export default () => {
 			path: '/',
 			icon: faDoorOpen,
 			main: false,
-			enabled: true
+			enabled: true,
+			cb: () => {
+				context.setRoom({})
+			}
 		},
 		{
 			name: eventSettings.mainStageLabel,
@@ -47,18 +50,17 @@ export default () => {
 			main: 'main-stage',
 			enabled: eventSettings.enableMainStage,
 			cb: () => {
-				
-				if (context.room.eventRoomSlug !== undefined) {
-					context.setConfirm(true)
-				}
-				// context.setRoom({})
+				context.setRoom({})
+				// if (context.room.eventRoomSlug !== undefined) {
+				// 	context.setConfirm(true)
+				// }
 			}
 		},
 		{
 			name: "Schedule",
 			path: '/schedule',
 			icon: faCalendarAlt,
-			enabled: context.room.eventRoomSlug !== undefined ? true : false
+			enabled: false //context.room.eventRoomSlug !== undefined ? true : false
 		},
 		{
 			name: eventSettings.roomsLabel,
@@ -89,11 +91,6 @@ export default () => {
 	const enabledLinks = links.filter(item => {
 		return item.enabled === true
 	})
-
-	const navigate = (path) => {
-		const history = useHistory()
-		history.push(path)
-	}
 
 	return(
 		<nav
@@ -206,6 +203,10 @@ export default () => {
 									}
 									else {
 										context.setMain(context.main)
+									}
+
+									if (link.cb !== undefined) {
+										link.cb()
 									}
 								}}
 							>

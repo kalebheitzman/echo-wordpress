@@ -47,7 +47,12 @@ export default () => {
 			disableDeepLinking: true,
 		}
 		options.interfaceConfigOverwrite = {
-			MOBILE_APP_PROMO: false
+			MOBILE_APP_PROMO: false,
+			TOOLBAR_BUTTONS: [
+				'microphone', 'camera', 'fodeviceselection', 'hangup', 'profile', 
+				'chat', 'settings', 'videoquality', 'filmstrip', 'feedback',
+        'tileview', 'help',
+    	],
 		}
 
 		if (context.user) {
@@ -69,11 +74,11 @@ export default () => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
-  return(
+  return(			
 		<div
 			className="echo-jitsi-container"
 			css={css`
-        background: #374e62;
+				background: #374e62;
 				height: 100%;
 				
 				iframe {

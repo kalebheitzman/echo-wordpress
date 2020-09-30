@@ -15,6 +15,7 @@ export default ({ children }) => {
 	const [ main, setMain ] = useState(false)
 	const [ room, setRoom ] = useState({})
 	const [ user, setUser ] = useState(false)
+	const [ confirm, setConfirm ] = useState(false)
 
 	useEffect(() => {
 
@@ -168,6 +169,8 @@ export default ({ children }) => {
 					setUser(false)
 					localStorage.removeItem('echoUser')
 				},
+				confirm,
+				setConfirm
 			}}
 		>
 			{children}

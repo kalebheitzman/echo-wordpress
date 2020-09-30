@@ -25,6 +25,7 @@ import Wrapper from './Event/Wrapper'
 import Main from './Event/Main'
 import Aside from './Event/Aside' 
 import Footer from './Layout/Footer'
+import ConfirmModal from './Event/ConfirmModal'
 
 // inject typography styles
 Typography.injectStyles()
@@ -84,6 +85,7 @@ export default () => {
 
 								`}
 							>
+								<ConfirmModal />
 								<Header />
 
 								<Navigation />
@@ -99,6 +101,7 @@ export default () => {
 										<Footer />
 									</Wrapper>
 								</Route>
+
 
 							</div>
 						)

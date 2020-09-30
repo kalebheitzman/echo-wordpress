@@ -17,6 +17,7 @@ import RoomsNavigation from './RoomsNavigation'
 import Chat from './Chat'
 import QA from './QA'
 import Polls from '../Polls/Polls'
+import LivestreamMini from './LivestreamMini'
 
 export default () => {
 
@@ -35,10 +36,15 @@ export default () => {
 				}
 			`}
 		>
+			<LivestreamMini />
+			
 			<Switch>
 				<Route path="/main-stage">
 					<ScheduleAside />
 				</Route>
+				<Route path="/schedule">
+					<ScheduleAside />
+				</Route>				
 				<Route path="/rooms">
 					<RoomsNavigation />
 				</Route>

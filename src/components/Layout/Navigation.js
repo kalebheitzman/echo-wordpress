@@ -9,7 +9,7 @@ import mq from '../../utils/media'
 
 // import components
 import MyContext from '../../context/Context'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
 	faDoorOpen,
@@ -17,7 +17,8 @@ import {
 	faUsers,
 	faUserFriends,
 	faQuestion,
-	faPoll
+	faPoll,
+	faCalendarAlt
 } from '@fortawesome/free-solid-svg-icons'
 import Credit from './Credit'
 
@@ -44,7 +45,20 @@ export default () => {
 			path: '/main-stage',
 			icon: faVideo,
 			main: 'main-stage',
-			enabled: eventSettings.enableMainStage
+			enabled: eventSettings.enableMainStage,
+			cb: () => {
+				
+				if (context.room.eventRoomSlug !== undefined) {
+					context.setConfirm(true)
+				}
+				// context.setRoom({})
+			}
+		},
+		{
+			name: "Schedule",
+			path: '/schedule',
+			icon: faCalendarAlt,
+			enabled: context.room.eventRoomSlug !== undefined ? true : false
 		},
 		{
 			name: eventSettings.roomsLabel,
@@ -75,6 +89,11 @@ export default () => {
 	const enabledLinks = links.filter(item => {
 		return item.enabled === true
 	})
+
+	const navigate = (path) => {
+		const history = useHistory()
+		history.push(path)
+	}
 
 	return(
 		<nav

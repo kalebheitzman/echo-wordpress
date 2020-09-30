@@ -11,7 +11,7 @@
  * Plugin Name:       Project Echo
  * Plugin URI:        https://github.com/kalebheitzman/wp-echo-conferencing
  * Description:       A ReactJS-based video live streaming and conferencing app for your website (requires <a href="https://www.advancedcustomfields.com/" target="_blank">Advanced Custom Fields</a>).
- * Version:           0.1.0
+ * Version:           0.1.2
  * Requires at least: 5.4
  * Requires PHP:      7.2
  * Author:            Kaleb Heitzman

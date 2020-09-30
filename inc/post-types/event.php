@@ -3,7 +3,7 @@
  * Event Custom Post Type
  *
  * @package Echo
- * @since 1.0.0
+ * @since 0.1.0
  */
 
 if ( ! post_type_exists( 'event' ) ) :

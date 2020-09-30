@@ -3,6 +3,7 @@
  * GraphQL Polls
  *
  * @package Echo
+ * @since 0.1.0
  */
 
 if ( ! function_exists( 'echo_register_choose_mutation' ) ) :

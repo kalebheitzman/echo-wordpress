@@ -3,6 +3,7 @@
  * Echo Database
  *
  * @package Echo
+ * @since 0.1.0
  */
 
 global $echo_db_version;

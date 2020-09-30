@@ -3,6 +3,7 @@
  * Register Scripts
  *
  * @package Echo
+ * @since 0.1.0
  */
 
 if ( ! function_exists( 'echo_remove_scripts' ) ) :

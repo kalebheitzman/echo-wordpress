@@ -3,6 +3,7 @@
  * Register Templates
  *
  * @package Echo
+ * @since 0.1.0
  */
 
 if ( ! function_exists( 'echo_register_event_template' ) ) :

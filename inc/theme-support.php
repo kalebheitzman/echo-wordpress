@@ -3,6 +3,7 @@
  * Plugin Theme Support
  *
  * @package Echo
+ * @since 0.1.0
  */
 
 add_theme_support( 'post-thumbnails' );

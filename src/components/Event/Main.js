@@ -11,11 +11,21 @@ import mq from '../../utils/media'
 import MyContext from '../../context/Context'
 import LiveStream from './Livestream'
 import Jitsi from './Jitsi'
+import {
+  Switch,
+  Route
+} from 'react-router-dom'
+import Livestream from './Livestream'
 
 export default () => {
 
 		const context = useContext(MyContext)
 		
+		const Component = () => {
+			
+			return <Livestream />
+		}
+
     return (
 			<div
 				css={css`
@@ -27,12 +37,20 @@ export default () => {
 					}
 				`}
 			>
-				{ 'main-stage' === context.main && (
-					<LiveStream />
-				)}
-				{ 'rooms' === context.main && (
-					<Jitsi room={context.room} />
-				)}
+				<Switch>
+					<Route path="/main-stage" component={LiveStream} />
+					<Route path="/rooms/:room" component={Jitsi} />
+					<Route path="/:subpage" render={props => {
+						if (context.main === 'main-stage') {
+							return <Livestream {...props} />
+						}
+						else if (context.main === 'rooms') {
+							return <Jitsi {...props} />
+						} else {
+							return <Livestream {...props} />
+						}
+					}} />
+				</Switch>
 			</div>
     )
 }

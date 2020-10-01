@@ -103,6 +103,7 @@ export default () => {
 											}
 										`}
 										onClick={() => {
+											context.setRoom({})
 											context.setMain('rooms')
 											context.setRoom(room)
 										}}

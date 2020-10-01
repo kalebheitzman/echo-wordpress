@@ -10,9 +10,27 @@ import mq from '../../utils/media'
 // import components
 import MyContext from '../../context/Context'
 
-export default () => {
+export default ({ match }) => {
 
-  const context = useContext(MyContext)
+	const {
+		params: {
+			room
+		}
+	} = match
+
+	const context = useContext(MyContext)
+	
+	const {
+		event: {
+			roomsInformation: {
+				eventRooms
+			}
+		}
+	} = context.data
+
+	const jitsiRoom = eventRooms.filter(item => {
+		return item.eventRoomSlug === room
+	})[0]
 
   const jitsiContainerId = 'jitsi-container-id'
 
@@ -72,7 +90,8 @@ export default () => {
 
 		return () => jitsi?.dispose?.()
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [])
+	}, [match])
+
 
   return(			
 		<div

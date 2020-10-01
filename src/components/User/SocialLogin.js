@@ -108,7 +108,7 @@ export default () => {
 
 			<span>Login</span>
 			
-			{echoTwitterConsumerKey && echoTwitterConsumerSecret && (
+			{echoTwitterConsumerKey && echoTwitterConsumerSecret && false && (
 				<TwitterLogin 
 					authCallback={responseTwitter}
 					consumerKey={echoTwitterConsumerKey}

@@ -28,9 +28,14 @@ export default ({ match }) => {
 		}
 	} = context.data
 
-	const jitsiRoom = eventRooms.filter(item => {
-		return item.eventRoomSlug === room
-	})[0]
+	let jitsiRoom = {}
+	if (room !== undefined) {
+		jitsiRoom = eventRooms.filter(item => {
+			return item.eventRoomSlug === room
+		})[0]	
+	} else {
+		jitsiRoom = context.room
+	}
 
   const jitsiContainerId = 'jitsi-container-id'
 
@@ -60,7 +65,7 @@ export default ({ match }) => {
 		let options = {}
 
 		options.parentNode = document.getElementById(jitsiContainerId)
-		options.roomName = context.room.eventRoomSlug
+		options.roomName = jitsiRoom.eventRoomSlug !== undefined ? jitsiRoom.eventRoomSlug : context.room.eventRoomSlug
 		options.configOverwrite = {
 			disableDeepLinking: true,
 		}
@@ -86,11 +91,12 @@ export default ({ match }) => {
 	}
 
 	useEffect(() => {
+		jitsi?.dispose?.()
 		initilizeJitsi()
 
 		return () => jitsi?.dispose?.()
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [match])
+	}, [context])
 
 
   return(			

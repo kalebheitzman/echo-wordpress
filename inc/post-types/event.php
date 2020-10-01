@@ -45,7 +45,7 @@ if ( ! post_type_exists( 'event' ) ) :
 			'label'               => __( 'Event', 'echo' ),
 			'description'         => __( 'A collection of events', 'echo' ),
 			'labels'              => $labels,
-			'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'custom-fields' ),
+			'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'custom-fields', 'comments' ),
 			'taxonomies'          => array( 'category', 'post_tag' ),
 			'hierarchical'        => false,
 			'public'              => true,

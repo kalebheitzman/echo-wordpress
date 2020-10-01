@@ -16,6 +16,7 @@ export default ({ children }) => {
 	const [ room, setRoom ] = useState({})
 	const [ user, setUser ] = useState(false)
 	const [ confirm, setConfirm ] = useState(false)
+	const [ chats, setChats ] = useState([])
 
 	useEffect(() => {
 
@@ -171,7 +172,24 @@ export default ({ children }) => {
 					localStorage.removeItem('echoUser')
 				},
 				confirm,
-				setConfirm
+				setConfirm,
+				chats,
+				setChats,
+				setLocalChat: (msg) => {
+
+					let newChats = chats
+					newChats.push({
+						user: {
+							name: "Kaleb Heitzman"
+						},
+						msg: msg,
+						me: true
+					})
+
+					console.log(newChats)
+
+					setChats(newChats)
+				}
 			}}
 		>
 			{children}

@@ -129,10 +129,11 @@ export default ({ children }) => {
 								enableMainStage
 								enableQa
 								enableRooms
-								fieldGroupName
+								enableChat
 								mainStageLabel
 								qaLabel
 								roomsLabel
+								chatLabel
 							}
 							featuredImage {
 								node {

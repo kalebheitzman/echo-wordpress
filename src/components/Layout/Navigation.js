@@ -69,10 +69,10 @@ export default () => {
 			enabled: eventSettings.enableRooms
 		},
 		{
-			name: 'Chat',
+			name: eventSettings.chatLabel,
 			path: '/chat',
 			icon: faUserFriends,
-			enabled: false
+			enabled: eventSettings.enableChat
 		},
 		{
 			name: eventSettings.qaLabel,

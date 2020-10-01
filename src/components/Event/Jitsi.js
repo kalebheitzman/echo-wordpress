@@ -92,6 +92,7 @@ export default ({ match }) => {
 
 	useEffect(() => {
 		jitsi?.dispose?.()
+		context.setMain('rooms')
 		initilizeJitsi()
 
 		return () => jitsi?.dispose?.()

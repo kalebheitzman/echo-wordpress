@@ -10,7 +10,7 @@ import mq from '../../utils/media'
 // import components
 import MyContext from '../../context/Context'
 
-export default () => {
+export default ({ mute = false }) => {
 
 	const context = useContext(MyContext)
 
@@ -30,7 +30,7 @@ export default () => {
 			`}
 		>
 			<iframe 
-				src={eventInformation.eventLivestreamUrl} 
+				src={`${eventInformation.eventLivestreamUrl}${mute ? "&mute=1" : ""}`} 
 				frameBorder="0" 
 				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
 				allowFullScreen

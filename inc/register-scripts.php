@@ -72,7 +72,7 @@ if ( ! function_exists( 'echo_plugin_scripts' ) ) :
 			while ( have_rows( 'event_colors' ) ) : the_row();
 				$html_background          = get_sub_field( 'html_background' );
 				$body_background          = get_sub_field( 'body_backgound' );
-				$primary_background_color = get_sub_field( 'primary_background_color' );
+				$primary_background       = get_sub_field( 'primary_background' );
 				$primary_background_hover = get_sub_field( 'primary_background_hover' );
 				$primary_text_color       = get_sub_field( 'primary_text_color' );
 				$text_color               = get_sub_field( 'text_color' );
@@ -81,7 +81,7 @@ if ( ! function_exists( 'echo_plugin_scripts' ) ) :
 
 		$custom_css = "
 			:root {
-				--highlight-primary-bg: $primary_background_color;
+				--highlight-primary-bg: $primary_background;
 				--highlight-primary-color: $primary_text_color;
 				--highlight-primary-hover: $primary_background_hover;
 				

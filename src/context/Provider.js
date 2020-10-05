@@ -62,8 +62,8 @@ export default ({ children }) => {
 			.query({
 				query: gql`
 					query EventQuery {
-						projectEcho {
-							echoSocialLogin {
+						echo {
+							echoApiKeys {
 								echoGoogleClientId
 								echoFacebookAppId
 								echoTwitterConsumerKey
@@ -75,10 +75,7 @@ export default ({ children }) => {
 							title(format: RENDERED)
 							content(format: RENDERED)
 							slug
-							eventInformation {
-								eventEndTime
-								eventLivestreamUrl
-								eventStartTime
+							eventBranding {
 								eventLogo {
 									srcSet
 									sourceUrl
@@ -90,11 +87,16 @@ export default ({ children }) => {
 								eventColors {
 									bodyBackgound
 									htmlBackground
-									primaryBackgroundColor
+									primaryBackground
 									primaryBackgroundHover
 									primaryTextColor
 									textColor
 								}
+							}
+							eventInformation {
+								eventEndTime
+								eventLivestreamUrl
+								eventStartTime
 							}
 							roomsInformation {
 								eventRooms {

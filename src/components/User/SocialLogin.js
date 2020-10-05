@@ -25,8 +25,8 @@ export default () => {
 	const context = useContext(MyContext)
 
 	const {
-		projectEcho: {
-			echoSocialLogin: {
+		echo: {
+			echoApiKeys: {
 				echoFacebookAppId,
 				echoGoogleClientId,
 				echoTwitterConsumerKey,

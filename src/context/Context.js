@@ -1,8 +1,4 @@
 // import libs
-import React from 'react'
+import React, { createContext } from 'react'
 
-// create context
-const MyContext = React.createContext()
-
-// export default context
-export default MyContext
+export default createContext()

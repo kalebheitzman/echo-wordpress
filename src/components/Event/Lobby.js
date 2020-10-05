@@ -23,10 +23,11 @@ export default () => {
 					event: {
 						title,
 						content,
-						featuredImage,
 						eventInformation: {
 							eventStartTime,
 							eventEndTime,
+						},
+						eventBranding: {
 							eventLobbyImage
 						}
 					}

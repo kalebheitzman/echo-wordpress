@@ -19,7 +19,7 @@ export default () => {
 
 		const {
 			event: {
-				eventInformation: {
+				eventBranding: {
 					eventLogo
 				}
 			}

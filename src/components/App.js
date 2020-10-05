@@ -102,7 +102,6 @@ export default () => {
 									</Wrapper>
 								</Route>
 
-
 							</div>
 						)
 					}}

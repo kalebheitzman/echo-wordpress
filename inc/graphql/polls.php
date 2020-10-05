@@ -30,11 +30,11 @@ if ( ! function_exists( 'echo_register_choose_mutation' ) ) :
 				'outputFields' => array(
 					'eventId' => array(
 						'type'        => 'String',
-						'description' => 'EventID'
+						'description' => 'EventID',
 					),
-					'value' => array(
+					'value'   => array(
 						'type'        => 'Boolean',
-						'description' => 'Choose Poll Value'
+						'description' => 'Choose Poll Value',
 					),
 				),
 				// mutateAndGetPayload.

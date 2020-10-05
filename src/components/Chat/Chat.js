@@ -16,44 +16,56 @@ export default () => {
 
 	const context = useContext(MyContext)
 
+	const scrollToBottom = () => {
+		var container = document.getElementById("chat-messages");
+		console.log(container.scrollHeight+10000)
+		container.scrollTop = container.scrollHeight+10000;
+	}
+
 	return(
 		<ChatProvider>
 			<ChatContext.Consumer>
 				{({ state: { chats }}) => {
 
-						return(
-							<div
+					return(
+						<div
+							css={css`
+								display: grid;
+								grid-template-rows: 1fr 80px;
+								box-sizing: border-box;
+							`}
+						>
+							<ul
+								id="chat-messages"
 								css={css`
-									display: grid;
-									grid-template-rows: 1fr 80px;
-									height: 100%;
+									margin: 0;
+									padding: 0 0 calc(80px + 1rem);
+									height: ${context.main === 'rooms' ? `calc(100vh - 340px)` : `calc(100vh - 180px)`};
+									overflow-y: scroll;
 									box-sizing: border-box;
+			
+									li {
+										padding: 1rem;
+										margin-bottom: 0;
+										box-sizing: border-box;
+			
+										h3 {
+											margin-top: 0;
+										}
+									}
 								`}
 							>
-								<ul
-									css={css`
-										margin: 0;
-										padding: 0;
-										height: calc(100vh - 180px);
-										overflow-y: scroll;
-				
-										li {
-											padding: 1rem;
-											margin-bottom: 0;
-											box-sizing: border-box;
-				
-											h3 {
-												margin-top: 0;
-											}
-										}
-									`}
-								>
-									{chats.map((chat, i) => (
-										<Message key={i} {...chat} />
-									))}
-								</ul>
-								<ChatSend />
-							</div>
+								{chats.map((chat, i) => (
+									<Message 
+										key={i} 
+										{...chat} 
+									/>
+								))}
+							</ul>
+							<ChatSend 
+								scrollToBottom={scrollToBottom}
+							/>
+						</div>
 					)
 				}}
 			</ChatContext.Consumer>

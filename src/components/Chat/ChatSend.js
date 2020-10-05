@@ -12,7 +12,7 @@ import mq from '../../utils/media'
 import MyContext from '../../context/Context'
 import { ChatContext } from './ChatContext'
 
-export default () => {
+export default ({ scrollToBottom }) => {
 
 	const [message, setMessage] = useState("")
 	const [disabled, setDisabled] = useState(true)
@@ -28,6 +28,7 @@ export default () => {
 			msg: message.trim(),
 			me: _.sample([true, false])
 		})
+		scrollToBottom()
 		//context.setLocalChat(message.trim())
 		setMessage("")
 		setDisabled(true)

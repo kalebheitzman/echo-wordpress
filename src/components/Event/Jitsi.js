@@ -62,6 +62,8 @@ export default ({ match }) => {
 			await loadJitsiScript()
 		}
 
+		document.getElementById(jitsiContainerId).innerHTML = ""
+		
 		let options = {}
 
 		options.parentNode = document.getElementById(jitsiContainerId)

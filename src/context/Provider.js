@@ -76,6 +76,9 @@ export default ({ children }) => {
 							content(format: RENDERED)
 							slug
 							eventBranding {
+								eventFavicon {
+									sourceUrl
+								}
 								eventLogo {
 									srcSet
 									sourceUrl

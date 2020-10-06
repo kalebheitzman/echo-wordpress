@@ -31,3 +31,23 @@ if ( ! function_exists( 'echo_image_sizes' ) ) :
 	}
 	add_filter( 'image_size_names_choose', 'echo_image_sizes' );
 endif;
+
+if ( ! function_exists( 'echo_favicon' ) ) {
+	/**
+	 * Custom Favicon
+	 */
+	function echo_favicon() {
+		global $post;
+		if ( 'event' === $post->post_type ) {
+
+			$favicon = get_field( 'event_favicon' );
+
+			if ( $favicon ) :
+				?>
+					<link rel="shortcut icon" href="<?php echo esc_url( $favicon['sizes']['medium'] ); ?>"/>
+				<?php
+			endif;
+		}
+	}
+	add_action( 'wp_head', 'echo_favicon' );
+}

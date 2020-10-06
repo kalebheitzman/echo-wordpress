@@ -58,14 +58,8 @@ export default () => {
 					overflow-y: scroll;
 					box-sizing: border-box;
 
-					li {
-						padding: 1rem;
+					img {
 						margin-bottom: 0;
-						box-sizing: border-box;
-
-						h3 {
-							margin-top: 0;
-						}
 					}
 				`}
 			>
@@ -94,7 +88,7 @@ const Message = ({ chat, user }) => {
 				display: grid;
 				grid-template-columns: 40px 1fr;
 				margin-bottom: 0;
-				padding: 0.25rem 1rem;
+				padding: 0.5rem 1rem;
 				grid-gap: 0.5rem;
 
 				&.me {

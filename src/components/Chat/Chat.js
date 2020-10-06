@@ -17,6 +17,10 @@ export default () => {
 
 	const context = useContext(MyContext)
 
+	const {
+		user
+	} = context
+
 	const scrollToBottom = () => {
 		const container = document.getElementById("chat-messages");
 		container.scrollTop = container.scrollHeight;
@@ -68,6 +72,7 @@ export default () => {
 					<Message 
 						key={i} 
 						chat={chat}
+						user={user}
 					/>
 				))}
 			</ul>
@@ -82,7 +87,8 @@ const Message = ({ chat }) => {
 
 	return(
 		<li
-			className={`me`}
+			className={user !== false && chat.node.author.email === user.email ? 
+			"me" : "you"}
 			css={css`
 				display: grid;
 				grid-template-columns: 40px 1fr;

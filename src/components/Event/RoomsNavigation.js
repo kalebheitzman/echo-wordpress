@@ -101,7 +101,7 @@ export default () => {
 											text-decoration: none;
 
 											&:visited {
-												color: ${eventColors.primaryBackgroundHover};
+												color: ${eventColors.primaryTextColor};
 											}
 										`}
 										onClick={() => {

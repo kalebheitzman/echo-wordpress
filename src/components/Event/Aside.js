@@ -14,7 +14,7 @@ import {
 } from 'react-router-dom'
 import ScheduleAside from './ScheduleAside'
 import RoomsNavigation from './RoomsNavigation'
-import Chat from '../Chat/Chat'
+import ChatProvider from '../Chat/ChatProvider'
 import QA from './QA'
 import Polls from '../Polls/Polls'
 import LivestreamMini from './LivestreamMini'
@@ -49,7 +49,7 @@ export default () => {
 					<RoomsNavigation />
 				</Route>
 				<Route path="/chat">
-					<Chat />
+					<ChatProvider />
 				</Route>
 				<Route path="/qa">
 					<QA />

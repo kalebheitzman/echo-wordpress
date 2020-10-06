@@ -1,7 +1,9 @@
 /** @jsx jsx */
 
 // import libs
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
+import { client, SUBMIT_COMMENT } from '../../utils/apollo'
+import { useMutation } from '@apollo/client'
 import _ from 'lodash'
 
 // import css
@@ -14,24 +16,27 @@ import { ChatContext } from './ChatContext'
 
 export default ({ scrollToBottom }) => {
 
-	const [message, setMessage] = useState("")
 	const [disabled, setDisabled] = useState(true)
+	const [message, setMessage] = useState("")
 
 	const context = useContext(MyContext)
-	const { state, setChats } = useContext(ChatContext)
 
 	const sendMessage = (event) => {
-		setChats({
-			user: {
-				name: _.sample(['Kaleb', 'Tony', 'David', 'Megan', 'Tom', 'Rick', 'Scott', 'Mihai', 'Fred', 'Myron', 'Sara']),
-			},
-			msg: message.trim(),
-			me: _.sample([true, false])
+
+		client.mutate({
+			mutation: SUBMIT_COMMENT,
+			variables: {
+				id: echoSettings.eventID,
+				content: message,
+				email: "kalebheitzman@gmail.com",
+				name: "Kaleb Heitzman"
+			}
+		}).then(results => {
+			scrollToBottom()
+			setMessage("")
+			setDisabled(true)
 		})
-		scrollToBottom()
-		//context.setLocalChat(message.trim())
-		setMessage("")
-		setDisabled(true)
+
 		event.preventDefault()
 	}
 
@@ -41,6 +46,10 @@ export default ({ scrollToBottom }) => {
 			setDisabled(false)
 		}
 	} 
+
+	useEffect(() => {
+		scrollToBottom()
+	}, [])
 
 	return(
 		<div
@@ -94,3 +103,15 @@ export default ({ scrollToBottom }) => {
 		</div>
 	)
 }
+
+
+
+// mutation MyMutation {
+//   __typename
+//   createComment(input: {clientMutationId: "CreateComment", authorEmail: "kalebheitzman@gmail.com", commentOn: 55, content: "test comment 3", author: "Kaleb Heitzman"}) {
+//     comment {
+//       content(format: RENDERED)
+//       date
+//     }
+//   }
+// }

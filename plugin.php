@@ -75,3 +75,8 @@ require_once $plugin_dir . 'inc/theme-support.php';
  * Register Custom Post Types
  */
 require_once $plugin_dir . 'inc/post-types/event.php';
+
+/**
+ * Auto Approve Comments
+ */
+require_once $plugin_dir . 'inc/auto-approve-comments.php';

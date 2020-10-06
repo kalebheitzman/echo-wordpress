@@ -85,11 +85,9 @@ export default () => {
 
 const Message = ({ chat, user }) => {
 
-	console.log(user)
-
 	return(
 		<li
-			className={user !== false && chat.node.author.email === user.email ? 
+			className={user !== false && chat.author.node.email === user.email ? 
 			"me" : "you"}
 			css={css`
 				display: grid;

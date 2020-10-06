@@ -21,6 +21,10 @@ export default ({ scrollToBottom }) => {
 
 	const context = useContext(MyContext)
 
+	const {
+    user
+	} = context
+	
 	const sendMessage = (event) => {
 
 		client.mutate({
@@ -28,8 +32,8 @@ export default ({ scrollToBottom }) => {
 			variables: {
 				id: echoSettings.eventID,
 				content: message,
-				email: "kalebheitzman@gmail.com",
-				name: "Kaleb Heitzman"
+				email: user ? user.email : '',
+				name: user ? user.name : 'Guest'
 			}
 		}).then(results => {
 			scrollToBottom()

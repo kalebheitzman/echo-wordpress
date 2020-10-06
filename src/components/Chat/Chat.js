@@ -83,7 +83,7 @@ export default () => {
 	)
 }
 
-const Message = ({ chat }) => {
+const Message = ({ chat, user }) => {
 
 	return(
 		<li

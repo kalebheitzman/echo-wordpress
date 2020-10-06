@@ -85,6 +85,8 @@ export default () => {
 
 const Message = ({ chat, user }) => {
 
+	console.log(user)
+
 	return(
 		<li
 			className={user !== false && chat.author.node.email === user.email ? 

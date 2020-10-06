@@ -10,16 +10,14 @@ import mq from '../../utils/media'
 // import components
 import MyContext from '../../context/Context'
 
-export default ({ match }) => {
-
-	const {
-		params: {
-			room
-		}
-	} = match
+export default () => {
 
 	const context = useContext(MyContext)
 	
+	const {
+		room
+	} = context
+
 	const {
 		event: {
 			roomsInformation: {
@@ -28,14 +26,7 @@ export default ({ match }) => {
 		}
 	} = context.data
 
-	let jitsiRoom = {}
-	if (room !== undefined) {
-		jitsiRoom = eventRooms.filter(item => {
-			return item.eventRoomSlug === room
-		})[0]	
-	} else {
-		jitsiRoom = context.room
-	}
+	const jitsiRoom = room.eventRoomSlug
 
   const jitsiContainerId = 'jitsi-container-id'
 

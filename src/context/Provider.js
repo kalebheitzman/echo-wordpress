@@ -156,6 +156,18 @@ export default ({ children }) => {
 			.then(result => {
 				setData(result.data)
 				setLoading(result.loading)
+
+				// set jitsi room if necessary
+				if ( window !== undefined && window.location.hash ) {
+					const hash = window.location.hash
+					const roomSlug = hash.split('/rooms/')[1]
+					const rooms = result.data.event.roomsInformation.eventRooms
+					setMain('rooms')
+					const room = rooms.filter(item => {
+						return item.eventRoomSlug === roomSlug
+					})[0]
+					setRoom(room)
+				}
 			})
 
 	}, [])
@@ -181,22 +193,7 @@ export default ({ children }) => {
 				confirm,
 				setConfirm,
 				chats,
-				setChats,
-				setLocalChat: (msg) => {
-
-					let newChats = chats
-					newChats.push({
-						user: {
-							name: "Kaleb Heitzman"
-						},
-						msg: msg,
-						me: true
-					})
-
-					console.log(newChats)
-
-					setChats(newChats)
-				}
+				setChats
 			}}
 		>
 			{children}

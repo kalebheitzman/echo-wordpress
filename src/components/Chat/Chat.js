@@ -12,6 +12,7 @@ import mq from '../../utils/media'
 // import components
 import MyContext from '../../context/Context'
 import ChatSend from './ChatSend'
+import Gravatar from 'react-gravatar'
 
 export default () => {
 
@@ -147,11 +148,19 @@ const Message = ({ chat, user }) => {
 				}
 			`}
 		>
-			<div
-				className="user"
-			>
-				{chat.author.node.name.charAt(0)}
-			</div>
+			{chat.author.node.email && (
+				<Gravatar
+					className="user"
+					email={chat.author.node.email}
+				/>
+			)}
+			{!chat.author.node.email && (
+				<div
+					className="user"
+				>
+					{chat.author.node.name.charAt(0)}
+				</div>
+			)}
 			<div className="message">
 				<div className="name">{chat.author.node.name}</div>
 				<div 

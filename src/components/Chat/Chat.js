@@ -21,8 +21,6 @@ export default () => {
 		user
 	} = context
 
-	console.log(context)
-
 	const scrollToBottom = () => {
 		const container = document.getElementById("chat-messages");
 		container.scrollTop = container.scrollHeight;

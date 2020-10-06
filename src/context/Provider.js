@@ -160,13 +160,16 @@ export default ({ children }) => {
 				// set jitsi room if necessary
 				if ( window !== undefined && window.location.hash ) {
 					const hash = window.location.hash
-					const roomSlug = hash.split('/rooms/')[1]
-					const rooms = result.data.event.roomsInformation.eventRooms
-					setMain('rooms')
-					const room = rooms.filter(item => {
-						return item.eventRoomSlug === roomSlug
-					})[0]
-					setRoom(room)
+					if (hash.includes('/rooms/')) {
+						console.log(hash)
+						const roomSlug = hash.split('/rooms/')[1]
+						const rooms = result.data.event.roomsInformation.eventRooms
+						setMain('rooms')
+						const room = rooms.filter(item => {
+							return item.eventRoomSlug === roomSlug
+						})[0]
+						setRoom(room)	
+					}
 				}
 			})
 

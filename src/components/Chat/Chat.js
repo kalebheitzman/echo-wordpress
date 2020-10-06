@@ -21,7 +21,7 @@ export default () => {
 		user
 	} = context
 
-	console.log(user)
+	console.log(context)
 
 	const scrollToBottom = () => {
 		const container = document.getElementById("chat-messages");

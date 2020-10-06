@@ -13,25 +13,11 @@ import Jitsi from './Jitsi'
 
 export default ({ match }) => {
 
-	const {
-		params: {
-			room
-		}
-	} = match
-
 	const context = useContext(Context)
 
 	const {
-		event: {
-			roomsInformation: {
-				eventRooms
-			},
-		}
-	} = context.data
-
-	const roomData = eventRooms.filter(item => {
-		return item.eventRoomSlug === room
-	})[0]
+		room
+	} = context
 
 	return (
 		<div
@@ -40,7 +26,7 @@ export default ({ match }) => {
 				width: 100%;
 			`}
 		>
-			{roomData.eventRoomType === 'jitsi' && (
+			{room.eventRoomType === 'jitsi' && (
 				<Jitsi match={match} />
 			)}
 		</div>

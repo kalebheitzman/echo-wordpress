@@ -107,7 +107,7 @@ export default ({ children }) => {
 									eventRoomType
 									eventRoomTitle
 									eventRoomDescription
-									eventGoogleMeetUrl
+									eventExternalMeetingUrl
 								}
 							}
 							scheduleInformation {

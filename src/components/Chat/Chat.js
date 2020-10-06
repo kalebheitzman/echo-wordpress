@@ -17,10 +17,6 @@ export default () => {
 
 	const context = useContext(MyContext)
 
-	const {
-		user
-	} = context
-
 	const scrollToBottom = () => {
 		const container = document.getElementById("chat-messages");
 		container.scrollTop = container.scrollHeight;
@@ -34,12 +30,16 @@ export default () => {
 		pollInterval: 1000
 	})
 
+	const {
+		user
+	} = context
+
 	if (loading) return (<div>Loading</div>)
 
 	if (error) return (<div>Error</div>)
 
 	const chats = data.comments.nodes
-	
+		
 	return(
 		<div
 			css={css`

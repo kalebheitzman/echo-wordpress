@@ -18,6 +18,9 @@ export default () => {
 		event: {
 			qaInformation: {
 				eventQuestions
+			},
+			eventBranding: {
+				eventColors
 			}
 		}
 	} = context.data
@@ -53,8 +56,8 @@ export default () => {
 					>
 						<span
 							css={css`
-								background: var(--highlight-primary-bg);
-								color: var(--highlight-primary-color);
+								background: ${eventColors.primaryBackground};
+								color: ${eventColors.primaryTextColor};
 								border-radius: 40px;
 								display: flex;
 								justify-content: center;

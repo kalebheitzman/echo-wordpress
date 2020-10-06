@@ -20,6 +20,9 @@ export default () => {
 		event: {
 			roomsInformation: {
 				eventRooms
+			},
+			eventBranding: {
+				eventColors
 			}
 		}
 	} = context.data
@@ -58,8 +61,8 @@ export default () => {
 							>
 								<div
 									css={css`
-										background: var(--highlight-primary-bg);
-										color: var(--highlight-primary-color);
+										background: ${eventColors.primaryBackground};
+										color: ${eventColors.primaryTextColor};
 										width: 40px;
 										height: 40px;
 										border-radius: 40px;
@@ -81,7 +84,6 @@ export default () => {
 								>
 									{room.eventRoomTitle}
 								</div>
-								{/* <div>{room.eventRoomDescription}</div> */}
 								<div
 									css={css`
 										display: flex;
@@ -92,8 +94,8 @@ export default () => {
 									<NavLink 
 										to={`/rooms/${room.eventRoomSlug}`}
 										css={css`
-											background: var(--highlight-primary-bg);
-											color: var(--highlight-primary-color);
+											bbackground: ${eventColors.primaryBackground};
+											color: ${eventColors.primaryTextColor};
 											padding: 0.25rem 0.35rem;
 											border-radius: 4px;
 											text-decoration: none;

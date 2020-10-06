@@ -32,6 +32,11 @@ export default () => {
 				echoTwitterConsumerKey,
 				echoTwitterConsumerSecret
 			}
+		},
+		event: {
+			eventBranding: {
+				eventColors
+			}
 		}
 	} = context.data
 
@@ -89,12 +94,12 @@ export default () => {
 				}
 
 				button {
-					background: rgba(0,0,0,0.05);
+					background: rgba(2555,2555,2555,0.05);
 					outline: none;
 					border: 0;
 					padding: 0;
 					margin: 0 0.25rem 0 0;
-					color: var(--highlight-primary-color);
+					color: ${eventColors.primaryTextColor};
 					width: 2rem;
 					height: 2rem;
 					border-radius: 2rem;
@@ -102,6 +107,10 @@ export default () => {
 					justify-content: center;
 					align-items: center;
 					cursor: pointer;
+
+					&:hover {
+						background: rgba(255,255,255,0.15);
+					}
 				}
 			`}
 		>

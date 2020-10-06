@@ -1,9 +1,10 @@
 /** @jsx jsx */
 
 // import libs
-import React from 'react'
+import React, { useContext } from 'react'
 
 // import components
+import Context from '../../context/Context'
 import Logo from './Logo'
 import UserSpace from '../User/UserSpace'
 
@@ -13,12 +14,22 @@ import mq from '../../utils/media'
 
 export default () => {
 
+	const context = useContext(Context)
+
+	const {
+		event: {
+			eventBranding: {
+				eventColors
+			}
+		}
+	} = context.data
+
 	return(
 		<header
 			className="echo-header"
 			css={css`
-				background: var(--highlight-primary-bg);
-				color: var(--highlight-primary-color);
+				background: ${eventColors.primaryBackground};
+				color: ${eventColors.primaryTextColor};
 
 				grid-area: header;
 				position: sticky;

@@ -28,7 +28,10 @@ export default () => {
 
 	const {
 		event: {
-			eventSettings
+			eventSettings,
+			eventBranding: {
+				eventColors
+			}
 		}
 	} = context.data
 
@@ -168,12 +171,12 @@ export default () => {
 
 							&.active,
 							&:hover {
-								border-bottom: 3px solid var(--highlight-primary-bg);
+								border-bottom: 3px solid ${eventColors.primaryBackground};
 								color: #333;
 
 								${mq('tablet_up')} {
 									border-bottom: none;
-									border-right: 3px solid var(--highlight-primary-bg);
+									border-right: 3px solid ${eventColors.primaryBackground};
 								}
 							}
 						}

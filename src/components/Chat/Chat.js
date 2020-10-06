@@ -32,7 +32,14 @@ export default () => {
 	})
 
 	const {
-		user
+		user,
+		data: {
+			event: {
+				eventBranding: {
+					eventColors
+				}
+			}
+		}
 	} = context
 
 	if (loading) return (<div>Loading</div>)
@@ -68,6 +75,7 @@ export default () => {
 						key={i} 
 						chat={chat}
 						user={user}
+						eventColors={eventColors}
 					/>
 				))}
 			</ul>
@@ -78,7 +86,7 @@ export default () => {
 	)
 }
 
-const Message = ({ chat, user }) => {
+const Message = ({ chat, user, eventColors }) => {
 
 	return(
 		<li
@@ -97,8 +105,8 @@ const Message = ({ chat, user }) => {
 					.user {
 						grid-row: 1;
 						grid-column: 2;
-						background: var(--highlight-primary-bg);
-						color: var(--highlight-primary-color);
+						background: ${eventColors.primaryBackground};
+						color: ${eventColors.primaryTextColor};
 					}
 
 					.message {

@@ -103,9 +103,11 @@ export default ({ children }) => {
 							}
 							roomsInformation {
 								eventRooms {
-									eventRoomDescription
 									eventRoomSlug
+									eventRoomType
 									eventRoomTitle
+									eventRoomDescription
+									eventGoogleMeetUrl
 								}
 							}
 							scheduleInformation {

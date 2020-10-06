@@ -10,7 +10,7 @@ import mq from '../../utils/media'
 // import components
 import MyContext from '../../context/Context'
 import LiveStream from './Livestream'
-import Jitsi from './Jitsi'
+import Room from './Room'
 import {
   Switch,
   Route
@@ -39,13 +39,13 @@ export default () => {
 			>
 				<Switch>
 					<Route path="/main-stage" component={LiveStream} />
-					<Route path="/rooms/:room" component={Jitsi} />
+					<Route path="/rooms/:room" component={Room} />
 					<Route path="/:subpage" render={props => {
 						if (context.main === 'main-stage') {
 							return <Livestream {...props} />
 						}
 						else if (context.main === 'rooms') {
-							return <Jitsi {...props} />
+							return <Room {...props} />
 						} else {
 							return <Livestream {...props} />
 						}

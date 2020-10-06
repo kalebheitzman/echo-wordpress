@@ -9,9 +9,7 @@ import mq from '../../utils/media'
 
 // import components
 import MyContext from '../../context/Context'
-import {
-	NavLink
-} from 'react-router-dom'
+import RoomLink from './RoomLink'
 
 export default () => {
 	const context = useContext(MyContext)
@@ -91,27 +89,7 @@ export default () => {
 										justify-content: flex-end;
 									`}
 								>
-									<NavLink 
-										to={`/rooms/${room.eventRoomSlug}`}
-										css={css`
-											background: ${eventColors.primaryBackground};
-											color: ${eventColors.primaryTextColor};
-											padding: 0.25rem 0.35rem;
-											border-radius: 4px;
-											text-decoration: none;
-
-											&:visited {
-												color: ${eventColors.primaryTextColor};
-											}
-										`}
-										onClick={() => {
-											context.setRoom({})
-											context.setMain('rooms')
-											context.setRoom(room)
-										}}
-									>
-										Join
-									</NavLink>
+									<RoomLink room={room} />
 								</div>
 							</div>
 							<div

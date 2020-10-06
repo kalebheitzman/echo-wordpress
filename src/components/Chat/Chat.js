@@ -11,6 +11,7 @@ import mq from '../../utils/media'
 
 // import components
 import MyContext from '../../context/Context'
+import Loader from '../Layout/Loader2'
 import ChatSend from './ChatSend'
 import Gravatar from 'react-gravatar'
 
@@ -42,7 +43,7 @@ export default () => {
 		}
 	} = context
 
-	if (loading) return (<div>Loading</div>)
+	if (loading) return (<Loader />)
 
 	if (error) return (<div>Error</div>)
 

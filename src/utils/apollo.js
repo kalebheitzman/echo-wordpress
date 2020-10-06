@@ -21,7 +21,7 @@ query GET_COMMENTS($id: ID!) {
 	comments(
 		where: {
 			contentId: $id, 
-			order: DESC, 
+			order: ASC, 
 			orderby: COMMENT_DATE
 		}, 
 		last: 500

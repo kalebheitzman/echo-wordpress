@@ -19,6 +19,17 @@ module.exports = {
 					{ loader: require.resolve('style-loader') }, 
 					{ loader: require.resolve('css-loader') }
 				]
+			},
+			{
+				test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+						loader: 'file-loader',
+						options: {
+							outputPath: 'dist',
+						},
+          },
+        ],
 			}
 		]
 	},

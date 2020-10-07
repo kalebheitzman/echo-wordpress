@@ -3,8 +3,6 @@
 // import libs
 import React, { useState, useContext, useEffect } from 'react'
 import { client, SUBMIT_COMMENT } from '../../utils/apollo'
-import { useMutation } from '@apollo/client'
-import _ from 'lodash'
 
 // import css
 import { jsx, css } from '@emotion/core'
@@ -12,7 +10,6 @@ import mq from '../../utils/media'
 
 // import components
 import MyContext from '../../context/Context'
-import { ChatContext } from './ChatContext'
 
 export default ({ scrollToBottom }) => {
 
@@ -45,9 +42,13 @@ export default ({ scrollToBottom }) => {
 	}
 
 	const handleChange = (event) => {
+		setMessage(event.target.value)
+	
 		if (event.target.value.length > 0) {
-			setMessage(event.target.value)
 			setDisabled(false)
+		}
+		if (event.target.value.length === 0) {
+			setDisabled(true)
 		}
 	} 
 
@@ -91,7 +92,6 @@ export default ({ scrollToBottom }) => {
 				<input
 					type="text"
 					placeholder="Message..."
-					autoFocus={true}
 					css={css`
 						padding: 0.5rem 1rem;
 					`}

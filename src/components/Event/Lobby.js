@@ -101,8 +101,8 @@ export default () => {
 									}
 								`}
 							>
-								Start: {eventStartTime}<br />
-								End: {eventEndTime}
+								Starts: {eventStartTime}<br />
+								Ends: {eventEndTime}
 							</div>
 							<div
 								css={css`

@@ -117,6 +117,7 @@ if ( ! function_exists( 'echo_plugin_scripts' ) ) :
 				'pageTitle'       => $post->post_title,
 				'eventID'         => $post->ID,
 				'twitterCallback' => plugins_url( 'twitter-callback.php', __FILE__ ),
+				'pluginUrl'       => plugins_url( 'echo' ),
 			)
 		);
 

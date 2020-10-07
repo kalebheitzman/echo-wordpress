@@ -19,8 +19,11 @@ export default () => {
 				padding: 2rem;
 
 				${mq('tablet_up')} {
-					padding: 2rem 4rem;
-					border-top: 1px solid #eee;    
+					padding: 0 4rem;
+					border-top: 1px solid #eee; 
+					display: flex;
+					justify-content: center;
+					align-items: center;   
 				}
 
 				p {
@@ -31,42 +34,71 @@ export default () => {
 			<div
 				css={css`
 					display: grid;
-					line-height: 24px;
+					grid-gap: 1rem;
+					text-align: center;
 
 					${mq('tablet_up')} {
+						text-align: left;
 						grid-template-columns: 1fr 1fr;
+						line-height: 30px;
+						width: 100%;
 					}
 				`}
 			>
 				<div>
-					<p>&copy; 2020 TCM International Institute</p>
+					<p>&copy; 2020 TCM International Institute.</p>
 				</div>
 				<div
 					css={css`
-						display: grid;
-						grid-template-columns: 1fr 80px;
-						grid-gap: 0.5rem;
-
+						
 						${mq('tablet_up')} {
 							text-align: right;
 						}
 					`}
 				>
-					<p>Sponsored by</p>
-					<a
-						href="https://www.tcmi.org"
-						target="_blank"
-						title="TCM International Institute"
+					<div
+						css={css`
+							
+							a {
+								color: #bbb;
+								display: flex;
+								text-decoration: none;
+								justify-content: center;
+
+								${mq('tablet_up')} {
+									justify-content: flex-end;
+								}
+							}
+
+							img {
+								margin-bottom: 0;
+							}
+						`}
 					>
-						<img
-							css={css`
-								width: 80px;
-								height: auto;
-							`} 
-							src={`${echoSettings.pluginUrl}/${SponsorImage}`}
-							alt="TCM International Institute" 
-						/>
-					</a>
+						<a
+							href="https://www.tcmi.org"
+							target="_blank"
+							title="TCM International Institute"
+						>
+							<div
+								css={css`
+									display: inline-block;
+									margin-right: 0.5rem;
+									line-height: 30px;
+								`}
+							>
+								Sponsored by
+							</div>
+							<img
+								css={css`
+									width: auto;
+									height: 30px;
+								`} 
+								src={`${echoSettings.pluginUrl}/${SponsorImage}`}
+								alt="TCM International Institute" 
+							/>
+						</a>
+					</div>
 				</div>
 			</div>
 		</footer>

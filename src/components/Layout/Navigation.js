@@ -162,9 +162,11 @@ export default () => {
 							transition: all 85ms ease-out;
 							text-decoration: none;
 							border-bottom: 3px solid transparent;
+							border-top: 3px solid transparent;
 
 							${mq('tablet_up')} {
 								border-bottom: none;
+								border-top: none;
 								border-right: 3px solid transparent;
 								padding: 0.25rem 0;
 							}	
@@ -182,9 +184,13 @@ export default () => {
 						}
 
 						span.label {
-							font-size: 10px;
+							font-size: 9px;
 							text-transform: uppercase;
 							display: block;
+
+							${mq('tablet_up')} {
+								font-size: 10px;
+							}
 						}
 					}
 				`}

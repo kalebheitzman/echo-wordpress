@@ -1,7 +1,7 @@
 /** @jsx jsx */
 
 // import libs
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useState } from 'react'
 import { client, GET_COMMENTS } from '../../utils/apollo'
 import { useQuery } from '@apollo/client'
 
@@ -29,8 +29,10 @@ export default () => {
 		variables: {
 			id: echoSettings.eventID
 		},
-		pollInterval: 1000
+		pollInterval: 500
 	})
+
+	const [ chatMessages, setChatMessages ] = useState({})
 
 	const {
 		user,
@@ -48,7 +50,7 @@ export default () => {
 	if (error) return (<div>Error</div>)
 
 	const chats = data.comments.nodes
-		
+
 	return(
 		<div
 			css={css`

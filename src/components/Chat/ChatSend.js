@@ -3,6 +3,7 @@
 // import libs
 import React, { useState, useContext, useEffect } from 'react'
 import { client, SUBMIT_COMMENT } from '../../utils/apollo'
+import { gql } from '@apollo/client'
 
 // import css
 import { jsx, css } from '@emotion/core'

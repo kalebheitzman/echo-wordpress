@@ -19,7 +19,7 @@ export default () => {
 				padding: 2rem;
 
 				${mq('tablet_up')} {
-					padding: 0 4rem;
+					padding: 2rem 4rem;
 					border-top: 1px solid #eee; 
 					display: flex;
 					justify-content: center;

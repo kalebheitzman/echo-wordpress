@@ -64,6 +64,7 @@ export default () => {
 								align-items: center;
 								height: 40px;
 								width: 40px;
+								text-align: center;
 							`}
 						>
 							Q
@@ -88,6 +89,7 @@ export default () => {
 								align-items: center;
 								height: 40px;
 								width: 40px;
+								text-align: center;
 							`}
 						>
 							A

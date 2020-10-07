@@ -68,6 +68,7 @@ export default () => {
 										justify-content: center;
 										align-items: center;
 										font-weight: bold;
+										text-align: center;
 									`}
 								>
 									{room.eventRoomTitle.charAt(0)}

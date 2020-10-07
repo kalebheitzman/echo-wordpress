@@ -22,7 +22,6 @@ export default () => {
 		const context = useContext(MyContext)
 		
 		const Component = () => {
-			
 			return <Livestream />
 		}
 
@@ -32,7 +31,7 @@ export default () => {
 					grid-area: main;
 
 					${mq('tablet_up')} {
-						height: calc(100vh - 100px);
+						//height: calc(100vh - 100px);
 						overflow-y: scroll;
 					}
 				`}

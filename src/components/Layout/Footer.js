@@ -16,10 +16,7 @@ export default () => {
 			css={css`
 				grid-area: footer;
 				color: #bbb;
-				background: #fff;
 				padding: 2rem;
-				position: relative;
-				z-index: 105;
 
 				${mq('tablet_up')} {
 					padding: 2rem 4rem;

@@ -34,7 +34,7 @@ export default () => {
 			<div
 				css={css`
 					display: grid;
-					line-height: 40px;
+					line-height: 24px;
 
 					${mq('tablet_up')} {
 						grid-template-columns: 1fr 1fr;
@@ -47,15 +47,15 @@ export default () => {
 				<div
 					css={css`
 						display: grid;
-						grid-template-columns: 1fr 40px;
-						grid-gap: 1rem;
+						grid-template-columns: 1fr 80px;
+						grid-gap: 0.5rem;
 
 						${mq('tablet_up')} {
 							text-align: right;
 						}
 					`}
 				>
-					<p>Sponsored by TCMII</p>
+					<p>Sponsored by</p>
 					<a
 						href="https://www.tcmi.org"
 						target="_blank"
@@ -63,8 +63,8 @@ export default () => {
 					>
 						<img
 							css={css`
-								width: 40px;
-								height: 40px;
+								width: 80px;
+								height: auto;
 							`} 
 							src={`${echoSettings.pluginUrl}/${SponsorImage}`}
 							alt="TCM International Institute" 

@@ -37,7 +37,8 @@ module.exports = {
 		extensions: ['*', '.js']
 	},
 	output: {
-		path: __dirname,
-		filename: "./dist/bundle.js"
+		filename: './dist/[name].bundle.js',
+		chunkFilename: '[name].bundle.js',
+		path: __dirname
 	},
 };

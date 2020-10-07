@@ -22,7 +22,7 @@ export default () => {
 				z-index: 105;
 
 				${mq('tablet_up')} {
-					padding: 2rem;
+					padding: 2rem 4rem;
 					border-top: 1px solid #eee;    
 				}
 

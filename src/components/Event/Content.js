@@ -32,6 +32,12 @@ export default ({ content }) => {
 
 				a {
 					color: ${eventColors.primaryBackground};
+					text-decoration: none;
+					transition: all 85ms ease-out;
+
+					&:hover {
+						text-decoration: underline;
+					}
 				}
 			`}
 			dangerouslySetInnerHTML={{ __html: content }}

@@ -101,8 +101,34 @@ export default () => {
 									}
 								`}
 							>
-								Starts: {eventStartTime}<br />
-								Ends: {eventEndTime}
+								<div
+									css={css`
+										display: grid; 
+										grid-template-columns: 60px 1fr;
+										grid-gap: 0.5rem;
+										line-height: 2rem;
+										
+										.label {
+											background: #efefef;
+											border-radius: 4px;
+											padding: 0 0.5rem;
+											text-align: center;
+										}
+									`}
+								>
+									<div className="label">
+										Starts
+									</div>
+									<div>
+										{eventStartTime}
+									</div>
+									<div className="label">
+										Ends
+									</div>
+									<div>
+										{eventEndTime}
+									</div>
+								</div>
 							</div>
 							<div
 								css={css`

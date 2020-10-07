@@ -97,7 +97,7 @@ if ( ! function_exists( 'echo_plugin_scripts' ) ) :
 		// add react app js.
 		wp_register_script(
 			'echo-plugin-script',
-			plugin_dir_url( dirname( __FILE__ ) ) . 'dist/bundle.js',
+			plugin_dir_url( dirname( __FILE__ ) ) . 'dist/main.bundle.js',
 			array(
 				'jquery',
 				'wp-element',

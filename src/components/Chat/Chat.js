@@ -1,7 +1,7 @@
 /** @jsx jsx */
 
 // import libs
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { client, GET_COMMENTS } from '../../utils/apollo'
 import { useQuery } from '@apollo/client'
 
@@ -21,15 +21,47 @@ export default () => {
 
 	const scrollToBottom = () => {
 		const container = document.getElementById("chat-messages");
-		container.scrollTop = container.scrollHeight;
+		if (container) {
+			container.scrollTop = container.scrollHeight
+		}
 	}
+
+	const [ scrollActive, setScrollActive ] = useState(true)
+
+	useEffect(() => {
+		const container = document.getElementById("chat-messages");
+		if (container) {
+			container.onwheel = (e) => {
+				const top = container.scrollTop + 600
+				const height = container.scrollHeight
+				if (top >= height) {
+					setScrollActive(true)
+				}
+				else {
+					setScrollActive(false)
+				}
+			}
+		}
+	})
+
+	useEffect(() => {
+		const interval = setInterval(() => {
+			if (scrollActive) {
+				scrollToBottom()
+			}
+		}, 100)
+		return () => clearInterval(interval)
+	})
 
 	const { loading, error, data } = useQuery(GET_COMMENTS, {
 		client: client,
 		variables: {
 			id: echoSettings.eventID
 		},
-		pollInterval: 500
+		pollInterval: 500,
+		onCompleted: () => {
+			scrollToBottom()
+		},
 	})
 
 	const [ chatMessages, setChatMessages ] = useState({})
@@ -63,10 +95,9 @@ export default () => {
 				id="chat-messages"
 				css={css`
 					margin: 0;
-					padding: 0 0 calc(80px + 1rem);
+					padding: 0;
 					height: ${context.main === 'rooms' ? `calc(100vh - 340px)` : `calc(100vh - 180px)`};
 					overflow-y: scroll;
-					box-sizing: border-box;
 
 					img {
 						margin-bottom: 0;
@@ -78,7 +109,7 @@ export default () => {
 				))}
 			</ul>
 			<ChatSend 
-				scrollToBottom={scrollToBottom}
+				setScrollActive={setScrollActive}
 			/>
 		</div>
 	)

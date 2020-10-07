@@ -12,7 +12,7 @@ import mq from '../../utils/media'
 // import components
 import MyContext from '../../context/Context'
 
-export default ({ scrollToBottom }) => {
+export default ({ setScrollActive }) => {
 
 	const [disabled, setDisabled] = useState(true)
 	const [message, setMessage] = useState("")
@@ -34,7 +34,7 @@ export default ({ scrollToBottom }) => {
 				name: user ? user.name : 'Guest'
 			}
 		}).then(results => {
-			scrollToBottom()
+			setScrollActive(true)
 			setMessage("")
 			setDisabled(true)
 		})
@@ -51,11 +51,7 @@ export default ({ scrollToBottom }) => {
 		if (event.target.value.length === 0) {
 			setDisabled(true)
 		}
-	} 
-
-	useEffect(() => {
-		scrollToBottom()
-	}, [])
+	}
 
 	return(
 		<div

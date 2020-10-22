@@ -83,7 +83,14 @@ export default () => {
 				'chat', 'settings', 'videoquality', 'filmstrip', 'feedback',
         'tileview', 'help',
 			],
-			TILE_VIEW_MAX_COLUMNS: 3
+			TILE_VIEW_MAX_COLUMNS: 3,
+			CONNECTION_INDICATOR_DISABLED: true,
+			DEFAULT_LOCAL_DISPLAY_NAME: 'me',
+			DISABLE_VIDEO_BACKGROUND: true,
+			RECENT_LIST_ENABLED: false,
+			SHOW_JITSI_WATERMARK: false,
+			SHOW_WATERMARK_FOR_GUESTS: false,
+			TOOLBAR_ALWAYS_VISIBLE: true,
 		}
 
 		if (context.user) {

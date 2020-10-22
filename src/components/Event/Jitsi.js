@@ -79,7 +79,7 @@ export default () => {
 		options.interfaceConfigOverwrite = {
 			MOBILE_APP_PROMO: false,
 			TOOLBAR_BUTTONS: [
-				'microphone', 'camera', 'fodeviceselection', 'hangup', 'profile', 
+				'microphone', 'camera', 'fodeviceselection', 'profile', 
 				'chat', 'settings', 'videoquality', 'filmstrip', 'feedback',
         'tileview', 'help',
 			],

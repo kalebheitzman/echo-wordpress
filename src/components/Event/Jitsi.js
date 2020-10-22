@@ -59,8 +59,22 @@ export default () => {
 
 		options.parentNode = document.getElementById(jitsiContainerId)
 		options.roomName = jitsiRoom.eventRoomSlug !== undefined ? jitsiRoom.eventRoomSlug : context.room.eventRoomSlug
+		//options.noSSL = true
 		options.configOverwrite = {
 			disableDeepLinking: true,
+			startWithAudioMuted: true,
+			startWithVideoMuted: true,
+			enableNoisyMicDetection: false,
+			resolution: 480,
+			disableH264: true,
+			liveStreamingEnabled: false,
+			videoQuality: {
+				disabledCodec: 'H264'
+			},
+			requireDisplayName: true,
+			enableClosePage: false,
+			disableInviteFunctions: true,
+			doNotStoreRoom: true,
 		}
 		options.interfaceConfigOverwrite = {
 			MOBILE_APP_PROMO: false,
@@ -68,7 +82,8 @@ export default () => {
 				'microphone', 'camera', 'fodeviceselection', 'hangup', 'profile', 
 				'chat', 'settings', 'videoquality', 'filmstrip', 'feedback',
         'tileview', 'help',
-    	],
+			],
+			TILE_VIEW_MAX_COLUMNS: 3
 		}
 
 		if (context.user) {

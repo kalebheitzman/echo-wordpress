@@ -95,7 +95,7 @@ export default () => {
 							</div>
 							<div
 								css={css`
-										padding: 0 1rem 2rem;
+										padding: 0 1rem 1.5rem;
 										margin-left: 48px;
 										font-style: italic;
 										color: #777;

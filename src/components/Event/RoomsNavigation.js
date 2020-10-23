@@ -9,6 +9,7 @@ import mq from '../../utils/media'
 
 // import components
 import MyContext from '../../context/Context'
+import Seo from '../Layout/Seo'
 import RoomLink from './RoomLink'
 
 export default () => {
@@ -16,6 +17,7 @@ export default () => {
 	
 	const {
 		event: {
+			title,
 			roomsInformation: {
 				eventRooms
 			},
@@ -27,6 +29,7 @@ export default () => {
 
 	return (
 		<>
+			<Seo pageTitle="Rooms" siteTitle={title} />
 			<ul
 				css={css`
 					margin: 0;
@@ -103,6 +106,7 @@ export default () => {
 										p {
 											margin: 0;
 											padding: 0;
+											font-size: 0.85rem;
 										}
 								`}
 							>

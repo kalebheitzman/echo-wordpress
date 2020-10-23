@@ -9,6 +9,7 @@ import mq from '../../utils/media'
 
 // import components
 import MyContext from '../../context/Context'
+import Seo from '../Layout/Seo'
 import Image from './Image'
 import Content from './Content'
 import Footer from '../Layout/Footer'
@@ -55,7 +56,7 @@ export default () => {
 							}
 						`}
 					>
-
+						<Seo pageTitle="Lobby" siteTitle={title} />
 						<div
 							css={css`
 								grid-area: lobby-image;

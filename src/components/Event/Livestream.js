@@ -9,6 +9,7 @@ import mq from '../../utils/media'
 
 // import components
 import MyContext from '../../context/Context'
+import Seo from '../Layout/Seo'
 
 export default ({ mute = false }) => {
 
@@ -16,6 +17,7 @@ export default ({ mute = false }) => {
 
 	const {
 		event: {
+			title,
 			eventInformation
 		}
 	} = context.data
@@ -29,6 +31,7 @@ export default ({ mute = false }) => {
 				background: #111;
 			`}
 		>
+			<Seo pageTitle="Main Session" siteTitle={title} />
 			<iframe 
 				src={`${eventInformation.eventLivestreamUrl}?autoplay=1`} 
 				frameBorder="0" 

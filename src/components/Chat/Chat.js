@@ -11,6 +11,7 @@ import mq from '../../utils/media'
 
 // import components
 import MyContext from '../../context/Context'
+import Seo from '../Layout/Seo'
 import Loader from '../Layout/Loader2'
 import ChatMessage from './ChatMessage'
 import ChatSend from './ChatSend'
@@ -77,9 +78,25 @@ export default () => {
 		}
 	} = context
 
-	if (loading) return (<Loader />)
+	const {
+		event: {
+			title
+		}
+	} = context.data
 
-	if (error) return (<div>Error</div>)
+	if (loading) return (
+		<>
+			<Seo pageTitle="Chat" siteTitle={title} />
+			<Loader />
+		</>	
+	)
+
+	if (error) return (
+		<>
+			<Seo pageTitle="Chat" siteTitle={title} />
+			<div>Please try again later. An error has occurred.</div>
+		</>
+	)
 
 	const chats = data.comments.nodes
 
@@ -91,6 +108,7 @@ export default () => {
 				box-sizing: border-box;
 			`}
 		>
+			<Seo pageTitle="Chat" siteTitle={title} />
 			<ul
 				id="chat-messages"
 				css={css`

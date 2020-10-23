@@ -49,7 +49,7 @@ export default () => {
 									grid-template-columns: 40px 1fr 60px;
 									grid-gap: 0.5rem;
 									margin-bottom: 0;
-									border-bottom: 1px solid #eee;
+									// border-bottom: 1px solid #eee;
 									padding: 1rem 2rem;
 
 									${mq('tablet_up')} {
@@ -95,7 +95,8 @@ export default () => {
 							</div>
 							<div
 								css={css`
-										padding: 1rem;
+										padding: 0 1rem 1rem;
+										margin-left: 48px;
 										font-style: italic;
 										color: #777;
 

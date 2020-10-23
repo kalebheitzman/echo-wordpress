@@ -44,9 +44,8 @@ export default (props) => {
 
 				if (!navigate && !navConfirmed && context.main === 'rooms') {
 					context.setConfirm(true)
-				}
-
-				if (navigate && navConfirmed) {
+				} 
+				else {
 					history.push(props.to)
 				}
 			}}

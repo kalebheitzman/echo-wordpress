@@ -80,20 +80,21 @@ export default () => {
 
 	const {
 		event: {
-			title
+			title,
+			eventSettings
 		}
 	} = context.data
 
 	if (loading) return (
 		<>
-			<Seo pageTitle="Chat" siteTitle={title} />
+			<Seo pageTitle={eventSettings.chatLabel} siteTitle={title} />
 			<Loader />
 		</>	
 	)
 
 	if (error) return (
 		<>
-			<Seo pageTitle="Chat" siteTitle={title} />
+			<Seo pageTitle={eventSettings.chatLabel} siteTitle={title} />
 			<div>Please try again later. An error has occurred.</div>
 		</>
 	)
@@ -108,7 +109,7 @@ export default () => {
 				box-sizing: border-box;
 			`}
 		>
-			<Seo pageTitle="Chat" siteTitle={title} />
+			<Seo pageTitle={eventSettings.chatLabel} siteTitle={title} />
 			<ul
 				id="chat-messages"
 				css={css`

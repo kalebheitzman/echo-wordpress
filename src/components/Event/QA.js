@@ -23,13 +23,14 @@ export default () => {
 			},
 			eventBranding: {
 				eventColors
-			}
+			},
+			eventSettings
 		}
 	} = context.data
 
 	return(
 		<>
-			<Seo pageTitle="Q&amp;A" siteTitle={title} />
+			<Seo pageTitle={eventSettings.qaLabel} siteTitle={title} />
 			<ul
 				css={css`
 					margin: 0;

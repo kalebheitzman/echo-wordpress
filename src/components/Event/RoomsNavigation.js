@@ -18,6 +18,7 @@ export default () => {
 	const {
 		event: {
 			title,
+			eventSettings,
 			roomsInformation: {
 				eventRooms
 			},
@@ -29,7 +30,7 @@ export default () => {
 
 	return (
 		<>
-			<Seo pageTitle="Rooms" siteTitle={title} />
+			<Seo pageTitle={eventSettings.roomsLabel} siteTitle={title} />
 			<ul
 				css={css`
 					margin: 0;

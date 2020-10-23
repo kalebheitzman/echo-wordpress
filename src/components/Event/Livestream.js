@@ -18,7 +18,8 @@ export default ({ mute = false }) => {
 	const {
 		event: {
 			title,
-			eventInformation
+			eventInformation,
+			eventSettings
 		}
 	} = context.data
 
@@ -31,7 +32,7 @@ export default ({ mute = false }) => {
 				background: #111;
 			`}
 		>
-			<Seo pageTitle="Main Session" siteTitle={title} />
+			<Seo pageTitle={eventSettings.mainStageLabel} siteTitle={title} />
 			<iframe 
 				src={`${eventInformation.eventLivestreamUrl}?autoplay=1`} 
 				frameBorder="0" 

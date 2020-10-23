@@ -63,7 +63,7 @@ export default () => {
 			name: "Schedule",
 			path: '/schedule',
 			icon: faCalendarAlt,
-			enabled: false //context.room.eventRoomSlug !== undefined ? true : false
+			enabled: context.room.eventRoomSlug !== undefined ? true : false
 		},
 		{
 			name: eventSettings.roomsLabel,

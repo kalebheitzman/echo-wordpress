@@ -33,9 +33,9 @@ Typography.injectStyles()
 export default () => {
 	
 	return (
-		<MyProvider>
+		<Router>
 			<GlobalStyles />
-			<Router>
+			<MyProvider>
 				<MyContext.Consumer>
 					{context => {
 						
@@ -106,7 +106,7 @@ export default () => {
 						)
 					}}
 				</MyContext.Consumer>
-			</Router>
-		</MyProvider>
+			</MyProvider>
+		</Router>
 	)
 }

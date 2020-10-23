@@ -30,7 +30,6 @@ export default () => {
 	}
 
 	const handleConfirm = () => {
-		console.log('confirm')
 		context.setConfirm(false)
 		context.setRoom({})
 		context.setMain('main-stage')
@@ -38,7 +37,6 @@ export default () => {
 	}
 
 	const handleCancel = () => {
-		console.log('cancel')
 		context.setConfirm(false)
 	}
 

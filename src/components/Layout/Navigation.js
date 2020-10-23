@@ -146,7 +146,7 @@ export default () => {
 							margin: 0 0 1rem;
 						}
 
-						a, button {
+						button {
 							width: 100%;
 							background: none;
 							border: none;
@@ -226,6 +226,7 @@ export default () => {
 									title={link.name}
 									css={css`
 										text-align: center;
+										margin-bottom: 5px;
 									`}
 								/>
 								<span className="label">{link.name}</span>

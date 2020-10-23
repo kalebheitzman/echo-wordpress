@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { client } from '../utils/apollo'
 import { gql, useMutation } from '@apollo/client'
+import { useHistory } from 'react-router-dom'
 
 // import components
 import MyContext from './Context'
@@ -19,7 +20,11 @@ export default ({ children }) => {
 	const [ chats, setChats ] = useState([])
 	const [ to, setTo ] = useState(false)
 
+	const history = useHistory()
+
 	useEffect(() => {
+
+		setTo(history.location.pathname)
 
 		// set main stage if necessary
 		if (window.location.hash !== '#/') {
@@ -183,22 +188,16 @@ export default ({ children }) => {
 				state, // state stored in context
 				nonce: echoSettings.nonce, // nonce for authenticated requests
 				data,
-				main,
-				setMain,
-				room,
-				setRoom,
-				user,
-				setUser,
+				main, setMain,
+				room, setRoom,
+				user, setUser,
 				logout: () => {
 					setUser(false)
 					localStorage.removeItem('echoUser')
 				},
-				confirm,
-				setConfirm,
-				chats,
-				setChats,
-				to,
-				setTo
+				confirm, setConfirm,
+				chats, setChats,
+				to, setTo,
 			}}
 		>
 			{children}

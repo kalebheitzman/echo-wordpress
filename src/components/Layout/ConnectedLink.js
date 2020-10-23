@@ -12,8 +12,8 @@ export default (props) => {
 	const context = useContext(MyContext)
 
 	const [navigate, setNavigate] = useState(true)
-
 	const [navConfirmed, setNavConfirmed] = useState(true)
+	const [className, setClassName] = useState("inactive")
 
 	useEffect(() => {
 		if (context.room.eventRoomSlug !== undefined) {
@@ -24,12 +24,25 @@ export default (props) => {
 		}	
 	}, [context.room])
 
+	useEffect(() => {
+		if (props.exact && context.to === props.to) {
+			setClassName("active")
+		}
+		else if (!props.exact && context.to.includes(props.to)) {
+			setClassName("active")
+		}
+		else {
+			setClassName("inactive")
+		}
+	}, [context.to])
+
 	return(
 		<button
+			className={className}
 			onClick={() => {
+				context.setTo(props.to)
 
-				if (!navigate && !navConfirmed) {
-					context.setTo(props.to)
+				if (!navigate && !navConfirmed && context.main === 'rooms') {
 					context.setConfirm(true)
 				}
 

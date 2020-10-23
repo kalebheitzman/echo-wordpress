@@ -2,6 +2,7 @@
 
 // import libs
 import React, { useEffect, useState, useContext } from 'react'
+import { useHistory } from 'react-router-dom'
 
 // import css
 import { jsx, css } from '@emotion/core'
@@ -14,9 +15,11 @@ export default () => {
 
 	const context = useContext(MyContext)
 
+	const history = useHistory()
+
 	const {
 		event: {
-			eventInformation: {
+			eventBranding: {
 				eventColors
 			}
 		}
@@ -31,6 +34,7 @@ export default () => {
 		context.setConfirm(false)
 		context.setRoom({})
 		context.setMain('main-stage')
+		history.push(context.to)
 	}
 
 	const handleCancel = () => {
@@ -79,7 +83,7 @@ export default () => {
 							
 							&:first-of-type {
 								margin-right: 0.5rem;
-								background: ${eventColors.primaryBackgroundColor};
+								background: ${eventColors.primaryBackground};
 								color: ${eventColors.primaryTextColor};
 
 								&:hover {

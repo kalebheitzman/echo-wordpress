@@ -112,7 +112,7 @@ export default () => {
 
 		return () => jitsi?.dispose?.()
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [context])
+	}, [context.room])
 
 
   return(			

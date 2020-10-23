@@ -17,6 +17,7 @@ export default ({ children }) => {
 	const [ user, setUser ] = useState(false)
 	const [ confirm, setConfirm ] = useState(false)
 	const [ chats, setChats ] = useState([])
+	const [ to, setTo ] = useState(false)
 
 	useEffect(() => {
 
@@ -161,7 +162,6 @@ export default ({ children }) => {
 				if ( window !== undefined && window.location.hash ) {
 					const hash = window.location.hash
 					if (hash.includes('/rooms/')) {
-						console.log(hash)
 						const roomSlug = hash.split('/rooms/')[1]
 						const rooms = result.data.event.roomsInformation.eventRooms
 						setMain('rooms')
@@ -196,7 +196,9 @@ export default ({ children }) => {
 				confirm,
 				setConfirm,
 				chats,
-				setChats
+				setChats,
+				to,
+				setTo
 			}}
 		>
 			{children}

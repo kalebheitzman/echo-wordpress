@@ -146,7 +146,7 @@ export default () => {
 							margin: 0 0 1rem;
 						}
 
-						a {
+						a, button {
 							width: 100%;
 							background: none;
 							border: none;

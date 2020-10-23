@@ -1,28 +1,45 @@
 // import libs
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 
 // import components
 import MyContext from '../../context/Context'
-import { NavLink } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 export default (props) => {
 
+	const history = useHistory()
+
 	const context = useContext(MyContext)
 
-	const clone = (obj) => {
-		if (null == obj || "object" != typeof obj) return obj;
-		var copy = obj.constructor();
-		for (var attr in obj) {
-				if (obj.hasOwnProperty(attr)) copy[attr] = obj[attr];
-		}
-		return copy;
-	}
+	const [navigate, setNavigate] = useState(true)
 
-	let newProps = clone(props)
+	const [navConfirmed, setNavConfirmed] = useState(true)
 
-	// if (context.room.eventRoomSlug !== undefined) {
-	// 	delete newProps.onClick
-	// }
+	useEffect(() => {
+		if (context.room.eventRoomSlug !== undefined) {
+			if (props.to === "/" || props.to === "/main-stage" ) {
+				setNavigate(false)
+				setNavConfirmed(false)
+			}
+		}	
+	}, [context.room])
 
-	return <NavLink {...newProps} />
+	return(
+		<button
+			onClick={() => {
+
+				if (!navigate && !navConfirmed) {
+					context.setTo(props.to)
+					context.setConfirm(true)
+				}
+
+				if (navigate && navConfirmed) {
+					history.push(props.to)
+				}
+			}}
+		>
+			{props.children}
+		</button>
+	)
+
 }

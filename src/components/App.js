@@ -26,6 +26,7 @@ import Main from './Event/Main'
 import Aside from './Event/Aside' 
 import Footer from './Layout/Footer'
 import ConfirmModal from './Event/ConfirmModal'
+import CookieConsent from 'react-cookie-consent'
 
 // inject typography styles
 Typography.injectStyles()
@@ -102,6 +103,13 @@ export default () => {
 									</Wrapper>
 								</Route>
 
+								<CookieConsent
+									cookieName="echoAcceptCookies"
+									expires={999}
+									location="bottom"
+								>
+									This website uses cookies to enhance your experience.
+								</CookieConsent>
 							</div>
 						)
 					}}

@@ -37,7 +37,11 @@ export default () => {
 	}
 
 	const filterRooms = (room) => {
-		if (room.eventRoomTitle.includes(activeRooms)) {
+		if (
+			room.eventRoomTitle.includes(activeRooms)
+			|| room.eventRoomDescription.includes(activeRooms)
+			|| room.eventRoomSlug.includes(activeRooms)
+		) {
 			return true;
 		}
 		return false;

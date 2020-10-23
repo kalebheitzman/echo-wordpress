@@ -53,7 +53,7 @@ export default () => {
 									padding: 1rem 2rem;
 
 									${mq('tablet_up')} {
-										padding: 1rem;
+										padding: 1rem 1rem 0;
 									}
 								`}	
 							>
@@ -95,7 +95,7 @@ export default () => {
 							</div>
 							<div
 								css={css`
-										padding: 0 1rem 1rem;
+										padding: 0 1rem 2rem;
 										margin-left: 48px;
 										font-style: italic;
 										color: #777;

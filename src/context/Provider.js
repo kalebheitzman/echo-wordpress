@@ -114,6 +114,9 @@ export default ({ children }) => {
 									eventRoomTitle
 									eventRoomDescription
 									eventExternalMeetingUrl
+									eventRoomImage {
+										sourceUrl(size: THUMBNAIL)
+									}
 								}
 							}
 							scheduleInformation {

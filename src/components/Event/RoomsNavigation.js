@@ -94,9 +94,13 @@ export default () => {
 											align-items: center;
 											font-weight: bold;
 											text-align: center;
+
+											img {
+												border-radius: 40px;
+											}
 										`}
 									>
-										{room.eventRoomTitle.charAt(0)}
+										<RoomImage room={room} />
 									</div>
 									<div
 										css={css`
@@ -140,5 +144,18 @@ export default () => {
 				})}
 			</ul>
 		</>
+	)
+}
+
+const RoomImage = ({room}) => {
+
+	if(room.eventRoomImage) {
+		return(
+			<img src={room.eventRoomImage.sourceUrl} />
+		)
+	}
+
+	return(
+		<>{room.eventRoomTitle.charAt(0)}</>
 	)
 }

@@ -7,7 +7,7 @@ import 'regenerator-runtime/runtime'
 // import components
 import App from './components/App'
 
-// render <App /> into #wp-react-pluing
+// render <App /> into #wp-project-echo
 document.addEventListener('DOMContentLoaded', function () {
   ReactDOM.render(<App />, document.getElementById('wp-project-echo'));
 });

@@ -101,7 +101,7 @@ export default ({ children }) => {
 									primaryTextColor
 									textColor
 								}
-							}
+							} 
 							eventInformation {
 								eventEndTime
 								eventLivestreamUrl

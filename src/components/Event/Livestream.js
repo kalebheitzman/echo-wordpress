@@ -2,6 +2,7 @@
 
 // import libs
 import React, { useEffect, useState, useContext } from 'react'
+import querystring from 'querystring'
 
 // import css
 import { jsx, css } from '@emotion/core'
@@ -19,9 +20,27 @@ export default ({ mute = false }) => {
 		event: {
 			title,
 			eventInformation,
-			eventSettings
+			eventSettings,
+			eventInformation: {
+				eventLivestreamType
+			}
 		}
 	} = context.data
+
+	let params = {
+	}
+
+	// vimeo params
+	if ( eventLivestreamType === 'vimeo' ) {
+		params.playsline = 1
+		params.quality = '1080p'
+		params.autoplay = 1
+		params.muted = mute ? 1 : 0
+	}
+
+	// youtube params
+
+	let livestreamUrl = `${eventInformation.eventLivestreamUrl}?${querystring.stringify(params)}`
 
 	return(
 		<div
@@ -34,7 +53,7 @@ export default ({ mute = false }) => {
 		>
 			<Seo pageTitle={eventSettings.mainStageLabel} siteTitle={title} />
 			<iframe 
-				src={`${eventInformation.eventLivestreamUrl}?autoplay=1`} 
+				src={livestreamUrl} 
 				frameBorder="0" 
 				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
 				allowFullScreen

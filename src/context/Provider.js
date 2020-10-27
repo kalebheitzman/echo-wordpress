@@ -105,6 +105,7 @@ export default ({ children }) => {
 							eventInformation {
 								eventEndTime
 								eventLivestreamUrl
+								eventLivestreamType
 								eventStartTime
 							}
 							roomsInformation {

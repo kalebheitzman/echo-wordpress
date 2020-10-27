@@ -10,6 +10,12 @@ import mq from '../../utils/media'
 // import components
 import MyContext from '../../context/Context'
 
+/**
+ * Docs
+ * 
+ * https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-iframe
+ */
+
 export default () => {
 
 	const context = useContext(MyContext)
@@ -59,12 +65,14 @@ export default () => {
 
 		options.parentNode = document.getElementById(jitsiContainerId)
 		options.roomName = jitsiRoom.eventRoomSlug !== undefined ? jitsiRoom.eventRoomSlug : context.room.eventRoomSlug
-		//options.noSSL = true
+
 		options.configOverwrite = {
 			disableDeepLinking: true,
 			startWithAudioMuted: true,
 			startWithVideoMuted: true,
 			enableNoisyMicDetection: false,
+			enableClosePage: false,
+			enableWelcomPage: false,
 			resolution: 480,
 			disableH264: true,
 			liveStreamingEnabled: false,
@@ -75,15 +83,16 @@ export default () => {
 			enableClosePage: false,
 			disableInviteFunctions: true,
 			doNotStoreRoom: true,
+			enableClosePage: false
 		}
 		options.interfaceConfigOverwrite = {
 			MOBILE_APP_PROMO: false,
 			TOOLBAR_BUTTONS: [
-				'microphone', 'camera', 'fodeviceselection', 'profile', 
+				'microphone', 'camera', 'fodeviceselection', 'hangup', 'profile', 
 				'chat', 'settings', 'videoquality', 'filmstrip', 'feedback',
         'tileview', 'help',
 			],
-			TILE_VIEW_MAX_COLUMNS: 3,
+			TILE_VIEW_MAX_COLUMNS: 4,
 			CONNECTION_INDICATOR_DISABLED: true,
 			DEFAULT_LOCAL_DISPLAY_NAME: 'me',
 			DISABLE_VIDEO_BACKGROUND: true,
@@ -91,6 +100,7 @@ export default () => {
 			SHOW_JITSI_WATERMARK: false,
 			SHOW_WATERMARK_FOR_GUESTS: false,
 			TOOLBAR_ALWAYS_VISIBLE: true,
+			SHOW_PROMOTIONAL_CLOSE_PAGE: false,
 		}
 
 		if (context.user) {

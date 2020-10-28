@@ -94,7 +94,7 @@ export default () => {
 									width: auto;
 									height: 30px;
 								`} 
-								src={`${echoSettings.pluginUrl}/${SponsorImage}`}
+								src={`${SponsorImage}`}
 								alt="TCM International Institute" 
 							/>
 						</a>

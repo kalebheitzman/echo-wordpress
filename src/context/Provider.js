@@ -70,6 +70,7 @@ export default ({ children }) => {
 					query EventQuery {
 						echo {
 							echoApiKeys {
+								echoJitsiUrl
 								echoGoogleClientId
 								echoFacebookAppId
 								echoTwitterConsumerKey

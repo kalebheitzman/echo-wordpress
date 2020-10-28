@@ -699,6 +699,23 @@ if( function_exists('acf_add_local_field_group') ):
 		'title' => 'Echo Api Keys',
 		'fields' => array(
 			array(
+				'key' => 'field_5f98e25764420',
+				'label' => 'Jitsi Meet Server URL',
+				'name' => 'echo_jitsi_url',
+				'type' => 'url',
+				'instructions' => '',
+				'required' => 1,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'show_in_graphql' => 1,
+				'default_value' => 'https://meet.jit.si',
+				'placeholder' => '',
+			),
+			array(
 				'key' => 'field_5f612540e4110',
 				'label' => 'Google Client ID',
 				'name' => 'echo_google_client_id',

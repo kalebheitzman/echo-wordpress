@@ -25,6 +25,11 @@ export default () => {
 	} = context
 
 	const {
+		echo: {
+			echoApiKeys: {
+				echoJitsiUrl
+			}
+		},
 		event: {
 			roomsInformation: {
 				eventRooms
@@ -46,7 +51,7 @@ export default () => {
 		})
 
 		const script = document.createElement('script')
-		script.src = 'https://meet.jit.si/external_api.js'
+		script.src = `${echoJitsiUrl}/external_api.js`
 		script.async = true
 		script.onload = resolveLoadJitsiScriptPromise
 		document.body.appendChild(script)
@@ -110,7 +115,7 @@ export default () => {
 			}
 		}
 	
-		const _jitsi = new window.JitsiMeetExternalAPI('meet.jit.si', options)
+		const _jitsi = new window.JitsiMeetExternalAPI(echoJitsiUrl.split('://')[1], options)
 
 		setJitsi(_jitsi)
 	}

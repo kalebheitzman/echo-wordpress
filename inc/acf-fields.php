@@ -112,6 +112,23 @@ if( function_exists('acf_add_local_field_group') ):
 				'append' => '',
 				'maxlength' => '',
 			),
+			array(
+				'key' => 'field_5f999942ceaf5',
+				'label' => 'Privacy Policy URL',
+				'name' => 'echo_privacy_policy_url',
+				'type' => 'url',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '50',
+					'class' => '',
+					'id' => '',
+				),
+				'show_in_graphql' => 1,
+				'default_value' => '',
+				'placeholder' => '',
+			),
 		),
 		'location' => array(
 			array(

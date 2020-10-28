@@ -76,6 +76,9 @@ export default ({ children }) => {
 								echoTwitterConsumerKey
 								echoTwitterConsumerSecret
 							}
+							echoInformation {
+								echoPrivacyPolicyUrl
+							}
 						}
 						event(id: ${echoSettings.eventID}, idType: DATABASE_ID) {
 							id

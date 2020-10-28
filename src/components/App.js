@@ -63,6 +63,14 @@ export default () => {
 									)
 								}
 
+								const {
+									echo: {
+										echoInformation: {
+											echoPrivacyPolicyUrl
+										}
+									}
+								} = context.data
+
 								return(
 									<>
 										<UpdateBrowser />
@@ -116,7 +124,14 @@ export default () => {
 												expires={999}
 												location="bottom"
 											>
-												This website uses cookies to enhance your experience.
+												This website uses cookies to enhance your experience. {echoPrivacyPolicyUrl && (
+													<a 
+														css={css`
+															color: #fff;
+														`}
+														href={echoPrivacyPolicyUrl} 
+														target="_blank">Privacy Policy</a>
+												)}
 											</CookieConsent>
 										</div>
 									</>

@@ -1,13 +1,24 @@
 /** @jsx jsx */
 
 // import libs
-import React from 'react'
+import React, { useContext } from 'react'
 
 // import css
 import { jsx, css } from '@emotion/core'
 import mq from '../../utils/media'
 
+// import components
+import MyContext from '../../context/Context'
+
 export default ({ setRoomName }) => {
+
+	const context = useContext(MyContext)
+
+	const {
+		event: {
+			eventSettings
+		}
+	} = context.data
 
 	return(
 		<div
@@ -32,7 +43,7 @@ export default ({ setRoomName }) => {
 		>
 			<input 
 				type="text" 
-				placeholder="Search for a room" 
+				placeholder={`Search ${eventSettings.roomsLabel}`} 
 				onChange={(e) => setRoomName(e.target.value)}	
 			/>
 		</div>

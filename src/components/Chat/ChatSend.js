@@ -11,6 +11,7 @@ import mq from '../../utils/media'
 
 // import components
 import MyContext from '../../context/Context'
+import SocialLogin from '../User/SocialLogin'
 
 export default ({ setScrollActive }) => {
 
@@ -18,6 +19,8 @@ export default ({ setScrollActive }) => {
 	const [message, setMessage] = useState("")
 
 	const context = useContext(MyContext)
+
+	console.log(context) 
 
 	const {
     user
@@ -51,6 +54,21 @@ export default ({ setScrollActive }) => {
 		if (event.target.value.length === 0) {
 			setDisabled(true)
 		}
+	}
+
+	if (!context.user) {
+		return (
+			<div
+				css={css`
+					border-top: 1px solid #eee;
+					background: #104879;
+					color: #fff;
+					padding: 1rem;
+				`}
+			>
+				<SocialLogin label="Login to chat" />
+			</div>
+		)
 	}
 
 	return(

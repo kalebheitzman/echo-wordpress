@@ -20,7 +20,7 @@ import {
 // import css
 import { jsx, css } from '@emotion/core'
 
-export default () => {
+export default ({ label = "Login" }) => {
 
 	const context = useContext(MyContext)
 
@@ -115,7 +115,7 @@ export default () => {
 			`}
 		>
 
-			<span>Login</span>
+			<span>{label}</span>
 			
 			{echoTwitterConsumerKey && echoTwitterConsumerSecret && false && (
 				<TwitterLogin 

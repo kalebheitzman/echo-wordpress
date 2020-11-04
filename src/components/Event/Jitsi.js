@@ -78,6 +78,7 @@ export default () => {
 			enableNoisyMicDetection: false,
 			enableClosePage: false,
 			enableWelcomPage: false,
+			enableLayerSuspension: true,
 			resolution: 480,
 			constraints: {
 				video: {

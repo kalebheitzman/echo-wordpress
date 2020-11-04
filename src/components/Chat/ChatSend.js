@@ -20,8 +20,6 @@ export default ({ setScrollActive }) => {
 
 	const context = useContext(MyContext)
 
-	console.log(context) 
-
 	const {
     user
 	} = context
@@ -63,7 +61,10 @@ export default ({ setScrollActive }) => {
 					border-top: 1px solid #eee;
 					background: #104879;
 					color: #fff;
-					padding: 1rem;
+					padding: 1rem 2rem;
+					display: flex;
+					justify-content: flex-start;
+					align-items: center;
 				`}
 			>
 				<SocialLogin label="Login to chat" />

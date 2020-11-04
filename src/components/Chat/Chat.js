@@ -99,7 +99,7 @@ export default () => {
 		</>
 	)
 
-	const chats = data.comments.nodes
+	let chats = [...data.comments.nodes].reverse()
 
 	return(
 		<div

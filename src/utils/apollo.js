@@ -21,10 +21,10 @@ query GET_COMMENTS($id: ID!) {
 	comments(
 		where: {
 			contentId: $id, 
-			order: ASC, 
+			order: DESC, 
 			orderby: COMMENT_DATE
 		}, 
-		last: 500
+		first: 100
 	) {
     nodes {
       id

@@ -38,8 +38,8 @@ require_once $plugin_dir . 'inc/activation.php';
 /**
  * Install Echo DB
  */
-// require_once $plugin_dir . 'inc/install-echo-db.php';
-// register_activation_hook( __FILE__, 'echo_install_tables' );
+require_once $plugin_dir . 'inc/install-echo-db.php';
+register_activation_hook( __FILE__, 'echo_install_tables' );
 
 /**
  * Add ACF Fields Programatically

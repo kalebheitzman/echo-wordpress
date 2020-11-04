@@ -98,8 +98,7 @@ export default () => {
 			enableClosePage: false,
 			disableInviteFunctions: true,
 			doNotStoreRoom: true,
-			enableClosePage: false,
-			notice: 'If your web conference becomes unstable, try disabling your video.'
+			enableClosePage: false
 		}
 		options.interfaceConfigOverwrite = {
 			MOBILE_APP_PROMO: false,

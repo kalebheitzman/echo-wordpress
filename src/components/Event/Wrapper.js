@@ -25,13 +25,21 @@ export default ({ children }) => {
 					grid-template-areas: 
 						"aside main"
 						"aside footer";
-					grid-template-columns: ${context.toggle ? '0px 1fr' : '300px 1fr'};
 					grid-template-rows: 1fr 80px;
 					height: calc(100vh - 100px);
 					overflow: hidden;
 					transition: all 85ms ease-out;
+
+					&.open {
+						grid-template-columns: 300px 1fr;
+					}
+
+					&.close {
+						grid-template-columns: 0px 1fr;
+					}
 				}
 			`}
+			className={!context.toggle ? 'open' : 'close'}
 		>
 			{children}
 		</div>

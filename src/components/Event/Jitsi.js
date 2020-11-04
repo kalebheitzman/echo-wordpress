@@ -79,6 +79,15 @@ export default () => {
 			enableClosePage: false,
 			enableWelcomPage: false,
 			resolution: 480,
+			constraints: {
+				video: {
+					height: {
+						ideal: 480,
+						max: 480,
+						min: 240
+					}
+				}
+			},
 			disableH264: true,
 			liveStreamingEnabled: false,
 			videoQuality: {

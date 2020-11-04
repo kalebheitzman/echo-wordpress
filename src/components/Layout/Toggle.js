@@ -19,6 +19,14 @@ export default () => {
 
 	const context = useContext(MyContext)
 
+	const {
+		event: {
+			eventBranding: {
+				eventColors
+			}
+		}
+	} = context.data
+
 	let arrow = faAngleRight
 	if (context.toggle) {
 		arrow = faAngleLeft
@@ -26,7 +34,10 @@ export default () => {
 	if (!context.toggle) {
 		arrow = faAngleRight
 	}
-	console.log(context.toggle)
+
+	if (context.view === 'lobby') {
+		return <></>
+	}
 
   return (
     <div
@@ -35,15 +46,16 @@ export default () => {
 
         button {
 					cursor: pointer;
-          font-size: 2rem;
-          height: 3rem;
-          width: 3rem;
-					border-radius: 3rem;
+          font-size: 1.2rem;
+          height: 2rem;
+          width: 2rem;
+					border-radius: 2rem;
 					border: 0;
 					outline: 0;
           display: flex;
           justify-content: center;
-          align-items: center;
+					align-items: center;
+					text-align: center;
           background: #eee;
           color: #ccc;
           font-weight: bold;
@@ -53,7 +65,12 @@ export default () => {
           &:hover {
             background: #e9e7ea;
             color: #bbb;
-          }
+					}
+					
+					&.close {
+						background: ${eventColors.primaryBackground};
+						color: ${eventColors.primaryTextColor};
+					}
         }
 
         ${mq('tablet_up')} {
@@ -65,6 +82,7 @@ export default () => {
     >
 			<button
 				onClick={() => context.setToggle(!context.toggle)}
+				className={!context.toggle ? 'open' : 'close'}
 			>
 				<FontAwesomeIcon
 					icon={arrow}

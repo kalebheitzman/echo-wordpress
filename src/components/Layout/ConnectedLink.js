@@ -48,6 +48,7 @@ export default (props) => {
 				else {
 					history.push(props.to)
 					context.setToggle(false)
+					context.setView(props.view)
 				}
 			}}
 		>

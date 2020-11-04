@@ -42,6 +42,7 @@ export default () => {
 			icon: faDoorOpen,
 			main: false,
 			enabled: true,
+			view: 'lobby',
 			cb: () => {
 				context.setRoom({})
 			}
@@ -52,6 +53,7 @@ export default () => {
 			icon: faVideo,
 			main: 'main-stage',
 			enabled: eventSettings.enableMainStage,
+			view: 'main-stage',
 			cb: () => {
 				context.setRoom({})
 				// if (context.room.eventRoomSlug !== undefined) {
@@ -63,31 +65,36 @@ export default () => {
 			name: "Schedule",
 			path: '/schedule',
 			icon: faCalendarAlt,
-			enabled: context.room.eventRoomSlug !== undefined ? true : false
+			enabled: context.room.eventRoomSlug !== undefined ? true : false,
+			view: 'schedule'
 		},
 		{
 			name: eventSettings.roomsLabel,
 			path: '/rooms',
 			icon: faUsers,
-			enabled: eventSettings.enableRooms
+			enabled: eventSettings.enableRooms,
+			view: 'rooms',
 		},
 		{
 			name: eventSettings.chatLabel,
 			path: '/chat',
 			icon: faUserFriends,
-			enabled: eventSettings.enableChat
+			enabled: eventSettings.enableChat,
+			view: 'chat'
 		},
 		{
 			name: eventSettings.qaLabel,
 			path: '/qa',
 			icon: faQuestion,
-			enabled: eventSettings.enableQa
+			enabled: eventSettings.enableQa,
+			view: 'qa'
 		},
 		{
 			name: 'Polls',
 			path: '/polls',
 			icon: faPoll,
-			enabled: false
+			enabled: false,
+			view: 'polls'
 		},
 	]
 
@@ -203,6 +210,7 @@ export default () => {
 								exact={link.path === '/' ? true : false}
 								to={link.path}
 								activeClassName="active"
+								view={link.view}
 								css={css`
 									line-height: 1.2rem;
 								`}

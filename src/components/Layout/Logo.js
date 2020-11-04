@@ -19,6 +19,7 @@ export default () => {
 
 		const {
 			event: {
+				title,
 				eventBranding: {
 					eventLogo
 				}
@@ -30,22 +31,38 @@ export default () => {
 				css={css`
 					display: flex;
 					align-items: center;
+
+					a {
+						text-decoration: none;
+						color: #fff;
+
+						h1 {
+							font-size: 2rem;
+							font-style: italic;
+						}
+					}
 				`}
 			>
 				<Link to="/">
-					<img 
-						css={css`
-							margin: 0;
-							max-height: 30px;
-							object-fit: contain;
-							object-position: left center;
+					{eventLogo && (
+						<img 
+							css={css`
+								margin: 0;
+								max-height: 30px;
+								object-fit: contain;
+								object-position: left center;
 
-							${mq('tablet_up')} {
-								max-height: 50px;
-							}
-						`}
-						srcSet={eventLogo.srcSet} 
-					/>
+								${mq('tablet_up')} {
+									max-height: 50px;
+								}
+							`}
+							srcSet={eventLogo.srcSet} 
+							alt={title}
+						/>
+					)}
+					{!eventLogo && (
+						<h1>{title}</h1>
+					)}
 				</Link>
 			</div>
 		)

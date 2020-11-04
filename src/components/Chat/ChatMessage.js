@@ -88,6 +88,13 @@ export default ({ chat }) => {
 						border-radius: 8px;
 						padding: 1rem;
 						word-wrap: break-all;
+						
+						p {
+							overflow-wrap: break-word;
+							word-wrap: break-word;
+							hyphens: auto;
+							max-width: 191px;
+						}
 					}
 				}
 			`}

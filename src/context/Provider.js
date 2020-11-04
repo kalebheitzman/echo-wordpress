@@ -20,6 +20,7 @@ export default ({ children }) => {
 	const [ chats, setChats ] = useState([])
 	const [ to, setTo ] = useState(false)
 	const [ toggle, setToggle ] = useState(false)
+	const [ view, setView ] = useState('lobby')
 
 	const history = useHistory()
 
@@ -184,6 +185,11 @@ export default ({ children }) => {
 						})[0]
 						setRoom(room)	
 					}
+
+					const currentView = hash.replace('#/', '')
+					if (currentView !== '') {
+						setView(currentView)
+					}
 				}
 			})
 
@@ -207,7 +213,8 @@ export default ({ children }) => {
 				confirm, setConfirm,
 				chats, setChats,
 				to, setTo,
-				toggle, setToggle
+				toggle, setToggle,
+				view, setView
 			}}
 		>
 			{children}

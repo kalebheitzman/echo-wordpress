@@ -29,6 +29,7 @@ export default ({ children }) => {
 					grid-template-rows: 1fr 80px;
 					height: calc(100vh - 100px);
 					overflow: hidden;
+					transition: all 85ms ease-out;
 				}
 			`}
 		>

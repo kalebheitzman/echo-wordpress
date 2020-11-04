@@ -20,7 +20,7 @@ import {
 	faPoll,
 	faCalendarAlt
 } from '@fortawesome/free-solid-svg-icons'
-import Credit from './Credit'
+import Toggle from './Toggle'
 
 export default () => {
 
@@ -236,7 +236,7 @@ export default () => {
 				})}
 			</ul>
 			
-			<Credit />
+			<Toggle />
 		</nav>
 	)
 }

@@ -31,6 +31,7 @@ import Footer from './Layout/Footer'
 import ConfirmModal from './Event/ConfirmModal'
 import CookieConsent from 'react-cookie-consent'
 import UpdateBrowser from './Layout/UpdateBrowser'
+import Notifications from './Layout/Notifications'
 
 // inject typography styles
 Typography.injectStyles()
@@ -74,6 +75,7 @@ export default () => {
 								return(
 									<>
 										<UpdateBrowser />
+										<Notifications />
 										<div 
 											css={css`
 												display: grid;

@@ -16,6 +16,16 @@ export const client = new ApolloClient({
 	connectToDevTools: true
 })
 
+export const GET_NOTIFICATIONS = gql`
+query GET_NOTIFICATIONS($id: ID!) {
+  event(id: $id, idType: DATABASE_ID) {
+		eventInformation {
+      eventNotification
+    }
+  }
+}
+`
+
 export const GET_COMMENTS = gql`
 query GET_COMMENTS($id: ID!) {
 	comments(

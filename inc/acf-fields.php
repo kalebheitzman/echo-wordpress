@@ -234,6 +234,26 @@ if( function_exists('acf_add_local_field_group') ):
 				'return_format' => 'F j, Y g:i a',
 				'first_day' => 1,
 			),
+			array(
+				'key' => 'field_5fa3923aeaeb2',
+				'label' => 'Event Notification',
+				'name' => 'event_notification',
+				'type' => 'textarea',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '50',
+					'class' => '',
+					'id' => '',
+				),
+				'show_in_graphql' => 1,
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'rows' => 3,
+				'new_lines' => '',
+			),
 		),
 		'location' => array(
 			array(

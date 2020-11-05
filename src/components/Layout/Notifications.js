@@ -54,7 +54,7 @@ export default () => {
 					top: 0;
 					right: 0;
 					padding: 1rem;
-					background: rgba(255,53,51,0.8);
+					background: rgba(255,53,51,0.9);
 					color: #fff;
 					z-index: 10000;
 					margin: 2rem;

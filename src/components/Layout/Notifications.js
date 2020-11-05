@@ -28,6 +28,7 @@ export default () => {
 
 		let notification = new Notification("Notification Demo", options);
 
+		setTimeout(function() { notification.close() }, 5000);
 	}
 
 	useEffect(() => {

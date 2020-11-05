@@ -67,7 +67,7 @@ export default () => {
 
 					${mq('tablet_side')} {
 						width: 300px;
-						margin: 2rem 2rem 0 0;
+						margin: 130px 2rem 0 0;
 					}
 
 				`}

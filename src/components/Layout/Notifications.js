@@ -18,6 +18,18 @@ export default () => {
 		}
 	} = context.data
 
+	const showNotification = () => {
+		console.log('show notification')
+		let options = {
+			body: "Welcome to the PrayerFast.",
+			icon: sourcreUrl,
+			dir: "ltr"
+		}
+
+		let notification = new Notification("Notification Demo", options);
+
+	}
+
 	useEffect(() => {
 
 		if (!("Notification" in window)) {
@@ -27,13 +39,7 @@ export default () => {
 			Notification.requestPermission()
 		}
 		
-		let options = {
-			body: "Welcome to the PrayerFast.",
-			icon: sourcreUrl,
-			dir: "ltr"
-		}
-
-		new Notification("Notification Demo", options);
+		showNotification()
 		
 	}, [])
 

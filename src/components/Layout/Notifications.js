@@ -22,7 +22,7 @@ export default () => {
 		console.log('show notification')
 		let options = {
 			body: "Welcome to the PrayerFast.",
-			icon: sourcreUrl,
+			icon: sourceUrl,
 			dir: "ltr"
 		}
 

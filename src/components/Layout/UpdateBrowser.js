@@ -51,7 +51,13 @@ export default () => {
 			version: 78,
 			link: "https://www.mozilla.org/en-US/firefox/new/",
 			icon: faFirefoxBrowser
-		}
+		},
+		{
+			name: 'ios',
+			niceName: 'iOS',
+			version: 13,
+		},
+		
 	]
 	
 	browserList.forEach(supportedBrowser => {
@@ -109,61 +115,64 @@ export default () => {
 					>
 						{browserList.map(br => {
 
-							return(
-								<li 
-									key={br.name}
-									css={css`
-										text-align: center;
-
-										p {
-											margin: 0;
-										}
-									`}	
-								>
-									<a
+							if (br.link) {
+								return(
+									<li 
+										key={br.name}
 										css={css`
-											background: #f7f7f7;
-											border-radius: 4px;
-											padding: 1rem 0;
-											display: block;
-											text-decoration: none;
-											color: #222;
-											transition: all 85ms ease-out;
-
-											&:hover {
-												background: #efefef;
-
-												.icon {
-													color: #aaa;
-												}
+											text-align: center;
+	
+											p {
+												margin: 0;
 											}
-
-											.icon {
-												text-align: center;
-												margin-bottom: 1rem;
-												font-size: 2rem;
-												color: #ddd;
-											}
-
-											.download {
-												color: #1874c2;
-											}
-										`}
-										href={br.link} 
-										target="_blank"
+										`}	
 									>
-										<FontAwesomeIcon
-											icon={br.icon}
-											fixedWidth
-											aria-hidden="true"
-											title={br.name}
-											className="icon"
-										/>
-										<p>&nbsp;{br.niceName} {br.version}</p>
-										<p className="download">Download</p>
-									</a>
-								</li>
-							)
+										<a
+											css={css`
+												background: #f7f7f7;
+												border-radius: 4px;
+												padding: 1rem 0;
+												display: block;
+												text-decoration: none;
+												color: #222;
+												transition: all 85ms ease-out;
+	
+												&:hover {
+													background: #efefef;
+	
+													.icon {
+														color: #aaa;
+													}
+												}
+	
+												.icon {
+													text-align: center;
+													margin-bottom: 1rem;
+													font-size: 2rem;
+													color: #ddd;
+												}
+	
+												.download {
+													color: #1874c2;
+												}
+											`}
+											href={br.link} 
+											target="_blank"
+										>
+											<FontAwesomeIcon
+												icon={br.icon}
+												fixedWidth
+												aria-hidden="true"
+												title={br.name}
+												className="icon"
+											/>
+											<p>&nbsp;{br.niceName} {br.version}</p>
+											<p className="download">Download</p>
+										</a>
+									</li>
+								)
+							}
+
 						})}
 					</ul>
 				</div>

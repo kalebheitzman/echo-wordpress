@@ -12,7 +12,7 @@ import mq from '../../utils/media'
 import MyContext from '../../context/Context'
 import Seo from '../Layout/Seo'
 
-export default ({ mute = false }) => {
+export default ({ mute = false, mini = false }) => {
 
 	const context = useContext(MyContext)
 
@@ -45,11 +45,43 @@ export default ({ mute = false }) => {
 	return(
 		<div
 			css={css`
-				position: relative;
-				overflow: hidden;
-				padding-top: 56.25%;
-				background: #111;
+				
+
+				&.mini {
+					position: relative;
+					overflow: hidden;
+					padding-top: 56.25%;
+					background: #111;
+
+					iframe {
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						border: 0;
+					}
+				}
+
+				&.fullsize {
+					margin: 0 auto;
+					height: 58vw;
+					text-align: center;
+					overflow: hidden;
+					max-width: 178vh;
+	
+					${mq('tablet_side')} {
+						height: calc( 100vh - 180px);
+					}
+
+					iframe {
+						height: 100%;
+						width: 100%;
+					}
+				}
+
 			`}
+			className={mini ? 'mini' : 'fullsize'}
 		>
 			<Seo pageTitle={eventSettings.mainStageLabel} siteTitle={title} />
 			<iframe 
@@ -57,14 +89,6 @@ export default ({ mute = false }) => {
 				frameBorder="0" 
 				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
 				allowFullScreen
-				css={css`
-					position: absolute;
-					top: 0;
-					left: 0;
-					width: 100%;
-					height: 100%;
-					border: 0;
-				`}
 			/>
 		</div>
 	)

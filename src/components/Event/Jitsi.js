@@ -89,17 +89,16 @@ export default () => {
 					}
 				}
 			},
-			disableH264: true,
+			//disableH264: true,
 			liveStreamingEnabled: false,
-			videoQuality: {
-				disabledCodec: 'H264'
-			},
+			// videoQuality: {
+			// 	disabledCodec: 'H264'
+			// },
 			requireDisplayName: true,
 			enableClosePage: false,
 			disableInviteFunctions: true,
 			doNotStoreRoom: true,
 			enableClosePage: false,
-			notice: 'If your web conference becomes unstable, try disabling your video.'
 		}
 		options.interfaceConfigOverwrite = {
 			MOBILE_APP_PROMO: false,

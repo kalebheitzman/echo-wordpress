@@ -25,7 +25,7 @@ export default () => {
 			`}
 		>
 			{ 'rooms' === context.main && (
-				<Livestream mute={true} />
+				<Livestream mute={true} mini={true} />
 			)}
 		</div>
 	)

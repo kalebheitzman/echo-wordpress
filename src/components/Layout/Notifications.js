@@ -50,7 +50,7 @@ export default () => {
 			<div
 				css={css`
 					position: fixed;
-					top: 1rem;
+					top: calc(100px + 1rem);
 					right: 1rem;
 					z-index: 10000;
 				`}

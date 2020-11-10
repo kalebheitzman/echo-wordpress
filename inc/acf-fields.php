@@ -6,6 +6,7 @@
  * @since 0.1.0
  */
 
+
 if( function_exists('acf_add_local_field_group') ):
 
 	acf_add_local_field_group(array(
@@ -234,26 +235,6 @@ if( function_exists('acf_add_local_field_group') ):
 				'return_format' => 'F j, Y g:i a',
 				'first_day' => 1,
 			),
-			array(
-				'key' => 'field_5fa3923aeaeb2',
-				'label' => 'Event Notification',
-				'name' => 'event_notification',
-				'type' => 'textarea',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '50',
-					'class' => '',
-					'id' => '',
-				),
-				'show_in_graphql' => 1,
-				'default_value' => '',
-				'placeholder' => '',
-				'maxlength' => '',
-				'rows' => 3,
-				'new_lines' => '',
-			),
 		),
 		'location' => array(
 			array(
@@ -274,6 +255,94 @@ if( function_exists('acf_add_local_field_group') ):
 		'description' => 'Times and Livestreaming Information',
 		'show_in_graphql' => 1,
 		'graphql_field_name' => 'eventInformation',
+	));
+	
+	acf_add_local_field_group(array(
+		'key' => 'group_5faada5cce529',
+		'title' => 'Event Notifications',
+		'fields' => array(
+			array(
+				'key' => 'field_5faada62d47a1',
+				'label' => 'Event Notifications',
+				'name' => 'event_notifications',
+				'type' => 'repeater',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'show_in_graphql' => 1,
+				'collapsed' => '',
+				'min' => 0,
+				'max' => 0,
+				'layout' => 'row',
+				'button_label' => '',
+				'sub_fields' => array(
+					array(
+						'key' => 'field_5faada7bd47a2',
+						'label' => 'Event Notification',
+						'name' => 'event_notification',
+						'type' => 'textarea',
+						'instructions' => '',
+						'required' => 1,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '80',
+							'class' => '',
+							'id' => '',
+						),
+						'show_in_graphql' => 1,
+						'default_value' => '',
+						'placeholder' => '',
+						'maxlength' => '',
+						'rows' => 3,
+						'new_lines' => '',
+					),
+					array(
+						'key' => 'field_5faada9cd47a3',
+						'label' => 'Event Notification Enabled',
+						'name' => 'event_notification_enabled',
+						'type' => 'true_false',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '20',
+							'class' => '',
+							'id' => '',
+						),
+						'show_in_graphql' => 1,
+						'message' => '',
+						'default_value' => 0,
+						'ui' => 0,
+						'ui_on_text' => '',
+						'ui_off_text' => '',
+					),
+				),
+			),
+		),
+		'location' => array(
+			array(
+				array(
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'event',
+				),
+			),
+		),
+		'menu_order' => 0,
+		'position' => 'normal',
+		'style' => 'default',
+		'label_placement' => 'top',
+		'instruction_placement' => 'label',
+		'hide_on_screen' => '',
+		'active' => true,
+		'description' => 'Event Notifications',
+		'show_in_graphql' => 1,
+		'graphql_field_name' => 'eventNotifications',
 	));
 	
 	acf_add_local_field_group(array(

@@ -17,10 +17,13 @@ export const client = new ApolloClient({
 })
 
 export const GET_NOTIFICATIONS = gql`
-query GET_NOTIFICATIONS($id: ID!) {
-  event(id: $id, idType: DATABASE_ID) {
-		eventInformation {
-      eventNotification
+query GET_NOTIICATIONS($id: ID!) {
+  event(idType: DATABASE_ID, id: $id) {
+    eventNotifications {
+      eventNotifications {
+        eventNotification
+        eventNotificationEnabled
+      }
     }
   }
 }

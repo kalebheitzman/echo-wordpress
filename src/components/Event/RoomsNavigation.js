@@ -71,7 +71,7 @@ export default () => {
 								<div 
 									css={css`
 										display grid;
-										grid-template-columns: 40px 1fr 60px;
+										grid-template-columns: 50px 1fr 60px;
 										grid-gap: 0.5rem;
 										margin-bottom: 0;
 										// border-bottom: 1px solid #eee;
@@ -86,9 +86,9 @@ export default () => {
 										css={css`
 											background: ${eventColors.primaryBackground};
 											color: ${eventColors.primaryTextColor};
-											width: 40px;
-											height: 40px;
-											border-radius: 40px;
+											width: 50px;
+											height: 50px;
+											border-radius: 50px;
 											display: flex;
 											justify-content: center;
 											align-items: center;
@@ -96,7 +96,7 @@ export default () => {
 											text-align: center;
 
 											img {
-												border-radius: 40px;
+												border-radius: 50px;
 											}
 										`}
 									>
@@ -125,7 +125,7 @@ export default () => {
 								<div
 									css={css`
 											padding: 0 1rem 1.5rem;
-											margin-left: 48px;
+											margin-left: 58px;
 											font-style: italic;
 											color: #777;
 

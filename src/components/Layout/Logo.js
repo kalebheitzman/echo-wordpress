@@ -53,7 +53,7 @@ export default () => {
 								object-position: left center;
 
 								${mq('tablet_up')} {
-									max-height: 50px;
+									max-height: 68px;
 								}
 							`}
 							srcSet={eventLogo.srcSet} 

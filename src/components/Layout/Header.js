@@ -32,9 +32,6 @@ export default () => {
 				color: ${eventColors.primaryTextColor};
 
 				grid-area: header;
-				position: sticky;
-				top: 0;
-				z-index: 1;
 				padding: 0 1.5rem 0 2rem;
 
 				display: grid;

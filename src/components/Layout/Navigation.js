@@ -110,8 +110,6 @@ export default () => {
 				border-top: 1px solid #eee;
 				display: grid;
 				grid-template-columns: 1fr;
-				position: sticky;
-				bottom: 0;
 				padding: 0 1rem;
 
 				${mq('tablet_up')} {

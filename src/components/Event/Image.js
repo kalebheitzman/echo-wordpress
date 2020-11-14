@@ -17,7 +17,7 @@ export default ({ src, srcSet, width = "100%", height = "30vh" }) => {
 				width: ${width};
 				height: ${height};
 				object-fit: cover;
-				object-position: center bottom;
+				object-position: center center;
 				margin-bottom: 1.5rem;
 			`}
 		/>	
